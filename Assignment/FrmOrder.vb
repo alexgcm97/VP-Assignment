@@ -135,6 +135,11 @@
             ElseIf (dgvCart.Rows(e.RowIndex).Cells(3).Value > 50) Then
                 MessageBox.Show("Please input value <= 50.", "Quantity Error")
                 dgvCart.Rows(e.RowIndex).Cells(3).Value = orignalValue
+            ElseIf (dgvCart.Rows(e.RowIndex).Cells(3).Value <= 0) Then
+                MessageBox.Show("Please input value more than 1.", "Quantity Error")
+                dgvCart.Rows(e.RowIndex).Cells(3).Value = orignalValue
+            Else
+                dgvCart.Rows(e.RowIndex).Cells(3).Value = Integer.Parse(dgvCart.Rows(e.RowIndex).Cells(3).Value)
             End If
         End If
     End Sub
@@ -142,4 +147,21 @@
     Private Sub dgvCart_CellEnter(sender As Object, e As DataGridViewCellEventArgs) Handles dgvCart.CellEnter
         orignalValue = dgvCart.Rows(e.RowIndex).Cells(3).Value
     End Sub
+
+    Private Sub ClearCartToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles ClearCartToolStripMenuItem.Click
+        btnClear_Click(Nothing, Nothing)
+    End Sub
+
+    Private Sub CancelOrderToolStripMenuItem_Click(sender As Object, e As EventArgs)
+        btnCancel_Click(Nothing, Nothing)
+    End Sub
+
+    Private Sub ViewReportToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles ViewReportToolStripMenuItem.Click
+        FrmOrderReport.ShowDialog()
+    End Sub
+
+    Private Sub ExitToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles ExitToolStripMenuItem.Click
+        btnCancel_Click(Nothing, Nothing)
+    End Sub
+
 End Class

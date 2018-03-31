@@ -103,6 +103,12 @@
       <DependentUpon>FrmOrder.vb</DependentUpon>
       <SubType>Form</SubType>
     </Compile>
+    <Compile Include="FrmOrderReport.Designer.vb">
+      <DependentUpon>FrmOrderReport.vb</DependentUpon>
+    </Compile>
+    <Compile Include="FrmOrderReport.vb">
+      <SubType>Form</SubType>
+    </Compile>
     <Compile Include="FrmPayment.Designer.vb">
       <DependentUpon>FrmPayment.vb</DependentUpon>
     </Compile>
@@ -128,6 +134,9 @@
   <ItemGroup>
     <EmbeddedResource Include="FrmOrder.resx">
       <DependentUpon>FrmOrder.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FrmOrderReport.resx">
+      <DependentUpon>FrmOrderReport.vb</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="FrmPayment.resx">
       <DependentUpon>FrmPayment.vb</DependentUpon>
@@ -159,7 +168,9 @@
     </None>
     <None Include="App.config" />
   </ItemGroup>
-  <ItemGroup />
+  <ItemGroup>
+    <Folder Include="Resources\" />
+  </ItemGroup>
   <ItemGroup>
     <Content Include="Assignment.mdf">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
@@ -184,6 +195,7 @@
     <Content Include="Images\menu\9014.jpg" />
     <Content Include="Images\menu\9015.jpg" />
     <Content Include="Images\menu\9016.jpg" />
+    <Content Include="Images\orderReport.jpg" />
     <None Include="Images\menu\9001.jpg" />
   </ItemGroup>
   <ItemGroup>

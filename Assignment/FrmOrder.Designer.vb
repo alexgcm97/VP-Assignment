@@ -36,13 +36,21 @@ Partial Class FrmOrder
         Me.ColumnName = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.ColumnPrice = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.ColumnQuantity = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.cmsCart = New System.Windows.Forms.ContextMenuStrip(Me.components)
+        Me.ClearCartToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.btnSubmit = New System.Windows.Forms.Button()
         Me.btnCancel = New System.Windows.Forms.Button()
         Me.btnClear = New System.Windows.Forms.Button()
         Me.ImageList1 = New System.Windows.Forms.ImageList(Me.components)
+        Me.MenuStrip1 = New System.Windows.Forms.MenuStrip()
+        Me.FileToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
+        Me.ViewReportToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
+        Me.ExitToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.GroupBox1.SuspendLayout()
         Me.GroupBox2.SuspendLayout()
         CType(Me.dgvCart, System.ComponentModel.ISupportInitialize).BeginInit()
+        Me.cmsCart.SuspendLayout()
+        Me.MenuStrip1.SuspendLayout()
         Me.SuspendLayout()
         '
         'GroupBox1
@@ -52,9 +60,9 @@ Partial Class FrmOrder
         Me.GroupBox1.Controls.Add(Me.btnBeverage)
         Me.GroupBox1.Controls.Add(Me.btnFood)
         Me.GroupBox1.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.GroupBox1.Location = New System.Drawing.Point(13, 13)
+        Me.GroupBox1.Location = New System.Drawing.Point(17, 27)
         Me.GroupBox1.Name = "GroupBox1"
-        Me.GroupBox1.Size = New System.Drawing.Size(334, 412)
+        Me.GroupBox1.Size = New System.Drawing.Size(350, 420)
         Me.GroupBox1.TabIndex = 0
         Me.GroupBox1.TabStop = False
         Me.GroupBox1.Text = "Menu"
@@ -62,10 +70,12 @@ Partial Class FrmOrder
         'lvBeverage
         '
         Me.lvBeverage.Activation = System.Windows.Forms.ItemActivation.OneClick
+        Me.lvBeverage.HideSelection = False
         Me.lvBeverage.Location = New System.Drawing.Point(7, 62)
         Me.lvBeverage.MultiSelect = False
         Me.lvBeverage.Name = "lvBeverage"
-        Me.lvBeverage.Size = New System.Drawing.Size(321, 339)
+        Me.lvBeverage.ShowGroups = False
+        Me.lvBeverage.Size = New System.Drawing.Size(334, 352)
         Me.lvBeverage.TabIndex = 3
         Me.lvBeverage.UseCompatibleStateImageBehavior = False
         Me.lvBeverage.Visible = False
@@ -73,38 +83,43 @@ Partial Class FrmOrder
         'lvFood
         '
         Me.lvFood.Activation = System.Windows.Forms.ItemActivation.OneClick
+        Me.lvFood.HideSelection = False
         Me.lvFood.Location = New System.Drawing.Point(7, 62)
         Me.lvFood.MultiSelect = False
         Me.lvFood.Name = "lvFood"
-        Me.lvFood.Size = New System.Drawing.Size(321, 339)
+        Me.lvFood.Size = New System.Drawing.Size(334, 352)
         Me.lvFood.TabIndex = 2
         Me.lvFood.UseCompatibleStateImageBehavior = False
         '
         'btnBeverage
         '
-        Me.btnBeverage.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.btnBeverage.Location = New System.Drawing.Point(174, 21)
+        Me.btnBeverage.BackColor = System.Drawing.SystemColors.ControlLight
+        Me.btnBeverage.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.btnBeverage.ForeColor = System.Drawing.SystemColors.ControlText
+        Me.btnBeverage.Location = New System.Drawing.Point(200, 20)
         Me.btnBeverage.Name = "btnBeverage"
-        Me.btnBeverage.Size = New System.Drawing.Size(99, 34)
+        Me.btnBeverage.Size = New System.Drawing.Size(100, 35)
         Me.btnBeverage.TabIndex = 1
-        Me.btnBeverage.Text = "Beverage"
-        Me.btnBeverage.UseVisualStyleBackColor = True
+        Me.btnBeverage.Text = "&Beverage"
+        Me.btnBeverage.UseVisualStyleBackColor = False
         '
         'btnFood
         '
-        Me.btnFood.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.btnFood.Location = New System.Drawing.Point(47, 21)
+        Me.btnFood.BackColor = System.Drawing.SystemColors.ControlLight
+        Me.btnFood.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom
+        Me.btnFood.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.btnFood.Location = New System.Drawing.Point(50, 20)
         Me.btnFood.Name = "btnFood"
-        Me.btnFood.Size = New System.Drawing.Size(99, 34)
+        Me.btnFood.Size = New System.Drawing.Size(100, 35)
         Me.btnFood.TabIndex = 0
-        Me.btnFood.Text = "Food"
-        Me.btnFood.UseVisualStyleBackColor = True
+        Me.btnFood.Text = "&Food"
+        Me.btnFood.UseVisualStyleBackColor = False
         '
         'GroupBox2
         '
         Me.GroupBox2.Controls.Add(Me.dgvCart)
         Me.GroupBox2.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.GroupBox2.Location = New System.Drawing.Point(378, 13)
+        Me.GroupBox2.Location = New System.Drawing.Point(382, 27)
         Me.GroupBox2.Name = "GroupBox2"
         Me.GroupBox2.Size = New System.Drawing.Size(427, 339)
         Me.GroupBox2.TabIndex = 1
@@ -116,8 +131,10 @@ Partial Class FrmOrder
         Me.dgvCart.AllowUserToAddRows = False
         Me.dgvCart.AllowUserToResizeColumns = False
         Me.dgvCart.AllowUserToResizeRows = False
+        Me.dgvCart.BackgroundColor = System.Drawing.SystemColors.ControlDark
         Me.dgvCart.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
         Me.dgvCart.Columns.AddRange(New System.Windows.Forms.DataGridViewColumn() {Me.ColumnImage, Me.ColumnName, Me.ColumnPrice, Me.ColumnQuantity})
+        Me.dgvCart.ContextMenuStrip = Me.cmsCart
         Me.dgvCart.Dock = System.Windows.Forms.DockStyle.Fill
         Me.dgvCart.Location = New System.Drawing.Point(3, 18)
         Me.dgvCart.MultiSelect = False
@@ -174,35 +191,53 @@ Partial Class FrmOrder
         Me.ColumnQuantity.Resizable = System.Windows.Forms.DataGridViewTriState.[False]
         Me.ColumnQuantity.Width = 56
         '
+        'cmsCart
+        '
+        Me.cmsCart.Items.AddRange(New System.Windows.Forms.ToolStripItem() {Me.ClearCartToolStripMenuItem})
+        Me.cmsCart.Name = "cmsCart"
+        Me.cmsCart.Size = New System.Drawing.Size(127, 26)
+        '
+        'ClearCartToolStripMenuItem
+        '
+        Me.ClearCartToolStripMenuItem.Name = "ClearCartToolStripMenuItem"
+        Me.ClearCartToolStripMenuItem.Size = New System.Drawing.Size(126, 22)
+        Me.ClearCartToolStripMenuItem.Text = "C&lear Cart"
+        '
         'btnSubmit
         '
+        Me.btnSubmit.BackColor = System.Drawing.Color.FromArgb(CType(CType(64, Byte), Integer), CType(CType(64, Byte), Integer), CType(CType(64, Byte), Integer))
         Me.btnSubmit.Font = New System.Drawing.Font("Arial", 21.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.btnSubmit.Location = New System.Drawing.Point(385, 358)
+        Me.btnSubmit.ForeColor = System.Drawing.Color.White
+        Me.btnSubmit.Location = New System.Drawing.Point(382, 372)
         Me.btnSubmit.Name = "btnSubmit"
         Me.btnSubmit.Size = New System.Drawing.Size(273, 70)
         Me.btnSubmit.TabIndex = 2
-        Me.btnSubmit.Text = "Submit Order"
-        Me.btnSubmit.UseVisualStyleBackColor = True
+        Me.btnSubmit.Text = "&Submit Order"
+        Me.btnSubmit.UseVisualStyleBackColor = False
         '
         'btnCancel
         '
+        Me.btnCancel.BackColor = System.Drawing.SystemColors.Control
+        Me.btnCancel.DialogResult = System.Windows.Forms.DialogResult.Cancel
         Me.btnCancel.Font = New System.Drawing.Font("Microsoft Sans Serif", 13.0!)
-        Me.btnCancel.Location = New System.Drawing.Point(664, 398)
+        Me.btnCancel.ForeColor = System.Drawing.SystemColors.ControlText
+        Me.btnCancel.Location = New System.Drawing.Point(674, 412)
         Me.btnCancel.Name = "btnCancel"
         Me.btnCancel.Size = New System.Drawing.Size(135, 30)
         Me.btnCancel.TabIndex = 3
-        Me.btnCancel.Text = "Cancel"
-        Me.btnCancel.UseVisualStyleBackColor = True
+        Me.btnCancel.Text = "&Cancel"
+        Me.btnCancel.UseVisualStyleBackColor = False
         '
         'btnClear
         '
+        Me.btnClear.BackColor = System.Drawing.SystemColors.Control
         Me.btnClear.Font = New System.Drawing.Font("Microsoft Sans Serif", 13.0!)
-        Me.btnClear.Location = New System.Drawing.Point(664, 358)
+        Me.btnClear.Location = New System.Drawing.Point(674, 372)
         Me.btnClear.Name = "btnClear"
         Me.btnClear.Size = New System.Drawing.Size(135, 30)
         Me.btnClear.TabIndex = 4
-        Me.btnClear.Text = "Clear Cart"
-        Me.btnClear.UseVisualStyleBackColor = True
+        Me.btnClear.Text = "C&lear Cart"
+        Me.btnClear.UseVisualStyleBackColor = False
         '
         'ImageList1
         '
@@ -210,22 +245,62 @@ Partial Class FrmOrder
         Me.ImageList1.TransparentColor = System.Drawing.Color.Transparent
         Me.ImageList1.Images.SetKeyName(0, "9001.jpg")
         '
+        'MenuStrip1
+        '
+        Me.MenuStrip1.Items.AddRange(New System.Windows.Forms.ToolStripItem() {Me.FileToolStripMenuItem})
+        Me.MenuStrip1.Location = New System.Drawing.Point(0, 0)
+        Me.MenuStrip1.Name = "MenuStrip1"
+        Me.MenuStrip1.Size = New System.Drawing.Size(832, 24)
+        Me.MenuStrip1.TabIndex = 6
+        Me.MenuStrip1.Text = "MenuStrip1"
+        '
+        'FileToolStripMenuItem
+        '
+        Me.FileToolStripMenuItem.DropDownItems.AddRange(New System.Windows.Forms.ToolStripItem() {Me.ViewReportToolStripMenuItem, Me.ExitToolStripMenuItem})
+        Me.FileToolStripMenuItem.Name = "FileToolStripMenuItem"
+        Me.FileToolStripMenuItem.Size = New System.Drawing.Size(37, 20)
+        Me.FileToolStripMenuItem.Text = "File"
+        '
+        'ViewReportToolStripMenuItem
+        '
+        Me.ViewReportToolStripMenuItem.Name = "ViewReportToolStripMenuItem"
+        Me.ViewReportToolStripMenuItem.ShortcutKeys = CType((System.Windows.Forms.Keys.Alt Or System.Windows.Forms.Keys.R), System.Windows.Forms.Keys)
+        Me.ViewReportToolStripMenuItem.Size = New System.Drawing.Size(174, 22)
+        Me.ViewReportToolStripMenuItem.Text = "View &Report"
+        '
+        'ExitToolStripMenuItem
+        '
+        Me.ExitToolStripMenuItem.Name = "ExitToolStripMenuItem"
+        Me.ExitToolStripMenuItem.ShortcutKeys = CType((System.Windows.Forms.Keys.Alt Or System.Windows.Forms.Keys.F4), System.Windows.Forms.Keys)
+        Me.ExitToolStripMenuItem.Size = New System.Drawing.Size(174, 22)
+        Me.ExitToolStripMenuItem.Text = "E&xit"
+        '
         'FrmOrder
         '
+        Me.AcceptButton = Me.btnSubmit
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
-        Me.ClientSize = New System.Drawing.Size(832, 441)
+        Me.CancelButton = Me.btnCancel
+        Me.ClientSize = New System.Drawing.Size(832, 460)
+        Me.Controls.Add(Me.MenuStrip1)
         Me.Controls.Add(Me.btnClear)
         Me.Controls.Add(Me.btnCancel)
         Me.Controls.Add(Me.btnSubmit)
         Me.Controls.Add(Me.GroupBox2)
         Me.Controls.Add(Me.GroupBox1)
+        Me.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle
+        Me.MainMenuStrip = Me.MenuStrip1
+        Me.MaximizeBox = False
         Me.Name = "FrmOrder"
-        Me.Text = "Form1"
+        Me.Text = "Order Module"
         Me.GroupBox1.ResumeLayout(False)
         Me.GroupBox2.ResumeLayout(False)
         CType(Me.dgvCart, System.ComponentModel.ISupportInitialize).EndInit()
+        Me.cmsCart.ResumeLayout(False)
+        Me.MenuStrip1.ResumeLayout(False)
+        Me.MenuStrip1.PerformLayout()
         Me.ResumeLayout(False)
+        Me.PerformLayout()
 
     End Sub
 
@@ -244,4 +319,10 @@ Partial Class FrmOrder
     Friend WithEvents ColumnName As DataGridViewTextBoxColumn
     Friend WithEvents ColumnPrice As DataGridViewTextBoxColumn
     Friend WithEvents ColumnQuantity As DataGridViewTextBoxColumn
+    Friend WithEvents cmsCart As ContextMenuStrip
+    Friend WithEvents ClearCartToolStripMenuItem As ToolStripMenuItem
+    Friend WithEvents MenuStrip1 As MenuStrip
+    Friend WithEvents FileToolStripMenuItem As ToolStripMenuItem
+    Friend WithEvents ViewReportToolStripMenuItem As ToolStripMenuItem
+    Friend WithEvents ExitToolStripMenuItem As ToolStripMenuItem
 End Class
