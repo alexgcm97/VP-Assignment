@@ -13,6 +13,7 @@
     <MyType>WindowsForms</MyType>
     <TargetFrameworkVersion>v4.5.2</TargetFrameworkVersion>
     <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
+    <IsWebBootstrapper>false</IsWebBootstrapper>
     <PublishUrl>publish\</PublishUrl>
     <Install>true</Install>
     <InstallFrom>Disk</InstallFrom>
@@ -25,7 +26,6 @@
     <MapFileExtensions>true</MapFileExtensions>
     <ApplicationRevision>0</ApplicationRevision>
     <ApplicationVersion>1.0.0.%2a</ApplicationVersion>
-    <IsWebBootstrapper>false</IsWebBootstrapper>
     <UseApplicationTrust>false</UseApplicationTrust>
     <BootstrapperEnabled>true</BootstrapperEnabled>
   </PropertyGroup>
@@ -93,11 +93,20 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>DataClasses1.dbml</DependentUpon>
     </Compile>
+    <Compile Include="DataClasses1.vb">
+      <DependentUpon>DataClasses1.dbml</DependentUpon>
+    </Compile>
     <Compile Include="FrmOrder.vb">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="FrmOrder.Designer.vb">
       <DependentUpon>FrmOrder.vb</DependentUpon>
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FrmPayment.Designer.vb">
+      <DependentUpon>FrmPayment.vb</DependentUpon>
+    </Compile>
+    <Compile Include="FrmPayment.vb">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="My Project\AssemblyInfo.vb" />
@@ -119,6 +128,9 @@
   <ItemGroup>
     <EmbeddedResource Include="FrmOrder.resx">
       <DependentUpon>FrmOrder.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FrmPayment.resx">
+      <DependentUpon>FrmPayment.vb</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="My Project\Resources.resx">
       <Generator>VbMyResourcesResXFileCodeGenerator</Generator>
@@ -147,17 +159,32 @@
     </None>
     <None Include="App.config" />
   </ItemGroup>
+  <ItemGroup />
   <ItemGroup>
-    <Folder Include="Images\" />
-  </ItemGroup>
-  <ItemGroup>
-    <Content Include="Database1.mdf">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    <Content Include="Assignment.mdf">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
-    <Content Include="Database1_log.ldf">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-      <DependentUpon>Database1.mdf</DependentUpon>
+    <Content Include="Assignment_log.ldf">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      <DependentUpon>Assignment.mdf</DependentUpon>
     </Content>
+    <Content Include="Images\menu\0000.png" />
+    <Content Include="Images\menu\9002.jpg" />
+    <Content Include="Images\menu\9003.jpg" />
+    <Content Include="Images\menu\9004.jpg" />
+    <Content Include="Images\menu\9005.jpg" />
+    <Content Include="Images\menu\9006.jpg" />
+    <Content Include="Images\menu\9007.jpg" />
+    <Content Include="Images\menu\9008.jpg" />
+    <Content Include="Images\menu\9009.jpg" />
+    <Content Include="Images\menu\9010.jpg" />
+    <Content Include="Images\menu\9011.jpg" />
+    <Content Include="Images\menu\9012.jpg" />
+    <Content Include="Images\menu\9013.jpg" />
+    <Content Include="Images\menu\9014.jpg" />
+    <Content Include="Images\menu\9015.jpg" />
+    <Content Include="Images\menu\9016.jpg" />
+    <None Include="Images\menu\9001.jpg" />
   </ItemGroup>
   <ItemGroup>
     <BootstrapperPackage Include=".NETFramework,Version=v4.5.2">

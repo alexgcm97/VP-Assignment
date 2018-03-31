@@ -22,7 +22,7 @@ Imports System.Linq.Expressions
 Imports System.Reflection
 
 
-<Global.System.Data.Linq.Mapping.DatabaseAttribute(Name:="Database1")>  _
+<Global.System.Data.Linq.Mapping.DatabaseAttribute(Name:="Assignment")>  _
 Partial Public Class DataClasses1DataContext
 	Inherits System.Data.Linq.DataContext
 	
@@ -37,10 +37,22 @@ Partial Public Class DataClasses1DataContext
     End Sub
   Partial Private Sub DeleteMenu(instance As Menu)
     End Sub
+  Partial Private Sub InsertOrderDetail(instance As OrderDetail)
+    End Sub
+  Partial Private Sub UpdateOrderDetail(instance As OrderDetail)
+    End Sub
+  Partial Private Sub DeleteOrderDetail(instance As OrderDetail)
+    End Sub
+  Partial Private Sub InsertOrder(instance As [Order])
+    End Sub
+  Partial Private Sub UpdateOrder(instance As [Order])
+    End Sub
+  Partial Private Sub DeleteOrder(instance As [Order])
+    End Sub
   #End Region
 	
 	Public Sub New()
-		MyBase.New(Global.Assignment.My.MySettings.Default.Database1ConnectionString, mappingSource)
+		MyBase.New(Global.Assignment.My.MySettings.Default.AssignmentConnectionString, mappingSource)
 		OnCreated
 	End Sub
 	
@@ -69,6 +81,18 @@ Partial Public Class DataClasses1DataContext
 			Return Me.GetTable(Of Menu)
 		End Get
 	End Property
+	
+	Public ReadOnly Property OrderDetails() As System.Data.Linq.Table(Of OrderDetail)
+		Get
+			Return Me.GetTable(Of OrderDetail)
+		End Get
+	End Property
+	
+	Public ReadOnly Property Orders() As System.Data.Linq.Table(Of [Order])
+		Get
+			Return Me.GetTable(Of [Order])
+		End Get
+	End Property
 End Class
 
 <Global.System.Data.Linq.Mapping.TableAttribute(Name:="dbo.Menu")>  _
@@ -77,13 +101,15 @@ Partial Public Class Menu
 	
 	Private Shared emptyChangingEventArgs As PropertyChangingEventArgs = New PropertyChangingEventArgs(String.Empty)
 	
-	Private _menuID As Integer
+	Private _MenuID As Integer
 	
-	Private _menuName As String
+	Private _MenuName As String
 	
-	Private _price As System.Nullable(Of Decimal)
+	Private _Price As System.Nullable(Of Decimal)
 	
-	Private _category As String
+	Private _Category As System.Nullable(Of Integer)
+	
+	Private _OrderDetails As EntitySet(Of OrderDetail)
 	
     #Region "Extensibility Method Definitions"
     Partial Private Sub OnLoaded()
@@ -92,90 +118,286 @@ Partial Public Class Menu
     End Sub
     Partial Private Sub OnCreated()
     End Sub
-    Partial Private Sub OnmenuIDChanging(value As Integer)
+    Partial Private Sub OnMenuIDChanging(value As Integer)
     End Sub
-    Partial Private Sub OnmenuIDChanged()
+    Partial Private Sub OnMenuIDChanged()
     End Sub
-    Partial Private Sub OnmenuNameChanging(value As String)
+    Partial Private Sub OnMenuNameChanging(value As String)
     End Sub
-    Partial Private Sub OnmenuNameChanged()
+    Partial Private Sub OnMenuNameChanged()
     End Sub
-    Partial Private Sub OnpriceChanging(value As System.Nullable(Of Decimal))
+    Partial Private Sub OnPriceChanging(value As System.Nullable(Of Decimal))
     End Sub
-    Partial Private Sub OnpriceChanged()
+    Partial Private Sub OnPriceChanged()
     End Sub
-    Partial Private Sub OncategoryChanging(value As String)
+    Partial Private Sub OnCategoryChanging(value As System.Nullable(Of Integer))
     End Sub
-    Partial Private Sub OncategoryChanged()
+    Partial Private Sub OnCategoryChanged()
     End Sub
     #End Region
 	
 	Public Sub New()
 		MyBase.New
+		Me._OrderDetails = New EntitySet(Of OrderDetail)(AddressOf Me.attach_OrderDetails, AddressOf Me.detach_OrderDetails)
 		OnCreated
 	End Sub
 	
-	<Global.System.Data.Linq.Mapping.ColumnAttribute(Storage:="_menuID", DbType:="Int NOT NULL", IsPrimaryKey:=true)>  _
-	Public Property menuID() As Integer
+	<Global.System.Data.Linq.Mapping.ColumnAttribute(Storage:="_MenuID", DbType:="Int NOT NULL", IsPrimaryKey:=true)>  _
+	Public Property MenuID() As Integer
 		Get
-			Return Me._menuID
+			Return Me._MenuID
 		End Get
 		Set
-			If ((Me._menuID = value)  _
+			If ((Me._MenuID = value)  _
 						= false) Then
-				Me.OnmenuIDChanging(value)
+				Me.OnMenuIDChanging(value)
 				Me.SendPropertyChanging
-				Me._menuID = value
-				Me.SendPropertyChanged("menuID")
-				Me.OnmenuIDChanged
+				Me._MenuID = value
+				Me.SendPropertyChanged("MenuID")
+				Me.OnMenuIDChanged
 			End If
 		End Set
 	End Property
 	
-	<Global.System.Data.Linq.Mapping.ColumnAttribute(Storage:="_menuName", DbType:="VarChar(20)")>  _
-	Public Property menuName() As String
+	<Global.System.Data.Linq.Mapping.ColumnAttribute(Storage:="_MenuName", DbType:="VarChar(40)")>  _
+	Public Property MenuName() As String
 		Get
-			Return Me._menuName
+			Return Me._MenuName
 		End Get
 		Set
-			If (String.Equals(Me._menuName, value) = false) Then
-				Me.OnmenuNameChanging(value)
+			If (String.Equals(Me._MenuName, value) = false) Then
+				Me.OnMenuNameChanging(value)
 				Me.SendPropertyChanging
-				Me._menuName = value
-				Me.SendPropertyChanged("menuName")
-				Me.OnmenuNameChanged
+				Me._MenuName = value
+				Me.SendPropertyChanged("MenuName")
+				Me.OnMenuNameChanged
 			End If
 		End Set
 	End Property
 	
-	<Global.System.Data.Linq.Mapping.ColumnAttribute(Storage:="_price", DbType:="Decimal(18,0)")>  _
-	Public Property price() As System.Nullable(Of Decimal)
+	<Global.System.Data.Linq.Mapping.ColumnAttribute(Storage:="_Price", DbType:="Decimal(18,2)")>  _
+	Public Property Price() As System.Nullable(Of Decimal)
 		Get
-			Return Me._price
+			Return Me._Price
 		End Get
 		Set
-			If (Me._price.Equals(value) = false) Then
-				Me.OnpriceChanging(value)
+			If (Me._Price.Equals(value) = false) Then
+				Me.OnPriceChanging(value)
 				Me.SendPropertyChanging
-				Me._price = value
-				Me.SendPropertyChanged("price")
-				Me.OnpriceChanged
+				Me._Price = value
+				Me.SendPropertyChanged("Price")
+				Me.OnPriceChanged
 			End If
 		End Set
 	End Property
 	
-	<Global.System.Data.Linq.Mapping.ColumnAttribute(Storage:="_category", DbType:="VarChar(50)")>  _
-	Public Property category() As String
+	<Global.System.Data.Linq.Mapping.ColumnAttribute(Storage:="_Category", DbType:="Int")>  _
+	Public Property Category() As System.Nullable(Of Integer)
 		Get
-			Return Me._category
+			Return Me._Category
 		End Get
 		Set
-			If (String.Equals(Me._category, value) = false) Then
-				Me.OncategoryChanging(value)
+			If (Me._Category.Equals(value) = false) Then
+				Me.OnCategoryChanging(value)
 				Me.SendPropertyChanging
-				Me._category = value
-				Me.SendPropertyChanged("category")
-				Me.OncategoryChanged
+				Me._Category = value
+				Me.SendPropertyChanged("Category")
+				Me.OnCategoryChanged
+			End If
+		End Set
+	End Property
+	
+	<Global.System.Data.Linq.Mapping.AssociationAttribute(Name:="Menu_OrderDetail", Storage:="_OrderDetails", ThisKey:="MenuID", OtherKey:="MenuID")>  _
+	Public Property OrderDetails() As EntitySet(Of OrderDetail)
+		Get
+			Return Me._OrderDetails
+		End Get
+		Set
+			Me._OrderDetails.Assign(value)
+		End Set
+	End Property
+	
+	Public Event PropertyChanging As PropertyChangingEventHandler Implements System.ComponentModel.INotifyPropertyChanging.PropertyChanging
+	
+	Public Event PropertyChanged As PropertyChangedEventHandler Implements System.ComponentModel.INotifyPropertyChanged.PropertyChanged
+	
+	Protected Overridable Sub SendPropertyChanging()
+		If ((Me.PropertyChangingEvent Is Nothing)  _
+					= false) Then
+			RaiseEvent PropertyChanging(Me, emptyChangingEventArgs)
+		End If
+	End Sub
+	
+	Protected Overridable Sub SendPropertyChanged(ByVal propertyName As [String])
+		If ((Me.PropertyChangedEvent Is Nothing)  _
+					= false) Then
+			RaiseEvent PropertyChanged(Me, New PropertyChangedEventArgs(propertyName))
+		End If
+	End Sub
+	
+	Private Sub attach_OrderDetails(ByVal entity As OrderDetail)
+		Me.SendPropertyChanging
+		entity.Menu = Me
+	End Sub
+	
+	Private Sub detach_OrderDetails(ByVal entity As OrderDetail)
+		Me.SendPropertyChanging
+		entity.Menu = Nothing
+	End Sub
+End Class
+
+<Global.System.Data.Linq.Mapping.TableAttribute(Name:="dbo.OrderDetails")>  _
+Partial Public Class OrderDetail
+	Implements System.ComponentModel.INotifyPropertyChanging, System.ComponentModel.INotifyPropertyChanged
+	
+	Private Shared emptyChangingEventArgs As PropertyChangingEventArgs = New PropertyChangingEventArgs(String.Empty)
+	
+	Private _OrderID As Integer
+	
+	Private _MenuID As Integer
+	
+	Private _Quantity As System.Nullable(Of Integer)
+	
+	Private _Menu As EntityRef(Of Menu)
+	
+	Private _Order As EntityRef(Of [Order])
+	
+    #Region "Extensibility Method Definitions"
+    Partial Private Sub OnLoaded()
+    End Sub
+    Partial Private Sub OnValidate(action As System.Data.Linq.ChangeAction)
+    End Sub
+    Partial Private Sub OnCreated()
+    End Sub
+    Partial Private Sub OnOrderIDChanging(value As Integer)
+    End Sub
+    Partial Private Sub OnOrderIDChanged()
+    End Sub
+    Partial Private Sub OnMenuIDChanging(value As Integer)
+    End Sub
+    Partial Private Sub OnMenuIDChanged()
+    End Sub
+    Partial Private Sub OnQuantityChanging(value As System.Nullable(Of Integer))
+    End Sub
+    Partial Private Sub OnQuantityChanged()
+    End Sub
+    #End Region
+	
+	Public Sub New()
+		MyBase.New
+		Me._Menu = CType(Nothing, EntityRef(Of Menu))
+		Me._Order = CType(Nothing, EntityRef(Of [Order]))
+		OnCreated
+	End Sub
+	
+	<Global.System.Data.Linq.Mapping.ColumnAttribute(Storage:="_OrderID", DbType:="Int NOT NULL", IsPrimaryKey:=true)>  _
+	Public Property OrderID() As Integer
+		Get
+			Return Me._OrderID
+		End Get
+		Set
+			If ((Me._OrderID = value)  _
+						= false) Then
+				If Me._Order.HasLoadedOrAssignedValue Then
+					Throw New System.Data.Linq.ForeignKeyReferenceAlreadyHasValueException()
+				End If
+				Me.OnOrderIDChanging(value)
+				Me.SendPropertyChanging
+				Me._OrderID = value
+				Me.SendPropertyChanged("OrderID")
+				Me.OnOrderIDChanged
+			End If
+		End Set
+	End Property
+	
+	<Global.System.Data.Linq.Mapping.ColumnAttribute(Storage:="_MenuID", DbType:="Int NOT NULL", IsPrimaryKey:=true)>  _
+	Public Property MenuID() As Integer
+		Get
+			Return Me._MenuID
+		End Get
+		Set
+			If ((Me._MenuID = value)  _
+						= false) Then
+				If Me._Menu.HasLoadedOrAssignedValue Then
+					Throw New System.Data.Linq.ForeignKeyReferenceAlreadyHasValueException()
+				End If
+				Me.OnMenuIDChanging(value)
+				Me.SendPropertyChanging
+				Me._MenuID = value
+				Me.SendPropertyChanged("MenuID")
+				Me.OnMenuIDChanged
+			End If
+		End Set
+	End Property
+	
+	<Global.System.Data.Linq.Mapping.ColumnAttribute(Storage:="_Quantity", DbType:="Int")>  _
+	Public Property Quantity() As System.Nullable(Of Integer)
+		Get
+			Return Me._Quantity
+		End Get
+		Set
+			If (Me._Quantity.Equals(value) = false) Then
+				Me.OnQuantityChanging(value)
+				Me.SendPropertyChanging
+				Me._Quantity = value
+				Me.SendPropertyChanged("Quantity")
+				Me.OnQuantityChanged
+			End If
+		End Set
+	End Property
+	
+	<Global.System.Data.Linq.Mapping.AssociationAttribute(Name:="Menu_OrderDetail", Storage:="_Menu", ThisKey:="MenuID", OtherKey:="MenuID", IsForeignKey:=true)>  _
+	Public Property Menu() As Menu
+		Get
+			Return Me._Menu.Entity
+		End Get
+		Set
+			Dim previousValue As Menu = Me._Menu.Entity
+			If ((Object.Equals(previousValue, value) = false)  _
+						OrElse (Me._Menu.HasLoadedOrAssignedValue = false)) Then
+				Me.SendPropertyChanging
+				If ((previousValue Is Nothing)  _
+							= false) Then
+					Me._Menu.Entity = Nothing
+					previousValue.OrderDetails.Remove(Me)
+				End If
+				Me._Menu.Entity = value
+				If ((value Is Nothing)  _
+							= false) Then
+					value.OrderDetails.Add(Me)
+					Me._MenuID = value.MenuID
+				Else
+					Me._MenuID = CType(Nothing, Integer)
+				End If
+				Me.SendPropertyChanged("Menu")
+			End If
+		End Set
+	End Property
+	
+	<Global.System.Data.Linq.Mapping.AssociationAttribute(Name:="Order_OrderDetail", Storage:="_Order", ThisKey:="OrderID", OtherKey:="OrderID", IsForeignKey:=true)>  _
+	Public Property [Order]() As [Order]
+		Get
+			Return Me._Order.Entity
+		End Get
+		Set
+			Dim previousValue As [Order] = Me._Order.Entity
+			If ((Object.Equals(previousValue, value) = false)  _
+						OrElse (Me._Order.HasLoadedOrAssignedValue = false)) Then
+				Me.SendPropertyChanging
+				If ((previousValue Is Nothing)  _
+							= false) Then
+					Me._Order.Entity = Nothing
+					previousValue.OrderDetails.Remove(Me)
+				End If
+				Me._Order.Entity = value
+				If ((value Is Nothing)  _
+							= false) Then
+					value.OrderDetails.Add(Me)
+					Me._OrderID = value.OrderID
+				Else
+					Me._OrderID = CType(Nothing, Integer)
+				End If
+				Me.SendPropertyChanged("[Order]")
 			End If
 		End Set
 	End Property
@@ -196,5 +418,113 @@ Partial Public Class Menu
 					= false) Then
 			RaiseEvent PropertyChanged(Me, New PropertyChangedEventArgs(propertyName))
 		End If
+	End Sub
+End Class
+
+<Global.System.Data.Linq.Mapping.TableAttribute(Name:="dbo.Orders")>  _
+Partial Public Class [Order]
+	Implements System.ComponentModel.INotifyPropertyChanging, System.ComponentModel.INotifyPropertyChanged
+	
+	Private Shared emptyChangingEventArgs As PropertyChangingEventArgs = New PropertyChangingEventArgs(String.Empty)
+	
+	Private _OrderID As Integer
+	
+	Private _OrderDate As Date
+	
+	Private _OrderDetails As EntitySet(Of OrderDetail)
+	
+    #Region "Extensibility Method Definitions"
+    Partial Private Sub OnLoaded()
+    End Sub
+    Partial Private Sub OnValidate(action As System.Data.Linq.ChangeAction)
+    End Sub
+    Partial Private Sub OnCreated()
+    End Sub
+    Partial Private Sub OnOrderIDChanging(value As Integer)
+    End Sub
+    Partial Private Sub OnOrderIDChanged()
+    End Sub
+    Partial Private Sub OnOrderDateChanging(value As Date)
+    End Sub
+    Partial Private Sub OnOrderDateChanged()
+    End Sub
+    #End Region
+	
+	Public Sub New()
+		MyBase.New
+		Me._OrderDetails = New EntitySet(Of OrderDetail)(AddressOf Me.attach_OrderDetails, AddressOf Me.detach_OrderDetails)
+		OnCreated
+	End Sub
+	
+	<Global.System.Data.Linq.Mapping.ColumnAttribute(Storage:="_OrderID", DbType:="Int NOT NULL", IsPrimaryKey:=true)>  _
+	Public Property OrderID() As Integer
+		Get
+			Return Me._OrderID
+		End Get
+		Set
+			If ((Me._OrderID = value)  _
+						= false) Then
+				Me.OnOrderIDChanging(value)
+				Me.SendPropertyChanging
+				Me._OrderID = value
+				Me.SendPropertyChanged("OrderID")
+				Me.OnOrderIDChanged
+			End If
+		End Set
+	End Property
+	
+	<Global.System.Data.Linq.Mapping.ColumnAttribute(Storage:="_OrderDate", DbType:="DateTime NOT NULL")>  _
+	Public Property OrderDate() As Date
+		Get
+			Return Me._OrderDate
+		End Get
+		Set
+			If ((Me._OrderDate = value)  _
+						= false) Then
+				Me.OnOrderDateChanging(value)
+				Me.SendPropertyChanging
+				Me._OrderDate = value
+				Me.SendPropertyChanged("OrderDate")
+				Me.OnOrderDateChanged
+			End If
+		End Set
+	End Property
+	
+	<Global.System.Data.Linq.Mapping.AssociationAttribute(Name:="Order_OrderDetail", Storage:="_OrderDetails", ThisKey:="OrderID", OtherKey:="OrderID")>  _
+	Public Property OrderDetails() As EntitySet(Of OrderDetail)
+		Get
+			Return Me._OrderDetails
+		End Get
+		Set
+			Me._OrderDetails.Assign(value)
+		End Set
+	End Property
+	
+	Public Event PropertyChanging As PropertyChangingEventHandler Implements System.ComponentModel.INotifyPropertyChanging.PropertyChanging
+	
+	Public Event PropertyChanged As PropertyChangedEventHandler Implements System.ComponentModel.INotifyPropertyChanged.PropertyChanged
+	
+	Protected Overridable Sub SendPropertyChanging()
+		If ((Me.PropertyChangingEvent Is Nothing)  _
+					= false) Then
+			RaiseEvent PropertyChanging(Me, emptyChangingEventArgs)
+		End If
+	End Sub
+	
+	Protected Overridable Sub SendPropertyChanged(ByVal propertyName As [String])
+		If ((Me.PropertyChangedEvent Is Nothing)  _
+					= false) Then
+			RaiseEvent PropertyChanged(Me, New PropertyChangedEventArgs(propertyName))
+		End If
+	End Sub
+	
+	Private Sub attach_OrderDetails(ByVal entity As OrderDetail)
+		Me.SendPropertyChanging
+		entity.[Order] = Me
+	End Sub
+	
+	Private Sub detach_OrderDetails(ByVal entity As OrderDetail)
+		Me.SendPropertyChanging
+		entity.[Order] = Nothing
 	End Sub
 End Class
