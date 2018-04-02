@@ -1,7 +1,7 @@
 ﻿Public Class FrmPayment
+    Dim db As New DataClasses1DataContext
 
     Private Sub btnConfirm_Click(sender As Object, e As EventArgs) Handles btnConfirm.Click
-        Dim db As New DataClasses1DataContext
         Dim orderId As Integer = 0
         Dim orderQuery = db.Orders
         Dim menuQuery = db.Menus
@@ -44,7 +44,8 @@
         Me.Close()
     End Sub
 
-    Private Sub FrmPayment_FormClosed(sender As Object, e As FormClosedEventArgs) Handles MyBase.FormClosed
+    Private Sub FrmPayment_FormClosing(sender As Object, e As FormClosingEventArgs) Handles MyBase.FormClosing
+        db.Dispose()
         FrmOrder.Show()
     End Sub
 End Class

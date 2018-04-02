@@ -30,7 +30,7 @@
         Me.Close()
     End Sub
 
-    Private Sub FrmLogin_FormClosed(sender As Object, e As FormClosedEventArgs) Handles MyBase.FormClosed
+    Private Sub FrmLogin_FormClosing(sender As Object, e As FormClosingEventArgs) Handles MyBase.FormClosing
         db.Dispose()
     End Sub
 End Class

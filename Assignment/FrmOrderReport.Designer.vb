@@ -94,6 +94,7 @@ Partial Class FrmOrderReport
         Me.dlgPreviewReport.Enabled = True
         Me.dlgPreviewReport.Icon = CType(resources.GetObject("dlgPreviewReport.Icon"), System.Drawing.Icon)
         Me.dlgPreviewReport.Name = "PrintPreviewDialog1"
+        Me.dlgPreviewReport.UseAntiAlias = True
         Me.dlgPreviewReport.Visible = False
         '
         'printReport

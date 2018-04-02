@@ -125,7 +125,8 @@ Public Class FrmStaffUpdate
         Me.Hide()
     End Sub
 
-    Private Sub FrmStaffUpdate_FormClosed(sender As Object, e As FormClosedEventArgs) Handles MyBase.FormClosed
+    Private Sub FrmStaffUpdate_FormClosing(sender As Object, e As FormClosingEventArgs) Handles MyBase.FormClosing
+        db.Dispose()
         FrmStaffRegistration.Show()
     End Sub
 End Class

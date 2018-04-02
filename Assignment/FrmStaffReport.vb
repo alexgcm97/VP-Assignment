@@ -58,7 +58,8 @@ Public Class FrmStaffReport
         Me.Hide()
     End Sub
 
-    Private Sub FrmStaffReport_FormClosed(sender As Object, e As FormClosedEventArgs) Handles MyBase.FormClosed
+    Private Sub FrmStaffReport_FormClosing(sender As Object, e As FormClosingEventArgs) Handles MyBase.FormClosing
+        db.Dispose()
         FrmMainMenu.Show()
     End Sub
 End Class
