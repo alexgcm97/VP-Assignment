@@ -37,6 +37,7 @@ Public Class FrmChgsPsw
 
         Try
             db.SubmitChanges()
+            db.Dispose()
         Catch
             MessageBox.Show("Update Unsucessful", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error)
         End Try

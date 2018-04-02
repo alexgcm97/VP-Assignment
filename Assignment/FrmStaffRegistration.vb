@@ -79,6 +79,7 @@ Public Class FrmStaffRegistration
 
             Try
                 db.SubmitChanges()
+                db.Dispose()
                 MessageBox.Show(txtName.Text & " inserted", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information)
                 Dim frmsr As New FrmStaffRegistration
                 frmsr.Show()

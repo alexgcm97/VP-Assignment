@@ -35,7 +35,7 @@
                 db.OrderDetails.InsertOnSubmit(od)
                 db.SubmitChanges()
             Next
-
+            db.Dispose()
         Catch ex As Exception
             MessageBox.Show(ex.Message)
         End Try

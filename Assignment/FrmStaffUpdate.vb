@@ -102,6 +102,7 @@ Public Class FrmStaffUpdate
 
             Try
                 db.SubmitChanges()
+                db.Dispose()
                 MessageBox.Show(txtName.Text & " updated", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information)
                 Dim frmmm As New FrmMainMenu
                 frmmm.Show()

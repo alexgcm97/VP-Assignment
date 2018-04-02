@@ -21,6 +21,7 @@
                 End If
             End If
         Next
+        db.Dispose()
         If chk = 1 Then
             MessageBox.Show("Invalid User ID or Password", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error)
         End If

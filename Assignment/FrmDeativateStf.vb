@@ -66,6 +66,7 @@
 
         Try
             db.SubmitChanges()
+            db.Dispose()
             MessageBox.Show("Update Successfully", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information)
             Dim frmsr As New FrmStaffRegistration
             frmsr.Show()
