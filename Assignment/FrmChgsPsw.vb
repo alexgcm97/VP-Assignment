@@ -48,4 +48,8 @@ Public Class FrmChgsPsw
         frmmm.Show()
         Me.Hide()
     End Sub
+
+    Private Sub FrmChgsPsw_FormClosed(sender As Object, e As FormClosedEventArgs) Handles MyBase.FormClosed
+        FrmMainMenu.Show()
+    End Sub
 End Class

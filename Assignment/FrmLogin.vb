@@ -15,13 +15,12 @@
                     If checkLogin.Status.Equals("Active") Then
                         Dim frmmm As New FrmMainMenu
                         frmmm.Show()
-                        Me.Close()
+                        Me.Hide()
                         chk = 0
                     End If
                 End If
             End If
         Next
-        db.Dispose()
         If chk = 1 Then
             MessageBox.Show("Invalid User ID or Password", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error)
         End If

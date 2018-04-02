@@ -38,9 +38,10 @@ Partial Class FrmStaffReport
         '
         Me.Label1.AutoSize = True
         Me.Label1.Font = New System.Drawing.Font("Gill Sans Ultra Bold Condensed", 16.2!, System.Drawing.FontStyle.Underline, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label1.Location = New System.Drawing.Point(144, 21)
+        Me.Label1.Location = New System.Drawing.Point(108, 17)
+        Me.Label1.Margin = New System.Windows.Forms.Padding(2, 0, 2, 0)
         Me.Label1.Name = "Label1"
-        Me.Label1.Size = New System.Drawing.Size(293, 39)
+        Me.Label1.Size = New System.Drawing.Size(230, 30)
         Me.Label1.TabIndex = 0
         Me.Label1.Text = "Staff Summary Report"
         '
@@ -49,9 +50,11 @@ Partial Class FrmStaffReport
         Me.GroupBox1.Controls.Add(Me.rbManager)
         Me.GroupBox1.Controls.Add(Me.rbStaff)
         Me.GroupBox1.Font = New System.Drawing.Font("Microsoft Sans Serif", 10.2!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.GroupBox1.Location = New System.Drawing.Point(151, 94)
+        Me.GroupBox1.Location = New System.Drawing.Point(113, 76)
+        Me.GroupBox1.Margin = New System.Windows.Forms.Padding(2, 2, 2, 2)
         Me.GroupBox1.Name = "GroupBox1"
-        Me.GroupBox1.Size = New System.Drawing.Size(298, 117)
+        Me.GroupBox1.Padding = New System.Windows.Forms.Padding(2, 2, 2, 2)
+        Me.GroupBox1.Size = New System.Drawing.Size(224, 95)
         Me.GroupBox1.TabIndex = 1
         Me.GroupBox1.TabStop = False
         Me.GroupBox1.Text = "Position"
@@ -59,9 +62,10 @@ Partial Class FrmStaffReport
         'rbManager
         '
         Me.rbManager.AutoSize = True
-        Me.rbManager.Location = New System.Drawing.Point(12, 76)
+        Me.rbManager.Location = New System.Drawing.Point(9, 62)
+        Me.rbManager.Margin = New System.Windows.Forms.Padding(2, 2, 2, 2)
         Me.rbManager.Name = "rbManager"
-        Me.rbManager.Size = New System.Drawing.Size(102, 24)
+        Me.rbManager.Size = New System.Drawing.Size(89, 21)
         Me.rbManager.TabIndex = 1
         Me.rbManager.TabStop = True
         Me.rbManager.Text = "Manager"
@@ -70,9 +74,10 @@ Partial Class FrmStaffReport
         'rbStaff
         '
         Me.rbStaff.AutoSize = True
-        Me.rbStaff.Location = New System.Drawing.Point(12, 35)
+        Me.rbStaff.Location = New System.Drawing.Point(9, 28)
+        Me.rbStaff.Margin = New System.Windows.Forms.Padding(2, 2, 2, 2)
         Me.rbStaff.Name = "rbStaff"
-        Me.rbStaff.Size = New System.Drawing.Size(70, 24)
+        Me.rbStaff.Size = New System.Drawing.Size(60, 21)
         Me.rbStaff.TabIndex = 0
         Me.rbStaff.TabStop = True
         Me.rbStaff.Text = "Staff"
@@ -82,9 +87,10 @@ Partial Class FrmStaffReport
         '
         Me.btnPrint.Font = New System.Drawing.Font("Gill Sans Ultra Bold Condensed", 10.2!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.btnPrint.ForeColor = System.Drawing.Color.Blue
-        Me.btnPrint.Location = New System.Drawing.Point(243, 230)
+        Me.btnPrint.Location = New System.Drawing.Point(182, 187)
+        Me.btnPrint.Margin = New System.Windows.Forms.Padding(2, 2, 2, 2)
         Me.btnPrint.Name = "btnPrint"
-        Me.btnPrint.Size = New System.Drawing.Size(100, 44)
+        Me.btnPrint.Size = New System.Drawing.Size(75, 36)
         Me.btnPrint.TabIndex = 2
         Me.btnPrint.Text = "&Print"
         Me.btnPrint.UseVisualStyleBackColor = True
@@ -93,9 +99,10 @@ Partial Class FrmStaffReport
         '
         Me.btnCancel.Font = New System.Drawing.Font("Gill Sans Ultra Bold Condensed", 10.2!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.btnCancel.ForeColor = System.Drawing.Color.Blue
-        Me.btnCancel.Location = New System.Drawing.Point(349, 230)
+        Me.btnCancel.Location = New System.Drawing.Point(262, 187)
+        Me.btnCancel.Margin = New System.Windows.Forms.Padding(2, 2, 2, 2)
         Me.btnCancel.Name = "btnCancel"
-        Me.btnCancel.Size = New System.Drawing.Size(100, 44)
+        Me.btnCancel.Size = New System.Drawing.Size(75, 36)
         Me.btnCancel.TabIndex = 3
         Me.btnCancel.Text = "&Cancel"
         Me.btnCancel.UseVisualStyleBackColor = True
@@ -115,13 +122,14 @@ Partial Class FrmStaffReport
         '
         'FrmStaffReport
         '
-        Me.AutoScaleDimensions = New System.Drawing.SizeF(8.0!, 16.0!)
+        Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
-        Me.ClientSize = New System.Drawing.Size(615, 314)
+        Me.ClientSize = New System.Drawing.Size(461, 255)
         Me.Controls.Add(Me.btnCancel)
         Me.Controls.Add(Me.btnPrint)
         Me.Controls.Add(Me.GroupBox1)
         Me.Controls.Add(Me.Label1)
+        Me.Margin = New System.Windows.Forms.Padding(2, 2, 2, 2)
         Me.Name = "FrmStaffReport"
         Me.Text = "FrmStaffReport"
         Me.GroupBox1.ResumeLayout(False)

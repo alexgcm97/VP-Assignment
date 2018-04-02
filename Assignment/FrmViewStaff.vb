@@ -20,4 +20,8 @@
         frmsr.Show()
         Me.Hide()
     End Sub
+
+    Private Sub FrmViewStaff_FormClosed(sender As Object, e As FormClosedEventArgs) Handles MyBase.FormClosed
+        FrmStaffRegistration.Show()
+    End Sub
 End Class

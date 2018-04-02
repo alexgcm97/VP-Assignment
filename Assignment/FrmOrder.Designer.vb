@@ -36,6 +36,8 @@ Partial Class FrmOrder
         Me.ColumnName = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.ColumnPrice = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.ColumnQuantity = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.cmsCart = New System.Windows.Forms.ContextMenuStrip(Me.components)
+        Me.ClearCartToolStripMenuItem1 = New System.Windows.Forms.ToolStripMenuItem()
         Me.btnSubmit = New System.Windows.Forms.Button()
         Me.btnCancel = New System.Windows.Forms.Button()
         Me.btnClear = New System.Windows.Forms.Button()
@@ -47,14 +49,12 @@ Partial Class FrmOrder
         Me.ClearCartToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.cmsRow = New System.Windows.Forms.ContextMenuStrip(Me.components)
         Me.RemoveItemToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
-        Me.cmsCart = New System.Windows.Forms.ContextMenuStrip(Me.components)
-        Me.ClearCartToolStripMenuItem1 = New System.Windows.Forms.ToolStripMenuItem()
         Me.GroupBox1.SuspendLayout()
         Me.GroupBox2.SuspendLayout()
         CType(Me.dgvCart, System.ComponentModel.ISupportInitialize).BeginInit()
+        Me.cmsCart.SuspendLayout()
         Me.MenuStrip1.SuspendLayout()
         Me.cmsRow.SuspendLayout()
-        Me.cmsCart.SuspendLayout()
         Me.SuspendLayout()
         '
         'GroupBox1
@@ -195,6 +195,18 @@ Partial Class FrmOrder
         Me.ColumnQuantity.Resizable = System.Windows.Forms.DataGridViewTriState.[False]
         Me.ColumnQuantity.Width = 56
         '
+        'cmsCart
+        '
+        Me.cmsCart.Items.AddRange(New System.Windows.Forms.ToolStripItem() {Me.ClearCartToolStripMenuItem1})
+        Me.cmsCart.Name = "cmsCart"
+        Me.cmsCart.Size = New System.Drawing.Size(127, 26)
+        '
+        'ClearCartToolStripMenuItem1
+        '
+        Me.ClearCartToolStripMenuItem1.Name = "ClearCartToolStripMenuItem1"
+        Me.ClearCartToolStripMenuItem1.Size = New System.Drawing.Size(126, 22)
+        Me.ClearCartToolStripMenuItem1.Text = "C&lear Cart"
+        '
         'btnSubmit
         '
         Me.btnSubmit.BackColor = System.Drawing.Color.FromArgb(CType(CType(64, Byte), Integer), CType(CType(64, Byte), Integer), CType(CType(64, Byte), Integer))
@@ -285,18 +297,6 @@ Partial Class FrmOrder
         Me.RemoveItemToolStripMenuItem.Size = New System.Drawing.Size(144, 22)
         Me.RemoveItemToolStripMenuItem.Text = "&Remove Item"
         '
-        'cmsCart
-        '
-        Me.cmsCart.Items.AddRange(New System.Windows.Forms.ToolStripItem() {Me.ClearCartToolStripMenuItem1})
-        Me.cmsCart.Name = "cmsCart"
-        Me.cmsCart.Size = New System.Drawing.Size(127, 26)
-        '
-        'ClearCartToolStripMenuItem1
-        '
-        Me.ClearCartToolStripMenuItem1.Name = "ClearCartToolStripMenuItem1"
-        Me.ClearCartToolStripMenuItem1.Size = New System.Drawing.Size(126, 22)
-        Me.ClearCartToolStripMenuItem1.Text = "C&lear Cart"
-        '
         'FrmOrder
         '
         Me.AcceptButton = Me.btnSubmit
@@ -318,10 +318,10 @@ Partial Class FrmOrder
         Me.GroupBox1.ResumeLayout(False)
         Me.GroupBox2.ResumeLayout(False)
         CType(Me.dgvCart, System.ComponentModel.ISupportInitialize).EndInit()
+        Me.cmsCart.ResumeLayout(False)
         Me.MenuStrip1.ResumeLayout(False)
         Me.MenuStrip1.PerformLayout()
         Me.cmsRow.ResumeLayout(False)
-        Me.cmsCart.ResumeLayout(False)
         Me.ResumeLayout(False)
         Me.PerformLayout()
 

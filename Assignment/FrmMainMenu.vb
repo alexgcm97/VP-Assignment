@@ -32,4 +32,14 @@
     Private Sub btnLogout_Click(sender As Object, e As EventArgs) Handles btnLogout.Click
         Me.Close()
     End Sub
+
+    Private Sub btnOrder_click(sender As Object, e As EventArgs) Handles btnOrder.Click
+        FrmOrder.Show()
+        Me.Hide()
+    End Sub
+
+    Private Sub FrmMainMenu_FormClosed(sender As Object, e As FormClosedEventArgs) Handles MyBase.FormClosed
+        db.Dispose()
+        FrmLogin.Close()
+    End Sub
 End Class

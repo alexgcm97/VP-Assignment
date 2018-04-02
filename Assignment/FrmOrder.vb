@@ -55,6 +55,7 @@
 
     Private Sub btnCancel_Click(sender As Object, e As EventArgs) Handles btnCancel.Click
         Me.Close()
+        FrmMainMenu.Show()
     End Sub
 
     Private Sub btnFood_Click(sender As Object, e As EventArgs) Handles btnFood.Click
@@ -189,5 +190,9 @@
                 dgvCart.ContextMenuStrip = cmsCart
             End Try
         End If
+    End Sub
+
+    Private Sub FrmOrder_FormClosed(sender As Object, e As FormClosedEventArgs) Handles MyBase.FormClosed
+        FrmMainMenu.Show()
     End Sub
 End Class

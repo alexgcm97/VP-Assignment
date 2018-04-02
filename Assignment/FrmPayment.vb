@@ -43,4 +43,8 @@
         FrmOrder.dgvCart.Rows.Clear()
         Me.Close()
     End Sub
+
+    Private Sub FrmPayment_FormClosed(sender As Object, e As FormClosedEventArgs) Handles MyBase.FormClosed
+        FrmOrder.Show()
+    End Sub
 End Class

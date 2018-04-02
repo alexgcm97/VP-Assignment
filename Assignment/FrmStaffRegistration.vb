@@ -129,4 +129,8 @@ Public Class FrmStaffRegistration
         frmds.Show()
         Me.Hide()
     End Sub
+
+    Private Sub FrmStaffRegistration_FormClosed(sender As Object, e As FormClosedEventArgs) Handles MyBase.FormClosed
+        FrmMainMenu.Show()
+    End Sub
 End Class
