@@ -46,11 +46,12 @@ Partial Class FrmOrderReport
         '
         Me.dtReport.CalendarFont = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.dtReport.CustomFormat = "MMMM yyyy"
+        Me.dtReport.Font = New System.Drawing.Font("Microsoft Sans Serif", 11.0!)
         Me.dtReport.Format = System.Windows.Forms.DateTimePickerFormat.Custom
         Me.dtReport.Location = New System.Drawing.Point(43, 106)
         Me.dtReport.Name = "dtReport"
         Me.dtReport.ShowUpDown = True
-        Me.dtReport.Size = New System.Drawing.Size(199, 20)
+        Me.dtReport.Size = New System.Drawing.Size(199, 24)
         Me.dtReport.TabIndex = 3
         Me.dtReport.Value = New Date(2018, 3, 1, 0, 0, 0, 0)
         '

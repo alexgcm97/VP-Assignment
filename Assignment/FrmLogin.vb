@@ -15,7 +15,7 @@
                     If checkLogin.Status.Equals("Active") Then
                         Dim frmmm As New FrmMainMenu
                         frmmm.Show()
-                        Me.Hide()
+                        Me.Close()
                         chk = 0
                     End If
                 End If
