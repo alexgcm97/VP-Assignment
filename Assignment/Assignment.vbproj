@@ -96,6 +96,30 @@
     <Compile Include="DataClasses1.vb">
       <DependentUpon>DataClasses1.dbml</DependentUpon>
     </Compile>
+    <Compile Include="FrmChgsPsw.Designer.vb">
+      <DependentUpon>FrmChgsPsw.vb</DependentUpon>
+    </Compile>
+    <Compile Include="FrmChgsPsw.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FrmDeativateStf.Designer.vb">
+      <DependentUpon>FrmDeativateStf.vb</DependentUpon>
+    </Compile>
+    <Compile Include="FrmDeativateStf.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FrmLogin.Designer.vb">
+      <DependentUpon>FrmLogin.vb</DependentUpon>
+    </Compile>
+    <Compile Include="FrmLogin.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FrmMainMenu.Designer.vb">
+      <DependentUpon>FrmMainMenu.vb</DependentUpon>
+    </Compile>
+    <Compile Include="FrmMainMenu.vb">
+      <SubType>Form</SubType>
+    </Compile>
     <Compile Include="FrmOrder.vb">
       <SubType>Form</SubType>
     </Compile>
@@ -115,6 +139,30 @@
     <Compile Include="FrmPayment.vb">
       <SubType>Form</SubType>
     </Compile>
+    <Compile Include="FrmStaffRegistration.Designer.vb">
+      <DependentUpon>FrmStaffRegistration.vb</DependentUpon>
+    </Compile>
+    <Compile Include="FrmStaffRegistration.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FrmStaffReport.Designer.vb">
+      <DependentUpon>FrmStaffReport.vb</DependentUpon>
+    </Compile>
+    <Compile Include="FrmStaffReport.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FrmStaffUpdate.Designer.vb">
+      <DependentUpon>FrmStaffUpdate.vb</DependentUpon>
+    </Compile>
+    <Compile Include="FrmStaffUpdate.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FrmViewStaff.Designer.vb">
+      <DependentUpon>FrmViewStaff.vb</DependentUpon>
+    </Compile>
+    <Compile Include="FrmViewStaff.vb">
+      <SubType>Form</SubType>
+    </Compile>
     <Compile Include="My Project\AssemblyInfo.vb" />
     <Compile Include="My Project\Application.Designer.vb">
       <AutoGen>True</AutoGen>
@@ -132,6 +180,18 @@
     </Compile>
   </ItemGroup>
   <ItemGroup>
+    <EmbeddedResource Include="FrmChgsPsw.resx">
+      <DependentUpon>FrmChgsPsw.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FrmDeativateStf.resx">
+      <DependentUpon>FrmDeativateStf.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FrmLogin.resx">
+      <DependentUpon>FrmLogin.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FrmMainMenu.resx">
+      <DependentUpon>FrmMainMenu.vb</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="FrmOrder.resx">
       <DependentUpon>FrmOrder.vb</DependentUpon>
     </EmbeddedResource>
@@ -140,6 +200,18 @@
     </EmbeddedResource>
     <EmbeddedResource Include="FrmPayment.resx">
       <DependentUpon>FrmPayment.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FrmStaffRegistration.resx">
+      <DependentUpon>FrmStaffRegistration.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FrmStaffReport.resx">
+      <DependentUpon>FrmStaffReport.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FrmStaffUpdate.resx">
+      <DependentUpon>FrmStaffUpdate.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FrmViewStaff.resx">
+      <DependentUpon>FrmViewStaff.vb</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="My Project\Resources.resx">
       <Generator>VbMyResourcesResXFileCodeGenerator</Generator>
