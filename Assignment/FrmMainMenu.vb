@@ -7,30 +7,13 @@
 
         If detect.Position = "Staff" Then
             btnStfMan.Enabled = False
-            btnGenerateReport.Enabled = False
+            ReportToolStripMenuItem.Enabled = False
         End If
     End Sub
 
     Private Sub btnStfMan_Click(sender As Object, e As EventArgs) Handles btnStfMan.Click
-        Dim frmsr As New FrmStaffRegistration
-        frmsr.Show()
+        FrmStaffRegistration.Show()
         Me.Hide()
-    End Sub
-
-    Private Sub btnChgPsw_Click(sender As Object, e As EventArgs) Handles btnChgPsw.Click
-        Dim frmcp As New FrmChgsPsw
-        frmcp.Show()
-        Me.Hide()
-    End Sub
-
-    Private Sub btnGenerateReport_Click(sender As Object, e As EventArgs) Handles btnGenerateReport.Click
-        Dim frmsr As New FrmStaffReport
-        frmsr.Show()
-        Me.Hide()
-    End Sub
-
-    Private Sub btnLogout_Click(sender As Object, e As EventArgs) Handles btnLogout.Click
-        Me.Close()
     End Sub
 
     Private Sub btnOrder_click(sender As Object, e As EventArgs) Handles btnOrder.Click
@@ -41,5 +24,25 @@
     Private Sub FrmMainMenu_FormClosing(sender As Object, e As FormClosingEventArgs) Handles MyBase.FormClosing
         db.Dispose()
         FrmLogin.Close()
+    End Sub
+
+    Private Sub ChangePasswordToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles ChangePasswordToolStripMenuItem.Click
+        FrmChgsPsw.Show()
+        Me.Hide()
+    End Sub
+
+    Private Sub SignOutToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles SignOutToolStripMenuItem.Click
+        Me.Close()
+        db.Dispose()
+    End Sub
+
+    Private Sub StaffToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles StaffToolStripMenuItem.Click
+        FrmStaffReport.Show()
+        Me.Hide()
+    End Sub
+
+    Private Sub OrderReportToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles OrderReportToolStripMenuItem.Click
+        FrmOrderReport.Show()
+        Me.Hide()
     End Sub
 End Class

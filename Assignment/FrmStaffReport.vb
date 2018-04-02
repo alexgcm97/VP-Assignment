@@ -53,9 +53,8 @@ Public Class FrmStaffReport
     End Sub
 
     Private Sub btnCancel_Click(sender As Object, e As EventArgs) Handles btnCancel.Click
-        Dim frmmm As New FrmMainMenu
-        frmmm.Show()
-        Me.Hide()
+        FrmMainMenu.Show()
+        Me.Close()
     End Sub
 
     Private Sub FrmStaffReport_FormClosing(sender As Object, e As FormClosingEventArgs) Handles MyBase.FormClosing

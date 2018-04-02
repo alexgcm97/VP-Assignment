@@ -68,24 +68,21 @@
             db.SubmitChanges()
             db.Dispose()
             MessageBox.Show("Update Successfully", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information)
-            Dim frmsr As New FrmStaffRegistration
-            frmsr.Show()
-            Me.Hide()
+            FrmStaffRegistration.Show()
+            Me.Close()
         Catch
             MessageBox.Show("Update Fail", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error)
         End Try
     End Sub
 
     Private Sub btnBack_Click(sender As Object, e As EventArgs) Handles btnBack.Click
-        Dim frmsr As New FrmStaffRegistration
-        frmsr.Show()
-        Me.Hide()
+        FrmStaffRegistration.Show()
+        Me.Close()
     End Sub
 
     Private Sub btnCancel_Click(sender As Object, e As EventArgs) Handles btnCancel.Click
-        Dim frmsr As New FrmStaffRegistration
-        frmsr.Show()
-        Me.Hide()
+        FrmStaffRegistration.Show()
+        Me.Close()
     End Sub
 
     Private Sub FrmDeativateStf_FormClosing(sender As Object, e As FormClosingEventArgs) Handles MyBase.FormClosing

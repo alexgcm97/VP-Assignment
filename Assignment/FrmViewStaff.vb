@@ -16,9 +16,8 @@
     End Sub
 
     Private Sub btnBack_Click(sender As Object, e As EventArgs) Handles btnBack.Click
-        Dim frmsr As New FrmStaffRegistration
-        frmsr.Show()
-        Me.Hide()
+        FrmStaffRegistration.Show()
+        Me.Close()
     End Sub
 
     Private Sub FrmViewStaff_FormClosing(sender As Object, e As FormClosingEventArgs) Handles MyBase.FormClosing

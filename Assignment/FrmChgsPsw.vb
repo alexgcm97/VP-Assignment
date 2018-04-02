@@ -22,8 +22,8 @@ Public Class FrmChgsPsw
                 If password.IsMatch(txtRePsw.Text) Then
                     updatePsw.Password = txtRePsw.Text
                     MessageBox.Show("Update Sucessfull, Please Re-Login gain", "Congrat", MessageBoxButtons.OK, MessageBoxIcon.Information)
-                    Dim frmlogin As New FrmLogin
-                    frmlogin.Show()
+                    Dim frmlg As New FrmLogin
+                    frmlg.Show()
                     Me.Hide()
                 Else
                     MessageBox.Show("Invalid Password (E.g Abc123)", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error)
@@ -44,9 +44,8 @@ Public Class FrmChgsPsw
     End Sub
 
     Private Sub btnCancel_Click(sender As Object, e As EventArgs) Handles btnCancel.Click
-        Dim frmmm As New FrmMainMenu
-        frmmm.Show()
-        Me.Hide()
+        FrmMainMenu.Show()
+        Me.Close()
     End Sub
 
     Private Sub FrmChgsPsw_FormClosing(sender As Object, e As FormClosingEventArgs) Handles MyBase.FormClosing

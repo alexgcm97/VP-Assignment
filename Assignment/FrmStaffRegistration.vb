@@ -98,14 +98,12 @@ Public Class FrmStaffRegistration
     End Sub
 
     Private Sub btnUpdate_Click(sender As Object, e As EventArgs) Handles btnUpdate.Click
-        Dim frmsu As New FrmStaffUpdate
-        frmsu.Show()
+        FrmStaffUpdate.Show()
         Me.Hide()
     End Sub
 
     Private Sub btnView_Click(sender As Object, e As EventArgs) Handles btnView.Click
-        Dim frmv As New FrmViewStaff
-        frmv.Show()
+        FrmViewStaff.Show()
         Me.Hide()
     End Sub
 
@@ -119,14 +117,12 @@ Public Class FrmStaffRegistration
     End Sub
 
     Private Sub btnCancel_Click(sender As Object, e As EventArgs) Handles btnCancel.Click
-        Dim frmmm As New FrmMainMenu
-        frmmm.Show()
+        FrmMainMenu.Show()
         Me.Hide()
     End Sub
 
     Private Sub btnDelete_Click(sender As Object, e As EventArgs) Handles btnDelete.Click
-        Dim frmds As New FrmDeativateStf
-        frmds.Show()
+        FrmDeativateStf.Show()
         Me.Hide()
     End Sub
 

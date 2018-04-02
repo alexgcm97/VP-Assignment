@@ -104,9 +104,8 @@ Public Class FrmStaffUpdate
                 db.SubmitChanges()
                 db.Dispose()
                 MessageBox.Show(txtName.Text & " updated", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information)
-                Dim frmmm As New FrmMainMenu
-                frmmm.Show()
-                Me.Hide()
+                FrmStaffRegistration.Show()
+                Me.Close()
             Catch
                 MessageBox.Show("Updated Fail", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error)
             End Try
@@ -114,15 +113,13 @@ Public Class FrmStaffUpdate
     End Sub
 
     Private Sub btnCancel_Click(sender As Object, e As EventArgs) Handles btnCancel.Click
-        Dim frmsr As New FrmStaffRegistration
-        frmsr.Show()
-        Me.Hide()
+        FrmStaffRegistration.Show()
+        Me.Close()
     End Sub
 
     Private Sub btnBack_Click(sender As Object, e As EventArgs) Handles btnBack.Click
-        Dim frmsr As New FrmStaffRegistration
-        frmsr.Show()
-        Me.Hide()
+        FrmStaffRegistration.Show()
+        Me.Close()
     End Sub
 
     Private Sub FrmStaffUpdate_FormClosing(sender As Object, e As FormClosingEventArgs) Handles MyBase.FormClosing
