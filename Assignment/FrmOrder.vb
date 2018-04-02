@@ -3,6 +3,7 @@
     Dim imgList As New ImageList
     Dim dataRow As DataGridViewRow
     Dim orignalValue As Integer
+    Dim grandTotal As Decimal
 
     Private Sub FrmOrder_Load(sender As Object, e As EventArgs) Handles MyBase.Load
         imgList.ColorDepth = ColorDepth.Depth32Bit
@@ -67,12 +68,16 @@
     End Sub
 
 
-    Private Sub lvBeverage_MouseClick(sender As Object, e As MouseEventArgs) Handles lvBeverage.MouseClick
-        Dim selectedItem As ListViewItem = lvBeverage.SelectedItems(0)
+    Private Sub addToCart(sender As Object, e As MouseEventArgs) Handles lvBeverage.MouseClick, lvFood.MouseClick
+        Dim selectedItem As ListViewItem
+        If sender.Equals(lvBeverage) Then
+            selectedItem = lvBeverage.SelectedItems(0)
+        Else
+            selectedItem = lvFood.SelectedItems(0)
+        End If
         dataRow = New DataGridViewRow
 
         dataRow.CreateCells(dgvCart)
-        dataRow.Cells(0).Value = dgvCart.Rows.Count + 1
         dataRow.Cells(0).Tag = selectedItem.Name
         dataRow.Cells(1).Value = selectedItem.Text
         dataRow.Cells(2).Value = selectedItem.SubItems(2).Text
@@ -81,17 +86,26 @@
         If (searchRow(dataRow) >= 0) Then
             Dim index = searchRow(dataRow)
             Dim quantity As Integer = dgvCart.Rows(index).Cells(3).Value + 1
-            dgvCart.Rows(index).Cells(3).Value = quantity
+            If (quantity > 50) Then
+                MessageBox.Show("Maximum quantity per item is 50.", "Quantity Error", MessageBoxButtons.OK, MessageBoxIcon.Error)
+            Else
+                dgvCart.Rows(index).Cells(3).Value = quantity
+            End If
         Else
             dgvCart.Rows.Add(dataRow)
         End If
+        UpdateRowNo()
     End Sub
 
     Private Sub btnSubmit_Click(sender As Object, e As EventArgs) Handles btnSubmit.Click
         If (dgvCart.Rows.Count <> 0) Then
+            For Each cartRow As DataGridViewRow In dgvCart.Rows
+                grandTotal += (cartRow.Cells(2).Value * cartRow.Cells(3).Value)
+            Next
+            FrmPayment.lblGrandTotal.Text = grandTotal.ToString("RM 0.00")
             FrmPayment.ShowDialog()
         Else
-            MessageBox.Show("Food Cart is Empty.", "Order Error")
+            MessageBox.Show("Food Cart is Empty.", "Order Error", MessageBoxButtons.OK, MessageBoxIcon.Error)
         End If
     End Sub
 
@@ -105,38 +119,17 @@
         Return index
     End Function
 
-    Private Sub lvFood_MouseClick(sender As Object, e As MouseEventArgs) Handles lvFood.MouseClick
-        Dim selectedItem As ListViewItem = lvFood.SelectedItems(0)
-        dataRow = New DataGridViewRow
-
-        dataRow.CreateCells(dgvCart)
-        dataRow.Cells(0).Value = dgvCart.Rows.Count + 1
-        dataRow.Cells(0).Tag = selectedItem.Name
-        dataRow.Cells(1).Value = selectedItem.Text
-        dataRow.Cells(2).Value = selectedItem.SubItems(2).Text
-        dataRow.Cells(3).Value = 1
-
-        If (searchRow(dataRow) >= 0) Then
-            Dim index = searchRow(dataRow)
-            Dim quantity As Integer = dgvCart.Rows(index).Cells(3).Value + 1
-            dgvCart.Rows(index).Cells(3).Value = quantity
-        Else
-            dgvCart.Rows.Add(dataRow)
-        End If
-    End Sub
-
-
     Private Sub dgvCart_CellValidated(sender As Object, e As DataGridViewCellEventArgs) Handles dgvCart.CellValidated
         If (e.ColumnIndex = 3) Then
             Dim str As String = dgvCart.Rows(e.RowIndex).Cells(3).Value
             If (IsNumeric(str) = False) Then
-                MessageBox.Show("Please input only digits.", "Quantity Error")
+                MessageBox.Show("Please input only digits.", "Quantity Error", MessageBoxButtons.OK, MessageBoxIcon.Error)
                 dgvCart.Rows(e.RowIndex).Cells(3).Value = orignalValue
             ElseIf (dgvCart.Rows(e.RowIndex).Cells(3).Value > 50) Then
-                MessageBox.Show("Please input value <= 50.", "Quantity Error")
+                MessageBox.Show("Maximum order quantity is 50.", "Quantity Error", MessageBoxButtons.OK, MessageBoxIcon.Error)
                 dgvCart.Rows(e.RowIndex).Cells(3).Value = orignalValue
             ElseIf (dgvCart.Rows(e.RowIndex).Cells(3).Value <= 0) Then
-                MessageBox.Show("Please input value more than 1.", "Quantity Error")
+                MessageBox.Show("Please input value more than 1.", "Quantity Error", MessageBoxButtons.OK, MessageBoxIcon.Error)
                 dgvCart.Rows(e.RowIndex).Cells(3).Value = orignalValue
             Else
                 dgvCart.Rows(e.RowIndex).Cells(3).Value = Integer.Parse(dgvCart.Rows(e.RowIndex).Cells(3).Value)
@@ -144,11 +137,19 @@
         End If
     End Sub
 
+    Private Sub UpdateRowNo()
+        Dim cnt As Integer = 1
+        For Each row As DataGridViewRow In dgvCart.Rows
+            row.Cells(0).Value = cnt
+            cnt += 1
+        Next
+    End Sub
+
     Private Sub dgvCart_CellEnter(sender As Object, e As DataGridViewCellEventArgs) Handles dgvCart.CellEnter
         orignalValue = dgvCart.Rows(e.RowIndex).Cells(3).Value
     End Sub
 
-    Private Sub ClearCartToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles ClearCartToolStripMenuItem.Click
+    Private Sub ClearCartToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles ClearCartToolStripMenuItem.Click, ClearCartToolStripMenuItem1.Click
         btnClear_Click(Nothing, Nothing)
     End Sub
 
@@ -164,4 +165,29 @@
         btnCancel_Click(Nothing, Nothing)
     End Sub
 
+    Private Sub dgvCart_UserDeletedRow(sender As Object, e As DataGridViewRowEventArgs) Handles dgvCart.UserDeletedRow
+        UpdateRowNo()
+    End Sub
+
+    Private Sub RemoveItemToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles RemoveItemToolStripMenuItem.Click
+        Try
+            dgvCart.Rows.Remove(dgvCart.SelectedRows(0))
+            UpdateRowNo()
+        Catch ex As Exception
+            MessageBox.Show("You must select a row to delete.", "Delete Row Error", MessageBoxButtons.OK, MessageBoxIcon.Error)
+        End Try
+    End Sub
+
+    Private Sub dgvCart_MouseDown(sender As Object, e As MouseEventArgs) Handles dgvCart.MouseDown
+        If e.Button = MouseButtons.Right Then
+            Try
+                Dim hti = dgvCart.HitTest(e.X, e.Y)
+                dgvCart.ClearSelection()
+                dgvCart.Rows(hti.RowIndex).Selected = True
+                dgvCart.ContextMenuStrip = cmsRow
+            Catch ex As Exception
+                dgvCart.ContextMenuStrip = cmsCart
+            End Try
+        End If
+    End Sub
 End Class

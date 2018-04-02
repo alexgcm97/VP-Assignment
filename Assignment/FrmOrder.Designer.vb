@@ -36,8 +36,6 @@ Partial Class FrmOrder
         Me.ColumnName = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.ColumnPrice = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.ColumnQuantity = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.cmsCart = New System.Windows.Forms.ContextMenuStrip(Me.components)
-        Me.ClearCartToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.btnSubmit = New System.Windows.Forms.Button()
         Me.btnCancel = New System.Windows.Forms.Button()
         Me.btnClear = New System.Windows.Forms.Button()
@@ -46,11 +44,17 @@ Partial Class FrmOrder
         Me.FileToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.ViewReportToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.ExitToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
+        Me.ClearCartToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
+        Me.cmsRow = New System.Windows.Forms.ContextMenuStrip(Me.components)
+        Me.RemoveItemToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
+        Me.cmsCart = New System.Windows.Forms.ContextMenuStrip(Me.components)
+        Me.ClearCartToolStripMenuItem1 = New System.Windows.Forms.ToolStripMenuItem()
         Me.GroupBox1.SuspendLayout()
         Me.GroupBox2.SuspendLayout()
         CType(Me.dgvCart, System.ComponentModel.ISupportInitialize).BeginInit()
-        Me.cmsCart.SuspendLayout()
         Me.MenuStrip1.SuspendLayout()
+        Me.cmsRow.SuspendLayout()
+        Me.cmsCart.SuspendLayout()
         Me.SuspendLayout()
         '
         'GroupBox1
@@ -139,7 +143,7 @@ Partial Class FrmOrder
         Me.dgvCart.Location = New System.Drawing.Point(3, 18)
         Me.dgvCart.MultiSelect = False
         Me.dgvCart.Name = "dgvCart"
-        Me.dgvCart.RowHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.None
+        Me.dgvCart.RowHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.[Single]
         DataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft
         DataGridViewCellStyle1.BackColor = System.Drawing.SystemColors.Control
         DataGridViewCellStyle1.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
@@ -153,7 +157,7 @@ Partial Class FrmOrder
         Me.dgvCart.RowHeadersVisible = False
         Me.dgvCart.RowHeadersWidthSizeMode = System.Windows.Forms.DataGridViewRowHeadersWidthSizeMode.AutoSizeToAllHeaders
         Me.dgvCart.RowTemplate.Height = 40
-        Me.dgvCart.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.CellSelect
+        Me.dgvCart.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect
         Me.dgvCart.Size = New System.Drawing.Size(421, 318)
         Me.dgvCart.TabIndex = 1
         '
@@ -190,18 +194,6 @@ Partial Class FrmOrder
         Me.ColumnQuantity.Name = "ColumnQuantity"
         Me.ColumnQuantity.Resizable = System.Windows.Forms.DataGridViewTriState.[False]
         Me.ColumnQuantity.Width = 56
-        '
-        'cmsCart
-        '
-        Me.cmsCart.Items.AddRange(New System.Windows.Forms.ToolStripItem() {Me.ClearCartToolStripMenuItem})
-        Me.cmsCart.Name = "cmsCart"
-        Me.cmsCart.Size = New System.Drawing.Size(127, 26)
-        '
-        'ClearCartToolStripMenuItem
-        '
-        Me.ClearCartToolStripMenuItem.Name = "ClearCartToolStripMenuItem"
-        Me.ClearCartToolStripMenuItem.Size = New System.Drawing.Size(126, 22)
-        Me.ClearCartToolStripMenuItem.Text = "C&lear Cart"
         '
         'btnSubmit
         '
@@ -275,6 +267,36 @@ Partial Class FrmOrder
         Me.ExitToolStripMenuItem.Size = New System.Drawing.Size(174, 22)
         Me.ExitToolStripMenuItem.Text = "E&xit"
         '
+        'ClearCartToolStripMenuItem
+        '
+        Me.ClearCartToolStripMenuItem.Name = "ClearCartToolStripMenuItem"
+        Me.ClearCartToolStripMenuItem.Size = New System.Drawing.Size(144, 22)
+        Me.ClearCartToolStripMenuItem.Text = "C&lear Cart"
+        '
+        'cmsRow
+        '
+        Me.cmsRow.Items.AddRange(New System.Windows.Forms.ToolStripItem() {Me.RemoveItemToolStripMenuItem, Me.ClearCartToolStripMenuItem})
+        Me.cmsRow.Name = "cmsCart"
+        Me.cmsRow.Size = New System.Drawing.Size(145, 48)
+        '
+        'RemoveItemToolStripMenuItem
+        '
+        Me.RemoveItemToolStripMenuItem.Name = "RemoveItemToolStripMenuItem"
+        Me.RemoveItemToolStripMenuItem.Size = New System.Drawing.Size(144, 22)
+        Me.RemoveItemToolStripMenuItem.Text = "&Remove Item"
+        '
+        'cmsCart
+        '
+        Me.cmsCart.Items.AddRange(New System.Windows.Forms.ToolStripItem() {Me.ClearCartToolStripMenuItem1})
+        Me.cmsCart.Name = "cmsCart"
+        Me.cmsCart.Size = New System.Drawing.Size(127, 26)
+        '
+        'ClearCartToolStripMenuItem1
+        '
+        Me.ClearCartToolStripMenuItem1.Name = "ClearCartToolStripMenuItem1"
+        Me.ClearCartToolStripMenuItem1.Size = New System.Drawing.Size(126, 22)
+        Me.ClearCartToolStripMenuItem1.Text = "C&lear Cart"
+        '
         'FrmOrder
         '
         Me.AcceptButton = Me.btnSubmit
@@ -296,9 +318,10 @@ Partial Class FrmOrder
         Me.GroupBox1.ResumeLayout(False)
         Me.GroupBox2.ResumeLayout(False)
         CType(Me.dgvCart, System.ComponentModel.ISupportInitialize).EndInit()
-        Me.cmsCart.ResumeLayout(False)
         Me.MenuStrip1.ResumeLayout(False)
         Me.MenuStrip1.PerformLayout()
+        Me.cmsRow.ResumeLayout(False)
+        Me.cmsCart.ResumeLayout(False)
         Me.ResumeLayout(False)
         Me.PerformLayout()
 
@@ -319,10 +342,13 @@ Partial Class FrmOrder
     Friend WithEvents ColumnName As DataGridViewTextBoxColumn
     Friend WithEvents ColumnPrice As DataGridViewTextBoxColumn
     Friend WithEvents ColumnQuantity As DataGridViewTextBoxColumn
-    Friend WithEvents cmsCart As ContextMenuStrip
-    Friend WithEvents ClearCartToolStripMenuItem As ToolStripMenuItem
     Friend WithEvents MenuStrip1 As MenuStrip
     Friend WithEvents FileToolStripMenuItem As ToolStripMenuItem
     Friend WithEvents ViewReportToolStripMenuItem As ToolStripMenuItem
     Friend WithEvents ExitToolStripMenuItem As ToolStripMenuItem
+    Friend WithEvents cmsRow As ContextMenuStrip
+    Friend WithEvents ClearCartToolStripMenuItem As ToolStripMenuItem
+    Friend WithEvents RemoveItemToolStripMenuItem As ToolStripMenuItem
+    Friend WithEvents cmsCart As ContextMenuStrip
+    Friend WithEvents ClearCartToolStripMenuItem1 As ToolStripMenuItem
 End Class

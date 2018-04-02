@@ -23,6 +23,7 @@ Partial Class FrmPayment
     <System.Diagnostics.DebuggerStepThrough()> _
     Private Sub InitializeComponent()
         Me.btnConfirm = New System.Windows.Forms.Button()
+        Me.lblGrandTotal = New System.Windows.Forms.Label()
         Me.SuspendLayout()
         '
         'btnConfirm
@@ -34,17 +35,29 @@ Partial Class FrmPayment
         Me.btnConfirm.Text = "Confirm"
         Me.btnConfirm.UseVisualStyleBackColor = True
         '
+        'lblGrandTotal
+        '
+        Me.lblGrandTotal.AutoSize = True
+        Me.lblGrandTotal.Location = New System.Drawing.Point(94, 93)
+        Me.lblGrandTotal.Name = "lblGrandTotal"
+        Me.lblGrandTotal.Size = New System.Drawing.Size(39, 13)
+        Me.lblGrandTotal.TabIndex = 1
+        Me.lblGrandTotal.Text = "Label1"
+        '
         'FrmPayment
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.ClientSize = New System.Drawing.Size(284, 261)
+        Me.Controls.Add(Me.lblGrandTotal)
         Me.Controls.Add(Me.btnConfirm)
         Me.Name = "FrmPayment"
         Me.Text = "FrmPayment"
         Me.ResumeLayout(False)
+        Me.PerformLayout()
 
     End Sub
 
     Friend WithEvents btnConfirm As Button
+    Friend WithEvents lblGrandTotal As Label
 End Class

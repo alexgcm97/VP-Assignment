@@ -36,7 +36,7 @@ Public Class FrmOrderReport
         For Each order In orderQuery
             If (order.OrderDate.Year = year And order.OrderDate.Month = month) Then
                 cnt += 1
-                body.AppendFormat("{0,2}       {1,10}      {2,20}",
+                body.AppendFormat("{0,2}      {1,10}       {2,20}",
                               cnt, order.OrderID, order.OrderDate.ToShortDateString)
 
                 Dim totalAmount As Decimal
