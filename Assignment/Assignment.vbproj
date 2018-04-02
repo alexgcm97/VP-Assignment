@@ -88,6 +88,12 @@
     <Import Include="System.Threading.Tasks" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="AssignmentDataSet.Designer.vb" />
+    <Compile Include="AssignmentDataSet1.Designer.vb">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>AssignmentDataSet.xsd</DependentUpon>
+    </Compile>
     <Compile Include="DataClasses1.designer.vb">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
@@ -221,6 +227,17 @@
     </EmbeddedResource>
   </ItemGroup>
   <ItemGroup>
+    <None Include="AssignmentDataSet.xsc">
+      <DependentUpon>AssignmentDataSet.xsd</DependentUpon>
+    </None>
+    <None Include="AssignmentDataSet.xsd">
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>AssignmentDataSet1.Designer.vb</LastGenOutput>
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="AssignmentDataSet.xss">
+      <DependentUpon>AssignmentDataSet.xsd</DependentUpon>
+    </None>
     <None Include="DataClasses1.dbml">
       <Generator>MSLinqToSQLGenerator</Generator>
       <LastGenOutput>DataClasses1.designer.vb</LastGenOutput>
@@ -240,9 +257,7 @@
     </None>
     <None Include="App.config" />
   </ItemGroup>
-  <ItemGroup>
-    <Folder Include="Resources\" />
-  </ItemGroup>
+  <ItemGroup />
   <ItemGroup>
     <Content Include="Assignment.mdf">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
@@ -268,6 +283,7 @@
     <Content Include="Images\menu\9015.jpg" />
     <Content Include="Images\menu\9016.jpg" />
     <Content Include="Images\orderReport.jpg" />
+    <None Include="Resources\Staff.png" />
     <None Include="Images\menu\9001.jpg" />
   </ItemGroup>
   <ItemGroup>
