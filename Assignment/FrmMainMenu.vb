@@ -22,7 +22,6 @@
     End Sub
 
     Private Sub FrmMainMenu_FormClosing(sender As Object, e As FormClosingEventArgs) Handles MyBase.FormClosing
-        db.Dispose()
         FrmLogin.Close()
     End Sub
 
@@ -33,7 +32,6 @@
 
     Private Sub SignOutToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles SignOutToolStripMenuItem.Click
         Me.Close()
-        db.Dispose()
     End Sub
 
     Private Sub StaffToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles StaffToolStripMenuItem.Click
@@ -48,6 +46,11 @@
 
     Private Sub btnCust_Click(sender As Object, e As EventArgs) Handles btnCust.Click
         FrmCustomerRegistration.Show()
+        Me.Hide()
+    End Sub
+
+    Private Sub CustomerReportToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles CustomerReportToolStripMenuItem.Click
+        FrmCustomerReport.Show()
         Me.Hide()
     End Sub
 End Class

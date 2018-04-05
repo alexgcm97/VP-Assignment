@@ -3,9 +3,9 @@
     Dim imgList As New ImageList
     Dim dataRow As DataGridViewRow
     Dim orignalValue As Integer
-    Dim grandTotal As Decimal
 
     Private Sub FrmOrder_Load(sender As Object, e As EventArgs) Handles MyBase.Load
+
         imgList.ColorDepth = ColorDepth.Depth32Bit
         imgList.ImageSize = New Size(100, 100)
 
@@ -99,6 +99,7 @@
     End Sub
 
     Private Sub btnSubmit_Click(sender As Object, e As EventArgs) Handles btnSubmit.Click
+        Dim grandTotal As Decimal = 0
         If (dgvCart.Rows.Count <> 0) Then
             For Each cartRow As DataGridViewRow In dgvCart.Rows
                 grandTotal += (cartRow.Cells(2).Value * cartRow.Cells(3).Value)
@@ -158,7 +159,7 @@
         btnCancel_Click(Nothing, Nothing)
     End Sub
 
-    Private Sub ViewReportToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles ViewReportToolStripMenuItem.Click
+    Private Sub ViewReportToolStripMenuItem_Click(sender As Object, e As EventArgs)
         FrmOrderReport.ShowDialog()
     End Sub
 
@@ -193,7 +194,6 @@
     End Sub
 
     Private Sub FrmOrder_FormClosing(sender As Object, e As FormClosingEventArgs) Handles MyBase.FormClosing
-        db.Dispose()
         FrmMainMenu.Show()
     End Sub
 End Class

@@ -14,7 +14,8 @@
 
         Dim ord As New Order With
                 {.OrderID = orderId,
-                .OrderDate = System.DateTime.Today.Date}
+                .OrderDate = System.DateTime.Today.Date,
+                .TotalAmount = lblGrandTotal.Text}
         db.Orders.InsertOnSubmit(ord)
 
         Try
@@ -35,7 +36,6 @@
                 db.OrderDetails.InsertOnSubmit(od)
                 db.SubmitChanges()
             Next
-            db.Dispose()
         Catch ex As Exception
             MessageBox.Show(ex.Message)
         End Try
@@ -45,7 +45,6 @@
     End Sub
 
     Private Sub FrmPayment_FormClosing(sender As Object, e As FormClosingEventArgs) Handles MyBase.FormClosing
-        db.Dispose()
         FrmOrder.Show()
     End Sub
 End Class

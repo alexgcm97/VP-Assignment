@@ -23,8 +23,6 @@ Partial Class FrmCustomerUpdate
     <System.Diagnostics.DebuggerStepThrough()>
     Private Sub InitializeComponent()
         Me.components = New System.ComponentModel.Container()
-        Dim DataGridViewCellStyle1 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
-        Dim DataGridViewCellStyle2 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
         Me.GroupBox1 = New System.Windows.Forms.GroupBox()
         Me.DataGridView1 = New System.Windows.Forms.DataGridView()
         Me.CustIDDataGridViewTextBoxColumn = New System.Windows.Forms.DataGridViewTextBoxColumn()
@@ -38,6 +36,8 @@ Partial Class FrmCustomerUpdate
         Me.AssignmentDataSet = New Assignment.AssignmentDataSet()
         Me.CustomerTableAdapter1 = New Assignment.AssignmentDataSetTableAdapters.CustomerTableAdapter()
         Me.updateCustomer = New System.Windows.Forms.GroupBox()
+        Me.lblJoinDate = New System.Windows.Forms.Label()
+        Me.Label3 = New System.Windows.Forms.Label()
         Me.btnCancel = New System.Windows.Forms.Button()
         Me.btnSubmit = New System.Windows.Forms.Button()
         Me.txtAddress = New System.Windows.Forms.TextBox()
@@ -54,8 +54,6 @@ Partial Class FrmCustomerUpdate
         Me.Label4 = New System.Windows.Forms.Label()
         Me.lblCustomerIcNo = New System.Windows.Forms.Label()
         Me.Label2 = New System.Windows.Forms.Label()
-        Me.Label3 = New System.Windows.Forms.Label()
-        Me.lblJoinDate = New System.Windows.Forms.Label()
         Me.GroupBox1.SuspendLayout()
         CType(Me.DataGridView1, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.Customer, System.ComponentModel.ISupportInitialize).BeginInit()
@@ -83,25 +81,9 @@ Partial Class FrmCustomerUpdate
         Me.DataGridView1.AllowUserToAddRows = False
         Me.DataGridView1.AllowUserToDeleteRows = False
         Me.DataGridView1.AutoGenerateColumns = False
-        DataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft
-        DataGridViewCellStyle1.BackColor = System.Drawing.SystemColors.Control
-        DataGridViewCellStyle1.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        DataGridViewCellStyle1.ForeColor = System.Drawing.SystemColors.WindowText
-        DataGridViewCellStyle1.SelectionBackColor = System.Drawing.SystemColors.Highlight
-        DataGridViewCellStyle1.SelectionForeColor = System.Drawing.SystemColors.HighlightText
-        DataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.[True]
-        Me.DataGridView1.ColumnHeadersDefaultCellStyle = DataGridViewCellStyle1
         Me.DataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
         Me.DataGridView1.Columns.AddRange(New System.Windows.Forms.DataGridViewColumn() {Me.CustIDDataGridViewTextBoxColumn, Me.CustNameDataGridViewTextBoxColumn, Me.CustIcNoDataGridViewTextBoxColumn})
         Me.DataGridView1.DataSource = Me.Customer
-        DataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft
-        DataGridViewCellStyle2.BackColor = System.Drawing.SystemColors.Window
-        DataGridViewCellStyle2.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        DataGridViewCellStyle2.ForeColor = System.Drawing.SystemColors.ControlText
-        DataGridViewCellStyle2.SelectionBackColor = System.Drawing.SystemColors.Highlight
-        DataGridViewCellStyle2.SelectionForeColor = System.Drawing.SystemColors.HighlightText
-        DataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.[False]
-        Me.DataGridView1.DefaultCellStyle = DataGridViewCellStyle2
         Me.DataGridView1.Location = New System.Drawing.Point(6, 53)
         Me.DataGridView1.Name = "DataGridView1"
         Me.DataGridView1.ReadOnly = True
@@ -205,6 +187,25 @@ Partial Class FrmCustomerUpdate
         Me.updateCustomer.TabIndex = 1
         Me.updateCustomer.TabStop = False
         Me.updateCustomer.Text = "Update Details"
+        '
+        'lblJoinDate
+        '
+        Me.lblJoinDate.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D
+        Me.lblJoinDate.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.lblJoinDate.Location = New System.Drawing.Point(107, 222)
+        Me.lblJoinDate.Name = "lblJoinDate"
+        Me.lblJoinDate.Size = New System.Drawing.Size(131, 20)
+        Me.lblJoinDate.TabIndex = 17
+        '
+        'Label3
+        '
+        Me.Label3.AutoSize = True
+        Me.Label3.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Label3.Location = New System.Drawing.Point(12, 221)
+        Me.Label3.Name = "Label3"
+        Me.Label3.Size = New System.Drawing.Size(76, 15)
+        Me.Label3.TabIndex = 16
+        Me.Label3.Text = "Join Date :"
         '
         'btnCancel
         '
@@ -359,25 +360,6 @@ Partial Class FrmCustomerUpdate
         Me.Label2.TabIndex = 0
         Me.Label2.Text = "Name :"
         '
-        'Label3
-        '
-        Me.Label3.AutoSize = True
-        Me.Label3.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label3.Location = New System.Drawing.Point(12, 221)
-        Me.Label3.Name = "Label3"
-        Me.Label3.Size = New System.Drawing.Size(76, 15)
-        Me.Label3.TabIndex = 16
-        Me.Label3.Text = "Join Date :"
-        '
-        'lblJoinDate
-        '
-        Me.lblJoinDate.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D
-        Me.lblJoinDate.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.lblJoinDate.Location = New System.Drawing.Point(107, 222)
-        Me.lblJoinDate.Name = "lblJoinDate"
-        Me.lblJoinDate.Size = New System.Drawing.Size(131, 20)
-        Me.lblJoinDate.TabIndex = 17
-        '
         'FrmCustomerUpdate
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
@@ -386,6 +368,7 @@ Partial Class FrmCustomerUpdate
         Me.Controls.Add(Me.updateCustomer)
         Me.Controls.Add(Me.GroupBox1)
         Me.Name = "FrmCustomerUpdate"
+        Me.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen
         Me.Text = "FrmCustomerUpdate"
         Me.GroupBox1.ResumeLayout(False)
         Me.GroupBox1.PerformLayout()

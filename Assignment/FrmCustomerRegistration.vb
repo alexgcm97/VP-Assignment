@@ -96,4 +96,13 @@ Public Class FrmCustomerRegistration
         radMale.Checked = True
 
     End Sub
+
+    Private Sub FrmCustomerRegistration_FormClosing(sender As Object, e As FormClosingEventArgs) Handles MyBase.FormClosing
+        FrmMainMenu.Show()
+    End Sub
+
+    Private Sub UpdateProfileToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles UpdateProfileToolStripMenuItem.Click
+        FrmCustomerUpdate.Show()
+        Me.Hide()
+    End Sub
 End Class

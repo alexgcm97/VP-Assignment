@@ -42,16 +42,20 @@ Partial Class FrmCustomerRegistration
         Me.btnReset = New System.Windows.Forms.Button()
         Me.lblCustID = New System.Windows.Forms.Label()
         Me.Label6 = New System.Windows.Forms.Label()
+        Me.MenuStrip1 = New System.Windows.Forms.MenuStrip()
+        Me.ProfileToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
+        Me.UpdateProfileToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.GroupBox1.SuspendLayout()
         Me.GroupBox2.SuspendLayout()
         Me.GroupBox3.SuspendLayout()
+        Me.MenuStrip1.SuspendLayout()
         Me.SuspendLayout()
         '
         'Label1
         '
         Me.Label1.AutoSize = True
         Me.Label1.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label1.Location = New System.Drawing.Point(107, 9)
+        Me.Label1.Location = New System.Drawing.Point(108, 34)
         Me.Label1.Name = "Label1"
         Me.Label1.Size = New System.Drawing.Size(235, 20)
         Me.Label1.TabIndex = 0
@@ -67,7 +71,7 @@ Partial Class FrmCustomerRegistration
         Me.GroupBox1.Controls.Add(Me.Label4)
         Me.GroupBox1.Controls.Add(Me.Label3)
         Me.GroupBox1.Controls.Add(Me.Label2)
-        Me.GroupBox1.Location = New System.Drawing.Point(13, 48)
+        Me.GroupBox1.Location = New System.Drawing.Point(14, 73)
         Me.GroupBox1.Name = "GroupBox1"
         Me.GroupBox1.Size = New System.Drawing.Size(246, 161)
         Me.GroupBox1.TabIndex = 1
@@ -150,7 +154,7 @@ Partial Class FrmCustomerRegistration
         Me.GroupBox2.Controls.Add(Me.radFemale)
         Me.GroupBox2.Controls.Add(Me.radMale)
         Me.GroupBox2.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.GroupBox2.Location = New System.Drawing.Point(265, 48)
+        Me.GroupBox2.Location = New System.Drawing.Point(266, 73)
         Me.GroupBox2.Name = "GroupBox2"
         Me.GroupBox2.Size = New System.Drawing.Size(172, 76)
         Me.GroupBox2.TabIndex = 2
@@ -183,7 +187,7 @@ Partial Class FrmCustomerRegistration
         '
         Me.GroupBox3.Controls.Add(Me.txtAddress)
         Me.GroupBox3.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.GroupBox3.Location = New System.Drawing.Point(265, 130)
+        Me.GroupBox3.Location = New System.Drawing.Point(266, 155)
         Me.GroupBox3.Name = "GroupBox3"
         Me.GroupBox3.Size = New System.Drawing.Size(172, 79)
         Me.GroupBox3.TabIndex = 3
@@ -202,7 +206,7 @@ Partial Class FrmCustomerRegistration
         '
         Me.btnSubmit.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.btnSubmit.ForeColor = System.Drawing.Color.DarkGreen
-        Me.btnSubmit.Location = New System.Drawing.Point(110, 215)
+        Me.btnSubmit.Location = New System.Drawing.Point(111, 240)
         Me.btnSubmit.Name = "btnSubmit"
         Me.btnSubmit.Size = New System.Drawing.Size(75, 34)
         Me.btnSubmit.TabIndex = 4
@@ -213,7 +217,7 @@ Partial Class FrmCustomerRegistration
         '
         Me.btnExit.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.btnExit.ForeColor = System.Drawing.Color.Red
-        Me.btnExit.Location = New System.Drawing.Point(272, 215)
+        Me.btnExit.Location = New System.Drawing.Point(273, 240)
         Me.btnExit.Name = "btnExit"
         Me.btnExit.Size = New System.Drawing.Size(75, 34)
         Me.btnExit.TabIndex = 5
@@ -224,7 +228,7 @@ Partial Class FrmCustomerRegistration
         '
         Me.btnReset.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.btnReset.ForeColor = System.Drawing.Color.Navy
-        Me.btnReset.Location = New System.Drawing.Point(191, 215)
+        Me.btnReset.Location = New System.Drawing.Point(192, 240)
         Me.btnReset.Name = "btnReset"
         Me.btnReset.Size = New System.Drawing.Size(75, 34)
         Me.btnReset.TabIndex = 6
@@ -233,7 +237,7 @@ Partial Class FrmCustomerRegistration
         '
         'lblCustID
         '
-        Me.lblCustID.Location = New System.Drawing.Point(355, 14)
+        Me.lblCustID.Location = New System.Drawing.Point(356, 39)
         Me.lblCustID.Name = "lblCustID"
         Me.lblCustID.Size = New System.Drawing.Size(89, 20)
         Me.lblCustID.TabIndex = 7
@@ -241,17 +245,40 @@ Partial Class FrmCustomerRegistration
         'Label6
         '
         Me.Label6.AutoSize = True
-        Me.Label6.Location = New System.Drawing.Point(22, 15)
+        Me.Label6.Location = New System.Drawing.Point(23, 40)
         Me.Label6.Name = "Label6"
         Me.Label6.Size = New System.Drawing.Size(39, 13)
         Me.Label6.TabIndex = 8
         Me.Label6.Text = "Label6"
         '
+        'MenuStrip1
+        '
+        Me.MenuStrip1.Items.AddRange(New System.Windows.Forms.ToolStripItem() {Me.ProfileToolStripMenuItem})
+        Me.MenuStrip1.Location = New System.Drawing.Point(0, 0)
+        Me.MenuStrip1.Name = "MenuStrip1"
+        Me.MenuStrip1.Size = New System.Drawing.Size(456, 24)
+        Me.MenuStrip1.TabIndex = 9
+        Me.MenuStrip1.Text = "MenuStrip1"
+        '
+        'ProfileToolStripMenuItem
+        '
+        Me.ProfileToolStripMenuItem.DropDownItems.AddRange(New System.Windows.Forms.ToolStripItem() {Me.UpdateProfileToolStripMenuItem})
+        Me.ProfileToolStripMenuItem.Name = "ProfileToolStripMenuItem"
+        Me.ProfileToolStripMenuItem.Size = New System.Drawing.Size(53, 20)
+        Me.ProfileToolStripMenuItem.Text = "Profile"
+        '
+        'UpdateProfileToolStripMenuItem
+        '
+        Me.UpdateProfileToolStripMenuItem.Name = "UpdateProfileToolStripMenuItem"
+        Me.UpdateProfileToolStripMenuItem.ShortcutKeys = CType((System.Windows.Forms.Keys.Alt Or System.Windows.Forms.Keys.D), System.Windows.Forms.Keys)
+        Me.UpdateProfileToolStripMenuItem.Size = New System.Drawing.Size(187, 22)
+        Me.UpdateProfileToolStripMenuItem.Text = "Up&date Profile"
+        '
         'FrmCustomerRegistration
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
-        Me.ClientSize = New System.Drawing.Size(456, 268)
+        Me.ClientSize = New System.Drawing.Size(456, 290)
         Me.Controls.Add(Me.Label6)
         Me.Controls.Add(Me.lblCustID)
         Me.Controls.Add(Me.btnReset)
@@ -261,7 +288,9 @@ Partial Class FrmCustomerRegistration
         Me.Controls.Add(Me.GroupBox2)
         Me.Controls.Add(Me.GroupBox1)
         Me.Controls.Add(Me.Label1)
+        Me.Controls.Add(Me.MenuStrip1)
         Me.Name = "FrmCustomerRegistration"
+        Me.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen
         Me.Text = "FrmCustomerRegistration"
         Me.GroupBox1.ResumeLayout(False)
         Me.GroupBox1.PerformLayout()
@@ -269,6 +298,8 @@ Partial Class FrmCustomerRegistration
         Me.GroupBox2.PerformLayout()
         Me.GroupBox3.ResumeLayout(False)
         Me.GroupBox3.PerformLayout()
+        Me.MenuStrip1.ResumeLayout(False)
+        Me.MenuStrip1.PerformLayout()
         Me.ResumeLayout(False)
         Me.PerformLayout()
 
@@ -294,4 +325,7 @@ Partial Class FrmCustomerRegistration
     Friend WithEvents btnReset As Button
     Friend WithEvents lblCustID As Label
     Friend WithEvents Label6 As Label
+    Friend WithEvents MenuStrip1 As MenuStrip
+    Friend WithEvents ProfileToolStripMenuItem As ToolStripMenuItem
+    Friend WithEvents UpdateProfileToolStripMenuItem As ToolStripMenuItem
 End Class

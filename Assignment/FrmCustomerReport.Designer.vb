@@ -120,6 +120,7 @@ Partial Class FrmCustomerReport
         Me.Controls.Add(Me.Label2)
         Me.Controls.Add(Me.Label1)
         Me.Name = "FrmCustomerReport"
+        Me.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen
         Me.Text = "FrmCustomerReport"
         Me.ResumeLayout(False)
         Me.PerformLayout()

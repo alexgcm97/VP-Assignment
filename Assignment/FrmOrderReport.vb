@@ -9,62 +9,109 @@ Public Class FrmOrderReport
 
     Private Sub btnGenerate_Click(sender As Object, e As EventArgs) Handles btnGenerate.Click
         dlgPreviewReport.Document = printReport
+        dlgPreviewReport.Size = New System.Drawing.Size(800, 1000)
+        dlgPreviewReport.StartPosition = FormStartPosition.CenterScreen
         dlgPreviewReport.ShowDialog()
     End Sub
 
     Private Sub printReport_PrintPage(sender As Object, e As Printing.PrintPageEventArgs) Handles printReport.PrintPage
-        Dim month As Integer = dtReport.Value.Month
-        Dim year As Integer = dtReport.Value.Year
+        Dim reportDate As DateTime = dtReport.Value.Date
         Dim grandTotal As Decimal
 
         Dim fontHeader As New Font("Calibri", 24, FontStyle.Bold Or FontStyle.Underline)
         Dim fontSubHeader As New Font("Calibri", 12)
         Dim fontBody As New Font("Consolas", 10)
 
-        Dim header As String = "Order Monthly Report"
+        Dim detect = (From stf In db.Staffs
+                      Where stf.Id = Integer.Parse(FrmLogin.txtUserID.Text)).ToList()(0)
+
+        Dim header As String = "Monthly Sales Order Report"
         Dim subHeader As String = String.Format(
             "Printed on {0:dd-MMMM-yyyy hh:mm:ss tt}" & vbNewLine &
-            "Prepared by Staff", DateTime.Now)
+            "Prepared by {1} ({2}).", DateTime.Now, detect.Name, detect.Id)
 
         Dim body As New StringBuilder()
-        body.AppendLine(" No      Order ID           Order Date               Total Amount (RM)")
-        body.AppendLine("----   ------------   ----------------------    -------------------------")
+        body.AppendLine("No     Menu ID   Unit Price (RM)     Order Quantity     Total Amount (RM)")
+        body.AppendLine("----   -------   ---------------     --------------     -----------------")
 
         Dim cnt As Integer = 0
-        Dim orderQuery = db.Orders
-        Dim orderDetailQuery = db.OrderDetails
-        For Each order In orderQuery
-            If (order.OrderDate.Year = year And order.OrderDate.Month = month) Then
-                cnt += 1
-                body.AppendFormat("{0,2}     {1,10}       {2,20}",
-                              cnt, order.OrderID, order.OrderDate.ToShortDateString)
+        Dim orderQuery = From o In db.Orders
+                         Where o.OrderDate.Equals(reportDate)
+        Dim odList As New List(Of OrderDetail)
 
-                Dim totalAmount As Decimal
+        For Each o In orderQuery
+            Dim orderDetailQuery = From od In db.OrderDetails
+                                   Where od.OrderID.Equals(o.OrderID)
 
-                For Each orderDetail In orderDetailQuery
-                    If (orderDetail.OrderID = order.OrderID) Then
-                        totalAmount += orderDetail.SubTotal
-                    End If
-                Next
-                grandTotal += totalAmount
-                body.AppendFormat(" {0,25}" & vbNewLine, totalAmount)
-            End If
+            Dim id As String = ""
+            Dim price As Decimal = 0
+            Dim quantity As Integer = 0
+
+            For Each odRow In orderDetailQuery
+                Dim orderDetail As New OrderDetail
+                orderDetail.MenuID = odRow.MenuID
+                orderDetail.Quantity = odRow.Quantity
+                orderDetail.SubTotal = odRow.SubTotal
+                grandTotal += orderDetail.SubTotal
+
+                Dim index = searchItem(orderDetail.MenuID, odList)
+
+                If index >= 0 Then
+                    Dim item As OrderDetail = odList.Item(index)
+                    item.Quantity += orderDetail.Quantity
+                    item.SubTotal += orderDetail.SubTotal
+                    odList.Item(index) = item
+                ElseIf index = -1 Then
+                    odList.Add(orderDetail)
+                End If
+            Next
         Next
 
-        body.AppendFormat(vbNewLine & vbNewLine & vbNewLine & vbNewLine & vbNewLine)
-        body.AppendFormat("-------------------------------------------------------------------------" & vbNewLine)
-        body.AppendFormat("{0, 60}{1,10}" & vbNewLine, "Grand Total : ", grandTotal)
+        If odList.Count > 0 Then
+            odList.Sort(Function(x, y) String.Compare(x.MenuID, y.MenuID))
+            For Each item As OrderDetail In odList
+                cnt += 1
+                Dim menu = From m In db.Menus
+                           Where m.MenuID.Equals(item.MenuID)
+                body.AppendFormat("{0,2}  {1,10}   {2,15}    {3,15}  {4,20}" & vbNewLine,
+                cnt, item.MenuID, menu.AsEnumerable(0).Price, item.Quantity, item.SubTotal)
+            Next
+            body.AppendFormat(vbNewLine)
+        End If
 
-        body.AppendFormat("No of Records : {0,2} record(s)", cnt)
+        If (cnt > 0) Then
+            body.AppendFormat(vbNewLine & vbNewLine & vbNewLine & vbNewLine & vbNewLine)
+            body.AppendFormat("-------------------------------------------------------------------------" & vbNewLine)
+            body.AppendFormat("{0, 60}   {1,10}" & vbNewLine, "Grand Total (RM) : ", grandTotal)
+            body.AppendLine()
+            body.AppendFormat("No of Menu Item Records : {0,2} record(s)", cnt)
+        Else
+            body.AppendLine(vbNewLine)
+            body.AppendFormat("No records found on {0}.", dtReport.Value.ToString("dd MMMM yyyy"))
+        End If
 
 
         With e.Graphics
             .DrawImage(My.Resources.orderReport, 0, 0, 80, 100)
-            .DrawString(header, fontHeader, Brushes.Blue, 100, 0)
+            .DrawString(header, fontHeader, Brushes.DarkBlue, 100, 0)
             .DrawString(subHeader, fontSubHeader, Brushes.Black, 100, 40)
             .DrawString(body.ToString, fontBody, Brushes.Black, 0, 120)
         End With
 
+    End Sub
+
+    Private Function searchItem(menuId As Integer, list As List(Of OrderDetail)) As Integer
+        Dim index = -1
+        For Each item As OrderDetail In list
+            If menuId = item.MenuID Then
+                index = list.IndexOf(item)
+            End If
+        Next
+        Return index
+    End Function
+
+    Private Sub FrmOrderReport_FormClosing(sender As Object, e As FormClosingEventArgs) Handles MyBase.FormClosing
+        FrmMainMenu.Show()
     End Sub
 
 End Class

@@ -64,7 +64,7 @@ Partial Class FrmDeativateStf
         '
         Me.btnSearch.ForeColor = System.Drawing.Color.Blue
         Me.btnSearch.Location = New System.Drawing.Point(227, 13)
-        Me.btnSearch.Margin = New System.Windows.Forms.Padding(2, 2, 2, 2)
+        Me.btnSearch.Margin = New System.Windows.Forms.Padding(2)
         Me.btnSearch.Name = "btnSearch"
         Me.btnSearch.Size = New System.Drawing.Size(64, 22)
         Me.btnSearch.TabIndex = 6
@@ -75,7 +75,7 @@ Partial Class FrmDeativateStf
         '
         Me.txtIDSearch.Font = New System.Drawing.Font("Microsoft Sans Serif", 10.2!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.txtIDSearch.Location = New System.Drawing.Point(97, 13)
-        Me.txtIDSearch.Margin = New System.Windows.Forms.Padding(2, 2, 2, 2)
+        Me.txtIDSearch.Margin = New System.Windows.Forms.Padding(2)
         Me.txtIDSearch.Name = "txtIDSearch"
         Me.txtIDSearch.Size = New System.Drawing.Size(127, 23)
         Me.txtIDSearch.TabIndex = 5
@@ -95,7 +95,7 @@ Partial Class FrmDeativateStf
         '
         Me.DataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
         Me.DataGridView1.Location = New System.Drawing.Point(314, 13)
-        Me.DataGridView1.Margin = New System.Windows.Forms.Padding(2, 2, 2, 2)
+        Me.DataGridView1.Margin = New System.Windows.Forms.Padding(2)
         Me.DataGridView1.Name = "DataGridView1"
         Me.DataGridView1.RowTemplate.Height = 24
         Me.DataGridView1.Size = New System.Drawing.Size(346, 81)
@@ -127,9 +127,9 @@ Partial Class FrmDeativateStf
         Me.GroupBox1.Controls.Add(Me.Label2)
         Me.GroupBox1.Font = New System.Drawing.Font("Microsoft Sans Serif", 10.2!, CType((System.Drawing.FontStyle.Bold Or System.Drawing.FontStyle.Italic), System.Drawing.FontStyle), System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.GroupBox1.Location = New System.Drawing.Point(38, 116)
-        Me.GroupBox1.Margin = New System.Windows.Forms.Padding(2, 2, 2, 2)
+        Me.GroupBox1.Margin = New System.Windows.Forms.Padding(2)
         Me.GroupBox1.Name = "GroupBox1"
-        Me.GroupBox1.Padding = New System.Windows.Forms.Padding(2, 2, 2, 2)
+        Me.GroupBox1.Padding = New System.Windows.Forms.Padding(2)
         Me.GroupBox1.Size = New System.Drawing.Size(592, 284)
         Me.GroupBox1.TabIndex = 8
         Me.GroupBox1.TabStop = False
@@ -222,7 +222,7 @@ Partial Class FrmDeativateStf
         Me.btnCancel.Font = New System.Drawing.Font("Microsoft Sans Serif", 10.2!, CType((System.Drawing.FontStyle.Bold Or System.Drawing.FontStyle.Italic), System.Drawing.FontStyle), System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.btnCancel.ForeColor = System.Drawing.Color.Blue
         Me.btnCancel.Location = New System.Drawing.Point(469, 240)
-        Me.btnCancel.Margin = New System.Windows.Forms.Padding(2, 2, 2, 2)
+        Me.btnCancel.Margin = New System.Windows.Forms.Padding(2)
         Me.btnCancel.Name = "btnCancel"
         Me.btnCancel.Size = New System.Drawing.Size(80, 29)
         Me.btnCancel.TabIndex = 20
@@ -234,7 +234,7 @@ Partial Class FrmDeativateStf
         Me.btnConfirm.Font = New System.Drawing.Font("Microsoft Sans Serif", 10.2!, CType((System.Drawing.FontStyle.Bold Or System.Drawing.FontStyle.Italic), System.Drawing.FontStyle), System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.btnConfirm.ForeColor = System.Drawing.Color.Blue
         Me.btnConfirm.Location = New System.Drawing.Point(384, 240)
-        Me.btnConfirm.Margin = New System.Windows.Forms.Padding(2, 2, 2, 2)
+        Me.btnConfirm.Margin = New System.Windows.Forms.Padding(2)
         Me.btnConfirm.Name = "btnConfirm"
         Me.btnConfirm.Size = New System.Drawing.Size(80, 29)
         Me.btnConfirm.TabIndex = 19
@@ -256,9 +256,9 @@ Partial Class FrmDeativateStf
         Me.GroupBox2.Controls.Add(Me.rbManager)
         Me.GroupBox2.Controls.Add(Me.rbStaff)
         Me.GroupBox2.Location = New System.Drawing.Point(353, 85)
-        Me.GroupBox2.Margin = New System.Windows.Forms.Padding(2, 2, 2, 2)
+        Me.GroupBox2.Margin = New System.Windows.Forms.Padding(2)
         Me.GroupBox2.Name = "GroupBox2"
-        Me.GroupBox2.Padding = New System.Windows.Forms.Padding(2, 2, 2, 2)
+        Me.GroupBox2.Padding = New System.Windows.Forms.Padding(2)
         Me.GroupBox2.Size = New System.Drawing.Size(176, 50)
         Me.GroupBox2.TabIndex = 17
         Me.GroupBox2.TabStop = False
@@ -268,7 +268,7 @@ Partial Class FrmDeativateStf
         '
         Me.rbManager.AutoSize = True
         Me.rbManager.Location = New System.Drawing.Point(80, 21)
-        Me.rbManager.Margin = New System.Windows.Forms.Padding(2, 2, 2, 2)
+        Me.rbManager.Margin = New System.Windows.Forms.Padding(2)
         Me.rbManager.Name = "rbManager"
         Me.rbManager.Size = New System.Drawing.Size(89, 21)
         Me.rbManager.TabIndex = 1
@@ -280,7 +280,7 @@ Partial Class FrmDeativateStf
         '
         Me.rbStaff.AutoSize = True
         Me.rbStaff.Location = New System.Drawing.Point(4, 21)
-        Me.rbStaff.Margin = New System.Windows.Forms.Padding(2, 2, 2, 2)
+        Me.rbStaff.Margin = New System.Windows.Forms.Padding(2)
         Me.rbStaff.Name = "rbStaff"
         Me.rbStaff.Size = New System.Drawing.Size(60, 21)
         Me.rbStaff.TabIndex = 0
@@ -293,9 +293,9 @@ Partial Class FrmDeativateStf
         Me.gbGender.Controls.Add(Me.rbFemale)
         Me.gbGender.Controls.Add(Me.rbMale)
         Me.gbGender.Location = New System.Drawing.Point(353, 19)
-        Me.gbGender.Margin = New System.Windows.Forms.Padding(2, 2, 2, 2)
+        Me.gbGender.Margin = New System.Windows.Forms.Padding(2)
         Me.gbGender.Name = "gbGender"
-        Me.gbGender.Padding = New System.Windows.Forms.Padding(2, 2, 2, 2)
+        Me.gbGender.Padding = New System.Windows.Forms.Padding(2)
         Me.gbGender.Size = New System.Drawing.Size(176, 50)
         Me.gbGender.TabIndex = 16
         Me.gbGender.TabStop = False
@@ -305,7 +305,7 @@ Partial Class FrmDeativateStf
         '
         Me.rbFemale.AutoSize = True
         Me.rbFemale.Location = New System.Drawing.Point(80, 22)
-        Me.rbFemale.Margin = New System.Windows.Forms.Padding(2, 2, 2, 2)
+        Me.rbFemale.Margin = New System.Windows.Forms.Padding(2)
         Me.rbFemale.Name = "rbFemale"
         Me.rbFemale.Size = New System.Drawing.Size(78, 21)
         Me.rbFemale.TabIndex = 1
@@ -317,7 +317,7 @@ Partial Class FrmDeativateStf
         '
         Me.rbMale.AutoSize = True
         Me.rbMale.Location = New System.Drawing.Point(4, 22)
-        Me.rbMale.Margin = New System.Windows.Forms.Padding(2, 2, 2, 2)
+        Me.rbMale.Margin = New System.Windows.Forms.Padding(2)
         Me.rbMale.Name = "rbMale"
         Me.rbMale.Size = New System.Drawing.Size(60, 21)
         Me.rbMale.TabIndex = 0
@@ -409,7 +409,7 @@ Partial Class FrmDeativateStf
         '
         Me.btnBack.ForeColor = System.Drawing.Color.Blue
         Me.btnBack.Location = New System.Drawing.Point(227, 40)
-        Me.btnBack.Margin = New System.Windows.Forms.Padding(2, 2, 2, 2)
+        Me.btnBack.Margin = New System.Windows.Forms.Padding(2)
         Me.btnBack.Name = "btnBack"
         Me.btnBack.Size = New System.Drawing.Size(64, 22)
         Me.btnBack.TabIndex = 9
@@ -429,8 +429,9 @@ Partial Class FrmDeativateStf
         Me.Controls.Add(Me.btnSearch)
         Me.Controls.Add(Me.txtIDSearch)
         Me.Controls.Add(Me.Label1)
-        Me.Margin = New System.Windows.Forms.Padding(2, 2, 2, 2)
+        Me.Margin = New System.Windows.Forms.Padding(2)
         Me.Name = "FrmDeativateStf"
+        Me.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen
         Me.Text = "Deactivate Staff Account"
         CType(Me.DataGridView1, System.ComponentModel.ISupportInitialize).EndInit()
         Me.GroupBox1.ResumeLayout(False)

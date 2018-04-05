@@ -85,4 +85,8 @@ Public Class FrmCustomerUpdate
         Me.Close()
 
     End Sub
+
+    Private Sub FrmCustomerUpdate_FormClosing(sender As Object, e As FormClosingEventArgs) Handles MyBase.FormClosing
+        FrmCustomerRegistration.Show()
+    End Sub
 End Class

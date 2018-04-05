@@ -38,19 +38,18 @@ Partial Class FrmOrderReport
         Me.lblMonthYr.Font = New System.Drawing.Font("Microsoft Sans Serif", 11.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.lblMonthYr.Location = New System.Drawing.Point(40, 73)
         Me.lblMonthYr.Name = "lblMonthYr"
-        Me.lblMonthYr.Size = New System.Drawing.Size(110, 18)
+        Me.lblMonthYr.Size = New System.Drawing.Size(92, 18)
         Me.lblMonthYr.TabIndex = 0
-        Me.lblMonthYr.Text = "Month && Year : "
+        Me.lblMonthYr.Text = "Select &Date: "
         '
         'dtReport
         '
         Me.dtReport.CalendarFont = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.dtReport.CustomFormat = "MMMM yyyy"
+        Me.dtReport.CustomFormat = ""
         Me.dtReport.Font = New System.Drawing.Font("Microsoft Sans Serif", 11.0!)
-        Me.dtReport.Format = System.Windows.Forms.DateTimePickerFormat.Custom
+        Me.dtReport.Format = System.Windows.Forms.DateTimePickerFormat.[Short]
         Me.dtReport.Location = New System.Drawing.Point(43, 106)
         Me.dtReport.Name = "dtReport"
-        Me.dtReport.ShowUpDown = True
         Me.dtReport.Size = New System.Drawing.Size(199, 24)
         Me.dtReport.TabIndex = 3
         Me.dtReport.Value = New Date(2018, 4, 1, 0, 0, 0, 0)
@@ -59,11 +58,11 @@ Partial Class FrmOrderReport
         '
         Me.Label1.AutoSize = True
         Me.Label1.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, CType((System.Drawing.FontStyle.Bold Or System.Drawing.FontStyle.Underline), System.Drawing.FontStyle), System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label1.Location = New System.Drawing.Point(39, 23)
+        Me.Label1.Location = New System.Drawing.Point(26, 23)
         Me.Label1.Name = "Label1"
-        Me.Label1.Size = New System.Drawing.Size(181, 20)
+        Me.Label1.Size = New System.Drawing.Size(231, 20)
         Me.Label1.TabIndex = 4
-        Me.Label1.Text = "Order Monthly Report"
+        Me.Label1.Text = "Monthly Sales Order Report"
         '
         'btnGenerate
         '
@@ -114,6 +113,7 @@ Partial Class FrmOrderReport
         Me.Controls.Add(Me.dtReport)
         Me.Controls.Add(Me.lblMonthYr)
         Me.Name = "FrmOrderReport"
+        Me.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen
         Me.Text = "Order Report Module"
         Me.ResumeLayout(False)
         Me.PerformLayout()

@@ -37,12 +37,6 @@ Partial Public Class DataClasses1DataContext
     End Sub
   Partial Private Sub DeleteMenu(instance As Menu)
     End Sub
-  Partial Private Sub InsertOrder(instance As [Order])
-    End Sub
-  Partial Private Sub UpdateOrder(instance As [Order])
-    End Sub
-  Partial Private Sub DeleteOrder(instance As [Order])
-    End Sub
   Partial Private Sub InsertOrderDetail(instance As OrderDetail)
     End Sub
   Partial Private Sub UpdateOrderDetail(instance As OrderDetail)
@@ -60,6 +54,12 @@ Partial Public Class DataClasses1DataContext
   Partial Private Sub UpdateCustomer(instance As Customer)
     End Sub
   Partial Private Sub DeleteCustomer(instance As Customer)
+    End Sub
+  Partial Private Sub InsertOrder(instance As [Order])
+    End Sub
+  Partial Private Sub UpdateOrder(instance As [Order])
+    End Sub
+  Partial Private Sub DeleteOrder(instance As [Order])
     End Sub
   #End Region
 	
@@ -94,12 +94,6 @@ Partial Public Class DataClasses1DataContext
 		End Get
 	End Property
 	
-	Public ReadOnly Property Orders() As System.Data.Linq.Table(Of [Order])
-		Get
-			Return Me.GetTable(Of [Order])
-		End Get
-	End Property
-	
 	Public ReadOnly Property OrderDetails() As System.Data.Linq.Table(Of OrderDetail)
 		Get
 			Return Me.GetTable(Of OrderDetail)
@@ -115,6 +109,12 @@ Partial Public Class DataClasses1DataContext
 	Public ReadOnly Property Customers() As System.Data.Linq.Table(Of Customer)
 		Get
 			Return Me.GetTable(Of Customer)
+		End Get
+	End Property
+	
+	Public ReadOnly Property Orders() As System.Data.Linq.Table(Of [Order])
+		Get
+			Return Me.GetTable(Of [Order])
 		End Get
 	End Property
 End Class
@@ -267,114 +267,6 @@ Partial Public Class Menu
 	Private Sub detach_OrderDetails(ByVal entity As OrderDetail)
 		Me.SendPropertyChanging
 		entity.Menu = Nothing
-	End Sub
-End Class
-
-<Global.System.Data.Linq.Mapping.TableAttribute(Name:="dbo.Orders")>  _
-Partial Public Class [Order]
-	Implements System.ComponentModel.INotifyPropertyChanging, System.ComponentModel.INotifyPropertyChanged
-	
-	Private Shared emptyChangingEventArgs As PropertyChangingEventArgs = New PropertyChangingEventArgs(String.Empty)
-	
-	Private _OrderID As Integer
-	
-	Private _OrderDate As Date
-	
-	Private _OrderDetails As EntitySet(Of OrderDetail)
-	
-    #Region "Extensibility Method Definitions"
-    Partial Private Sub OnLoaded()
-    End Sub
-    Partial Private Sub OnValidate(action As System.Data.Linq.ChangeAction)
-    End Sub
-    Partial Private Sub OnCreated()
-    End Sub
-    Partial Private Sub OnOrderIDChanging(value As Integer)
-    End Sub
-    Partial Private Sub OnOrderIDChanged()
-    End Sub
-    Partial Private Sub OnOrderDateChanging(value As Date)
-    End Sub
-    Partial Private Sub OnOrderDateChanged()
-    End Sub
-    #End Region
-	
-	Public Sub New()
-		MyBase.New
-		Me._OrderDetails = New EntitySet(Of OrderDetail)(AddressOf Me.attach_OrderDetails, AddressOf Me.detach_OrderDetails)
-		OnCreated
-	End Sub
-	
-	<Global.System.Data.Linq.Mapping.ColumnAttribute(Storage:="_OrderID", DbType:="Int NOT NULL", IsPrimaryKey:=true)>  _
-	Public Property OrderID() As Integer
-		Get
-			Return Me._OrderID
-		End Get
-		Set
-			If ((Me._OrderID = value)  _
-						= false) Then
-				Me.OnOrderIDChanging(value)
-				Me.SendPropertyChanging
-				Me._OrderID = value
-				Me.SendPropertyChanged("OrderID")
-				Me.OnOrderIDChanged
-			End If
-		End Set
-	End Property
-	
-	<Global.System.Data.Linq.Mapping.ColumnAttribute(Storage:="_OrderDate", DbType:="DateTime NOT NULL")>  _
-	Public Property OrderDate() As Date
-		Get
-			Return Me._OrderDate
-		End Get
-		Set
-			If ((Me._OrderDate = value)  _
-						= false) Then
-				Me.OnOrderDateChanging(value)
-				Me.SendPropertyChanging
-				Me._OrderDate = value
-				Me.SendPropertyChanged("OrderDate")
-				Me.OnOrderDateChanged
-			End If
-		End Set
-	End Property
-	
-	<Global.System.Data.Linq.Mapping.AssociationAttribute(Name:="Order_OrderDetail", Storage:="_OrderDetails", ThisKey:="OrderID", OtherKey:="OrderID")>  _
-	Public Property OrderDetails() As EntitySet(Of OrderDetail)
-		Get
-			Return Me._OrderDetails
-		End Get
-		Set
-			Me._OrderDetails.Assign(value)
-		End Set
-	End Property
-	
-	Public Event PropertyChanging As PropertyChangingEventHandler Implements System.ComponentModel.INotifyPropertyChanging.PropertyChanging
-	
-	Public Event PropertyChanged As PropertyChangedEventHandler Implements System.ComponentModel.INotifyPropertyChanged.PropertyChanged
-	
-	Protected Overridable Sub SendPropertyChanging()
-		If ((Me.PropertyChangingEvent Is Nothing)  _
-					= false) Then
-			RaiseEvent PropertyChanging(Me, emptyChangingEventArgs)
-		End If
-	End Sub
-	
-	Protected Overridable Sub SendPropertyChanged(ByVal propertyName As [String])
-		If ((Me.PropertyChangedEvent Is Nothing)  _
-					= false) Then
-			RaiseEvent PropertyChanged(Me, New PropertyChangedEventArgs(propertyName))
-		End If
-	End Sub
-	
-	Private Sub attach_OrderDetails(ByVal entity As OrderDetail)
-		Me.SendPropertyChanging
-		entity.[Order] = Me
-	End Sub
-	
-	Private Sub detach_OrderDetails(ByVal entity As OrderDetail)
-		Me.SendPropertyChanging
-		entity.[Order] = Nothing
 	End Sub
 End Class
 
@@ -1136,5 +1028,135 @@ Partial Public Class Customer
 					= false) Then
 			RaiseEvent PropertyChanged(Me, New PropertyChangedEventArgs(propertyName))
 		End If
+	End Sub
+End Class
+
+<Global.System.Data.Linq.Mapping.TableAttribute(Name:="dbo.Orders")>  _
+Partial Public Class [Order]
+	Implements System.ComponentModel.INotifyPropertyChanging, System.ComponentModel.INotifyPropertyChanged
+	
+	Private Shared emptyChangingEventArgs As PropertyChangingEventArgs = New PropertyChangingEventArgs(String.Empty)
+	
+	Private _OrderID As Integer
+	
+	Private _OrderDate As Date
+	
+	Private _TotalAmount As System.Nullable(Of Decimal)
+	
+	Private _OrderDetails As EntitySet(Of OrderDetail)
+	
+    #Region "Extensibility Method Definitions"
+    Partial Private Sub OnLoaded()
+    End Sub
+    Partial Private Sub OnValidate(action As System.Data.Linq.ChangeAction)
+    End Sub
+    Partial Private Sub OnCreated()
+    End Sub
+    Partial Private Sub OnOrderIDChanging(value As Integer)
+    End Sub
+    Partial Private Sub OnOrderIDChanged()
+    End Sub
+    Partial Private Sub OnOrderDateChanging(value As Date)
+    End Sub
+    Partial Private Sub OnOrderDateChanged()
+    End Sub
+    Partial Private Sub OnTotalAmountChanging(value As System.Nullable(Of Decimal))
+    End Sub
+    Partial Private Sub OnTotalAmountChanged()
+    End Sub
+    #End Region
+	
+	Public Sub New()
+		MyBase.New
+		Me._OrderDetails = New EntitySet(Of OrderDetail)(AddressOf Me.attach_OrderDetails, AddressOf Me.detach_OrderDetails)
+		OnCreated
+	End Sub
+	
+	<Global.System.Data.Linq.Mapping.ColumnAttribute(Storage:="_OrderID", DbType:="Int NOT NULL", IsPrimaryKey:=true)>  _
+	Public Property OrderID() As Integer
+		Get
+			Return Me._OrderID
+		End Get
+		Set
+			If ((Me._OrderID = value)  _
+						= false) Then
+				Me.OnOrderIDChanging(value)
+				Me.SendPropertyChanging
+				Me._OrderID = value
+				Me.SendPropertyChanged("OrderID")
+				Me.OnOrderIDChanged
+			End If
+		End Set
+	End Property
+	
+	<Global.System.Data.Linq.Mapping.ColumnAttribute(Storage:="_OrderDate", DbType:="DateTime NOT NULL")>  _
+	Public Property OrderDate() As Date
+		Get
+			Return Me._OrderDate
+		End Get
+		Set
+			If ((Me._OrderDate = value)  _
+						= false) Then
+				Me.OnOrderDateChanging(value)
+				Me.SendPropertyChanging
+				Me._OrderDate = value
+				Me.SendPropertyChanged("OrderDate")
+				Me.OnOrderDateChanged
+			End If
+		End Set
+	End Property
+	
+	<Global.System.Data.Linq.Mapping.ColumnAttribute(Storage:="_TotalAmount", DbType:="Decimal(18,2)")>  _
+	Public Property TotalAmount() As System.Nullable(Of Decimal)
+		Get
+			Return Me._TotalAmount
+		End Get
+		Set
+			If (Me._TotalAmount.Equals(value) = false) Then
+				Me.OnTotalAmountChanging(value)
+				Me.SendPropertyChanging
+				Me._TotalAmount = value
+				Me.SendPropertyChanged("TotalAmount")
+				Me.OnTotalAmountChanged
+			End If
+		End Set
+	End Property
+	
+	<Global.System.Data.Linq.Mapping.AssociationAttribute(Name:="Order_OrderDetail", Storage:="_OrderDetails", ThisKey:="OrderID", OtherKey:="OrderID")>  _
+	Public Property OrderDetails() As EntitySet(Of OrderDetail)
+		Get
+			Return Me._OrderDetails
+		End Get
+		Set
+			Me._OrderDetails.Assign(value)
+		End Set
+	End Property
+	
+	Public Event PropertyChanging As PropertyChangingEventHandler Implements System.ComponentModel.INotifyPropertyChanging.PropertyChanging
+	
+	Public Event PropertyChanged As PropertyChangedEventHandler Implements System.ComponentModel.INotifyPropertyChanged.PropertyChanged
+	
+	Protected Overridable Sub SendPropertyChanging()
+		If ((Me.PropertyChangingEvent Is Nothing)  _
+					= false) Then
+			RaiseEvent PropertyChanging(Me, emptyChangingEventArgs)
+		End If
+	End Sub
+	
+	Protected Overridable Sub SendPropertyChanged(ByVal propertyName As [String])
+		If ((Me.PropertyChangedEvent Is Nothing)  _
+					= false) Then
+			RaiseEvent PropertyChanged(Me, New PropertyChangedEventArgs(propertyName))
+		End If
+	End Sub
+	
+	Private Sub attach_OrderDetails(ByVal entity As OrderDetail)
+		Me.SendPropertyChanging
+		entity.[Order] = Me
+	End Sub
+	
+	Private Sub detach_OrderDetails(ByVal entity As OrderDetail)
+		Me.SendPropertyChanging
+		entity.[Order] = Nothing
 	End Sub
 End Class
