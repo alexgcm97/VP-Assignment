@@ -58,11 +58,11 @@ Partial Class FrmOrderReport
         '
         Me.Label1.AutoSize = True
         Me.Label1.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, CType((System.Drawing.FontStyle.Bold Or System.Drawing.FontStyle.Underline), System.Drawing.FontStyle), System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label1.Location = New System.Drawing.Point(26, 23)
+        Me.Label1.Location = New System.Drawing.Point(39, 22)
         Me.Label1.Name = "Label1"
-        Me.Label1.Size = New System.Drawing.Size(231, 20)
+        Me.Label1.Size = New System.Drawing.Size(208, 20)
         Me.Label1.TabIndex = 4
-        Me.Label1.Text = "Monthly Sales Order Report"
+        Me.Label1.Text = "Daily Sales Order Report"
         '
         'btnGenerate
         '

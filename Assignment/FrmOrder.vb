@@ -23,14 +23,17 @@
         Dim beverageIndex As Integer = 0
         For Each menuItem In menuQuery
             Dim item As New ListViewItem
+            item.Name = menuItem.MenuID
             item.Text = menuItem.MenuName
             item.ToolTipText = menuItem.MenuName
             For Each imgName As String In imgList.Images.Keys
                 If (imgName = menuItem.MenuID) Then
-                    item.Name = imgName
                     item.ImageIndex = imgList.Images.IndexOfKey(imgName)
                 End If
             Next
+            If (item.ImageIndex = -1) Then
+                item.ImageIndex = 0
+            End If
             If (menuItem.Category = 1) Then
                 lvFood.Items.Add(item)
                 lvFood.Items(foodIndex).SubItems.Add(menuItem.MenuName)
