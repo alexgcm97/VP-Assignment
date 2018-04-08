@@ -31,9 +31,9 @@ Partial Class FrmMainMenu
         Me.ReportToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.StaffToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.OrderReportToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
+        Me.CustomerReportToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.btnCust = New System.Windows.Forms.Button()
         Me.btnMenu = New System.Windows.Forms.Button()
-        Me.CustomerReportToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.MenuStrip1.SuspendLayout()
         Me.SuspendLayout()
         '
@@ -110,7 +110,7 @@ Partial Class FrmMainMenu
         Me.StaffToolStripMenuItem.ForeColor = System.Drawing.Color.Black
         Me.StaffToolStripMenuItem.Name = "StaffToolStripMenuItem"
         Me.StaffToolStripMenuItem.ShortcutKeys = CType((System.Windows.Forms.Keys.Alt Or System.Windows.Forms.Keys.S), System.Windows.Forms.Keys)
-        Me.StaffToolStripMenuItem.Size = New System.Drawing.Size(168, 22)
+        Me.StaffToolStripMenuItem.Size = New System.Drawing.Size(185, 22)
         Me.StaffToolStripMenuItem.Text = "&Staff Report"
         '
         'OrderReportToolStripMenuItem
@@ -118,8 +118,15 @@ Partial Class FrmMainMenu
         Me.OrderReportToolStripMenuItem.ForeColor = System.Drawing.Color.Black
         Me.OrderReportToolStripMenuItem.Name = "OrderReportToolStripMenuItem"
         Me.OrderReportToolStripMenuItem.ShortcutKeys = CType((System.Windows.Forms.Keys.Alt Or System.Windows.Forms.Keys.R), System.Windows.Forms.Keys)
-        Me.OrderReportToolStripMenuItem.Size = New System.Drawing.Size(168, 22)
+        Me.OrderReportToolStripMenuItem.Size = New System.Drawing.Size(185, 22)
         Me.OrderReportToolStripMenuItem.Text = "O&rder Report"
+        '
+        'CustomerReportToolStripMenuItem
+        '
+        Me.CustomerReportToolStripMenuItem.Name = "CustomerReportToolStripMenuItem"
+        Me.CustomerReportToolStripMenuItem.ShortcutKeys = CType((System.Windows.Forms.Keys.Alt Or System.Windows.Forms.Keys.C), System.Windows.Forms.Keys)
+        Me.CustomerReportToolStripMenuItem.Size = New System.Drawing.Size(185, 22)
+        Me.CustomerReportToolStripMenuItem.Text = "&Customer Report"
         '
         'btnCust
         '
@@ -142,13 +149,6 @@ Partial Class FrmMainMenu
         Me.btnMenu.TabIndex = 7
         Me.btnMenu.Text = "&Menu Mantainance"
         Me.btnMenu.UseVisualStyleBackColor = True
-        '
-        'CustomerReportToolStripMenuItem
-        '
-        Me.CustomerReportToolStripMenuItem.Name = "CustomerReportToolStripMenuItem"
-        Me.CustomerReportToolStripMenuItem.ShortcutKeys = CType((System.Windows.Forms.Keys.Alt Or System.Windows.Forms.Keys.C), System.Windows.Forms.Keys)
-        Me.CustomerReportToolStripMenuItem.Size = New System.Drawing.Size(185, 22)
-        Me.CustomerReportToolStripMenuItem.Text = "&Customer Report"
         '
         'FrmMainMenu
         '
