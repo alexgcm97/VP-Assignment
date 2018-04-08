@@ -153,6 +153,12 @@
     <Compile Include="FrmMainMenu.vb">
       <SubType>Form</SubType>
     </Compile>
+    <Compile Include="FrmMenuDetailReport.Designer.vb">
+      <DependentUpon>FrmMenuDetailReport.vb</DependentUpon>
+    </Compile>
+    <Compile Include="FrmMenuDetailReport.vb">
+      <SubType>Form</SubType>
+    </Compile>
     <Compile Include="FrmMenuItem.Designer.vb">
       <DependentUpon>FrmMenuItem.vb</DependentUpon>
     </Compile>
@@ -243,6 +249,9 @@
     <EmbeddedResource Include="FrmMainMenu.resx">
       <DependentUpon>FrmMainMenu.vb</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="FrmMenuDetailReport.resx">
+      <DependentUpon>FrmMenuDetailReport.vb</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="FrmMenuItem.resx">
       <DependentUpon>FrmMenuItem.vb</DependentUpon>
     </EmbeddedResource>
@@ -332,6 +341,7 @@
     <Content Include="Images\menu\9015.jpg" />
     <Content Include="Images\menu\9016.jpg" />
     <Content Include="Images\orderReport.jpg" />
+    <None Include="Resources\Menu Report Logo.jpg" />
     <None Include="Resources\Staff.png" />
     <None Include="Images\menu\9001.jpg" />
   </ItemGroup>
