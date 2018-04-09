@@ -1,11 +1,12 @@
-﻿Imports System.Text.RegularExpressions
+﻿Imports System.Text
+Imports System.Text.RegularExpressions
 
 Public Class FrmStaffRegistration
     Dim db As New DataClasses1DataContext
     Dim getMaxID As Integer
     Dim genderText As String
     Dim positionText As String
-    Private count As Integer = 1
+    Private Count As Integer = 1
 
     Private Sub FrmStaffRegistration_Load(sender As Object, e As EventArgs) Handles MyBase.Load
         txtName.Select()
@@ -32,51 +33,91 @@ Public Class FrmStaffRegistration
     End Sub
 
     Private Sub btnAdd_Click(sender As Object, e As EventArgs) Handles btnAdd.Click
-        Dim phoneNumber As New Regex("[0-9]-\d{7}")
-        If phoneNumber.IsMatch(txtContactNo.Text) Then
-            Dim icno As New Regex("\d{6}-\d{2}-\d{4}")
-            If icno.IsMatch(txtIcNo.Text) Then
-                Dim email As New Regex("^([a-zA-Z0-9_\-\.]+)@([a-zA-Z0-9_\-\.]+)\.([a-zA-Z]{2,5})$")
-                If email.IsMatch(txtEmail.Text) Then
-                    Dim postcode As New Regex("\d{5}")
-                    If postcode.IsMatch(txtPostcode.Text) Then
-                        count = 0
-                    Else
-                        MessageBox.Show("Invalid Postcode Format (E.g *****)", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error)
-                    End If
-                Else
-                    MessageBox.Show("Invalid Email Format (E.g sample@gmail.com)", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error)
-                End If
-            Else
-                MessageBox.Show("Invalid IC No Format (E.g : ******-**-****)", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error)
-            End If
-        Else
-            MessageBox.Show("Invalid Contact Number Format (E.g : ***-*******)", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error)
+        Dim err As New StringBuilder()
+        Dim ctr As Control = Nothing
+
+        Dim name As String = txtName.Text.Trim()
+        Dim icno As String = If(txtIcNo.MaskCompleted, txtIcNo.Text, "")
+        Dim contactnum As String = If(txtContactNo.MaskCompleted, txtContactNo.Text, "")
+        Dim email1 As String = txtEmail.Text.Trim()
+        Dim address As String = txtAddress.Text.Trim()
+        Dim state As String = txtState.Text.Trim()
+        Dim town As String = txtTown.Text.Trim()
+        Dim postcode As String = txtPostcode.Text.Trim()
+
+
+        If name = "" Then
+            err.AppendLine("- Name empty")
+            ctr = If(ctr, txtName)
         End If
 
-        If count = 0 Then
-            Try
-                Dim stf As New Staff With {
-                                .Id = Integer.Parse(lblID.Text),
-                                .Password = "Abc123",
-                                .Name = txtName.Text,
-                                .IcNo = txtIcNo.Text,
-                                .Gender = genderText.ToString,
-                                .ContactNo = txtContactNo.Text,
-                                .Email = txtEmail.Text,
-                                .Address = txtAddress.Text,
-                                .State = txtState.Text,
-                                .Town = txtTown.Text,
-                                .Postcode = txtPostcode.Text,
-                                .Position = positionText.ToString,
-                                .Status = "Active"
-                            }
+        If icno = "" Then
+            err.AppendLine("- IC No empty")
+            ctr = If(ctr, txtIcNo)
+        End If
 
-                db.Staffs.InsertOnSubmit(stf)
-            Catch ex As Exception
-                MessageBox.Show("Cannot Be Empty", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error)
-            End Try
+        If contactnum = "" Then
+            err.AppendLine("- Contact Number empty")
+            ctr = If(ctr, txtContactNo)
+        End If
 
+        If email1 = "" Then
+            err.AppendLine("- Email empty")
+            ctr = If(ctr, txtEmail)
+        End If
+
+        If address = "" Then
+            err.AppendLine("- Address empty")
+            ctr = If(ctr, txtAddress)
+        End If
+
+        If state = "" Then
+            err.AppendLine("- State empty")
+            ctr = If(ctr, txtState)
+        End If
+
+        If town = "" Then
+            err.AppendLine("- Town empty")
+            ctr = If(ctr, txtTown)
+        End If
+
+        If postcode = "" Then
+            err.AppendLine("- Postcode empty")
+            ctr = If(ctr, txtPostcode)
+        End If
+
+        If err.Length > 0 Then
+            MessageBox.Show(err.ToString(), "Input Error")
+            ctr.Focus()
+            Return
+        End If
+
+        Count = 1
+        Dim email As New Regex("^([a-zA-Z0-9_\-\.]+)@([a-zA-Z0-9_\-\.]+)\.([a-zA-Z]{2,5})$")
+        If email.IsMatch(txtEmail.Text) Then
+            Dim stf As New Staff With {
+                            .Id = Integer.Parse(lblID.Text),
+                            .Password = "Abc123",
+                            .Name = txtName.Text,
+                            .IcNo = txtIcNo.Text,
+                            .Gender = genderText.ToString,
+                            .ContactNo = txtContactNo.Text,
+                            .Email = txtEmail.Text,
+                            .Address = txtAddress.Text,
+                            .State = txtState.Text,
+                            .Town = txtTown.Text,
+                            .Postcode = txtPostcode.Text,
+                            .Position = positionText.ToString,
+                            .Status = "Active"
+                        }
+            db.Staffs.InsertOnSubmit(stf)
+
+        Else
+            MessageBox.Show("Invalid Email Format (E.g sample@gmail.com)", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error)
+            Count = 0
+        End If
+
+        If Count = 1 Then
             Try
                 db.SubmitChanges()
                 db.Dispose()

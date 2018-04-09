@@ -30,6 +30,8 @@ Public Class FrmCustomerRegistration
     End Sub
 
     Private Sub btnSubmit_Click(sender As Object, e As EventArgs) Handles btnSubmit.Click
+
+
         Dim IcNo As New Regex("\d{6}-\d{2}-\d{4}") 'check icno
         If IcNo.IsMatch(txtIcNo.Text) Then
             Dim phoneNo As New Regex("[0-9]-\d{7}") ' check phoneNo
