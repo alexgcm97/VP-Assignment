@@ -101,7 +101,6 @@ Public Class FrmMenuItem
 
             Try
                 db.SubmitChanges()
-                db.Dispose()
                 MessageBox.Show("Successully Inserted")
                 Dim reload As New FrmMenuItem
                 reload.Show()
