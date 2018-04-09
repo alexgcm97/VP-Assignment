@@ -33,13 +33,9 @@ Partial Class FrmStaffRegistration
         Me.Label9 = New System.Windows.Forms.Label()
         Me.lblID = New System.Windows.Forms.Label()
         Me.txtName = New System.Windows.Forms.TextBox()
-        Me.txtIcNo = New System.Windows.Forms.TextBox()
-        Me.txtContactNo = New System.Windows.Forms.TextBox()
-        Me.txtEmail = New System.Windows.Forms.TextBox()
         Me.txtAddress = New System.Windows.Forms.TextBox()
         Me.txtState = New System.Windows.Forms.TextBox()
         Me.txtTown = New System.Windows.Forms.TextBox()
-        Me.txtPostcode = New System.Windows.Forms.TextBox()
         Me.lblStatus = New System.Windows.Forms.Label()
         Me.gbGender = New System.Windows.Forms.GroupBox()
         Me.rbMale = New System.Windows.Forms.RadioButton()
@@ -53,6 +49,10 @@ Partial Class FrmStaffRegistration
         Me.btnReset = New System.Windows.Forms.Button()
         Me.btnCancel = New System.Windows.Forms.Button()
         Me.btnView = New System.Windows.Forms.Button()
+        Me.txtIcNo = New System.Windows.Forms.MaskedTextBox()
+        Me.txtContactNo = New System.Windows.Forms.MaskedTextBox()
+        Me.txtPostcode = New System.Windows.Forms.MaskedTextBox()
+        Me.txtEmail = New System.Windows.Forms.TextBox()
         Me.gbGender.SuspendLayout()
         Me.gbPosition.SuspendLayout()
         Me.SuspendLayout()
@@ -64,7 +64,7 @@ Partial Class FrmStaffRegistration
         Me.Label1.Location = New System.Drawing.Point(69, 49)
         Me.Label1.Margin = New System.Windows.Forms.Padding(4, 0, 4, 0)
         Me.Label1.Name = "Label1"
-        Me.Label1.Size = New System.Drawing.Size(72, 17)
+        Me.Label1.Size = New System.Drawing.Size(86, 20)
         Me.Label1.TabIndex = 0
         Me.Label1.Text = "User ID :"
         '
@@ -75,7 +75,7 @@ Partial Class FrmStaffRegistration
         Me.Label2.Location = New System.Drawing.Point(86, 98)
         Me.Label2.Margin = New System.Windows.Forms.Padding(4, 0, 4, 0)
         Me.Label2.Name = "Label2"
-        Me.Label2.Size = New System.Drawing.Size(59, 17)
+        Me.Label2.Size = New System.Drawing.Size(69, 20)
         Me.Label2.TabIndex = 1
         Me.Label2.Text = "Name :"
         '
@@ -86,7 +86,7 @@ Partial Class FrmStaffRegistration
         Me.Label3.Location = New System.Drawing.Point(87, 145)
         Me.Label3.Margin = New System.Windows.Forms.Padding(4, 0, 4, 0)
         Me.Label3.Name = "Label3"
-        Me.Label3.Size = New System.Drawing.Size(57, 17)
+        Me.Label3.Size = New System.Drawing.Size(68, 20)
         Me.Label3.TabIndex = 2
         Me.Label3.Text = "IC No :"
         '
@@ -97,7 +97,7 @@ Partial Class FrmStaffRegistration
         Me.Label4.Location = New System.Drawing.Point(40, 194)
         Me.Label4.Margin = New System.Windows.Forms.Padding(4, 0, 4, 0)
         Me.Label4.Name = "Label4"
-        Me.Label4.Size = New System.Drawing.Size(98, 17)
+        Me.Label4.Size = New System.Drawing.Size(115, 20)
         Me.Label4.TabIndex = 3
         Me.Label4.Text = "Contact No :"
         '
@@ -108,7 +108,7 @@ Partial Class FrmStaffRegistration
         Me.Label5.Location = New System.Drawing.Point(87, 241)
         Me.Label5.Margin = New System.Windows.Forms.Padding(4, 0, 4, 0)
         Me.Label5.Name = "Label5"
-        Me.Label5.Size = New System.Drawing.Size(57, 17)
+        Me.Label5.Size = New System.Drawing.Size(68, 20)
         Me.Label5.TabIndex = 4
         Me.Label5.Text = "Email :"
         '
@@ -119,7 +119,7 @@ Partial Class FrmStaffRegistration
         Me.Label6.Location = New System.Drawing.Point(65, 284)
         Me.Label6.Margin = New System.Windows.Forms.Padding(4, 0, 4, 0)
         Me.Label6.Name = "Label6"
-        Me.Label6.Size = New System.Drawing.Size(77, 17)
+        Me.Label6.Size = New System.Drawing.Size(90, 20)
         Me.Label6.TabIndex = 5
         Me.Label6.Text = "Address :"
         '
@@ -130,7 +130,7 @@ Partial Class FrmStaffRegistration
         Me.Label7.Location = New System.Drawing.Point(90, 324)
         Me.Label7.Margin = New System.Windows.Forms.Padding(4, 0, 4, 0)
         Me.Label7.Name = "Label7"
-        Me.Label7.Size = New System.Drawing.Size(56, 17)
+        Me.Label7.Size = New System.Drawing.Size(65, 20)
         Me.Label7.TabIndex = 6
         Me.Label7.Text = "State :"
         '
@@ -141,7 +141,7 @@ Partial Class FrmStaffRegistration
         Me.Label8.Location = New System.Drawing.Point(337, 324)
         Me.Label8.Margin = New System.Windows.Forms.Padding(4, 0, 4, 0)
         Me.Label8.Name = "Label8"
-        Me.Label8.Size = New System.Drawing.Size(56, 17)
+        Me.Label8.Size = New System.Drawing.Size(65, 20)
         Me.Label8.TabIndex = 7
         Me.Label8.Text = "Town :"
         '
@@ -152,7 +152,7 @@ Partial Class FrmStaffRegistration
         Me.Label9.Location = New System.Drawing.Point(570, 324)
         Me.Label9.Margin = New System.Windows.Forms.Padding(4, 0, 4, 0)
         Me.Label9.Name = "Label9"
-        Me.Label9.Size = New System.Drawing.Size(85, 17)
+        Me.Label9.Size = New System.Drawing.Size(99, 20)
         Me.Label9.TabIndex = 8
         Me.Label9.Text = "Postcode :"
         '
@@ -172,35 +172,8 @@ Partial Class FrmStaffRegistration
         Me.txtName.Location = New System.Drawing.Point(163, 95)
         Me.txtName.Margin = New System.Windows.Forms.Padding(4)
         Me.txtName.Name = "txtName"
-        Me.txtName.Size = New System.Drawing.Size(284, 23)
+        Me.txtName.Size = New System.Drawing.Size(284, 27)
         Me.txtName.TabIndex = 10
-        '
-        'txtIcNo
-        '
-        Me.txtIcNo.Font = New System.Drawing.Font("Microsoft Sans Serif", 10.2!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.txtIcNo.Location = New System.Drawing.Point(163, 142)
-        Me.txtIcNo.Margin = New System.Windows.Forms.Padding(4)
-        Me.txtIcNo.Name = "txtIcNo"
-        Me.txtIcNo.Size = New System.Drawing.Size(284, 23)
-        Me.txtIcNo.TabIndex = 11
-        '
-        'txtContactNo
-        '
-        Me.txtContactNo.Font = New System.Drawing.Font("Microsoft Sans Serif", 10.2!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.txtContactNo.Location = New System.Drawing.Point(163, 191)
-        Me.txtContactNo.Margin = New System.Windows.Forms.Padding(4)
-        Me.txtContactNo.Name = "txtContactNo"
-        Me.txtContactNo.Size = New System.Drawing.Size(284, 23)
-        Me.txtContactNo.TabIndex = 12
-        '
-        'txtEmail
-        '
-        Me.txtEmail.Font = New System.Drawing.Font("Microsoft Sans Serif", 10.2!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.txtEmail.Location = New System.Drawing.Point(163, 234)
-        Me.txtEmail.Margin = New System.Windows.Forms.Padding(4)
-        Me.txtEmail.Name = "txtEmail"
-        Me.txtEmail.Size = New System.Drawing.Size(284, 23)
-        Me.txtEmail.TabIndex = 13
         '
         'txtAddress
         '
@@ -208,7 +181,7 @@ Partial Class FrmStaffRegistration
         Me.txtAddress.Location = New System.Drawing.Point(163, 277)
         Me.txtAddress.Margin = New System.Windows.Forms.Padding(4)
         Me.txtAddress.Name = "txtAddress"
-        Me.txtAddress.Size = New System.Drawing.Size(638, 23)
+        Me.txtAddress.Size = New System.Drawing.Size(638, 27)
         Me.txtAddress.TabIndex = 14
         '
         'txtState
@@ -217,7 +190,7 @@ Partial Class FrmStaffRegistration
         Me.txtState.Location = New System.Drawing.Point(163, 321)
         Me.txtState.Margin = New System.Windows.Forms.Padding(4)
         Me.txtState.Name = "txtState"
-        Me.txtState.Size = New System.Drawing.Size(166, 23)
+        Me.txtState.Size = New System.Drawing.Size(166, 27)
         Me.txtState.TabIndex = 15
         '
         'txtTown
@@ -226,17 +199,8 @@ Partial Class FrmStaffRegistration
         Me.txtTown.Location = New System.Drawing.Point(410, 321)
         Me.txtTown.Margin = New System.Windows.Forms.Padding(4)
         Me.txtTown.Name = "txtTown"
-        Me.txtTown.Size = New System.Drawing.Size(152, 23)
+        Me.txtTown.Size = New System.Drawing.Size(152, 27)
         Me.txtTown.TabIndex = 16
-        '
-        'txtPostcode
-        '
-        Me.txtPostcode.Font = New System.Drawing.Font("Microsoft Sans Serif", 10.2!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.txtPostcode.Location = New System.Drawing.Point(677, 321)
-        Me.txtPostcode.Margin = New System.Windows.Forms.Padding(4)
-        Me.txtPostcode.Name = "txtPostcode"
-        Me.txtPostcode.Size = New System.Drawing.Size(124, 23)
-        Me.txtPostcode.TabIndex = 17
         '
         'lblStatus
         '
@@ -245,7 +209,7 @@ Partial Class FrmStaffRegistration
         Me.lblStatus.Location = New System.Drawing.Point(392, 49)
         Me.lblStatus.Margin = New System.Windows.Forms.Padding(4, 0, 4, 0)
         Me.lblStatus.Name = "lblStatus"
-        Me.lblStatus.Size = New System.Drawing.Size(54, 17)
+        Me.lblStatus.Size = New System.Drawing.Size(65, 20)
         Me.lblStatus.TabIndex = 18
         Me.lblStatus.Text = "[Active]"
         '
@@ -270,7 +234,7 @@ Partial Class FrmStaffRegistration
         Me.rbMale.Location = New System.Drawing.Point(12, 32)
         Me.rbMale.Margin = New System.Windows.Forms.Padding(4)
         Me.rbMale.Name = "rbMale"
-        Me.rbMale.Size = New System.Drawing.Size(56, 21)
+        Me.rbMale.Size = New System.Drawing.Size(66, 24)
         Me.rbMale.TabIndex = 0
         Me.rbMale.TabStop = True
         Me.rbMale.Text = "Male"
@@ -283,7 +247,7 @@ Partial Class FrmStaffRegistration
         Me.rbFemale.Location = New System.Drawing.Point(125, 32)
         Me.rbFemale.Margin = New System.Windows.Forms.Padding(4)
         Me.rbFemale.Name = "rbFemale"
-        Me.rbFemale.Size = New System.Drawing.Size(72, 21)
+        Me.rbFemale.Size = New System.Drawing.Size(85, 24)
         Me.rbFemale.TabIndex = 1
         Me.rbFemale.TabStop = True
         Me.rbFemale.Text = "Female"
@@ -310,7 +274,7 @@ Partial Class FrmStaffRegistration
         Me.rbManager.Location = New System.Drawing.Point(125, 38)
         Me.rbManager.Margin = New System.Windows.Forms.Padding(4)
         Me.rbManager.Name = "rbManager"
-        Me.rbManager.Size = New System.Drawing.Size(82, 21)
+        Me.rbManager.Size = New System.Drawing.Size(95, 24)
         Me.rbManager.TabIndex = 1
         Me.rbManager.TabStop = True
         Me.rbManager.Text = "Manager"
@@ -323,7 +287,7 @@ Partial Class FrmStaffRegistration
         Me.rbStaff.Location = New System.Drawing.Point(12, 38)
         Me.rbStaff.Margin = New System.Windows.Forms.Padding(4)
         Me.rbStaff.Name = "rbStaff"
-        Me.rbStaff.Size = New System.Drawing.Size(55, 21)
+        Me.rbStaff.Size = New System.Drawing.Size(65, 24)
         Me.rbStaff.TabIndex = 0
         Me.rbStaff.TabStop = True
         Me.rbStaff.Text = "Staff"
@@ -400,11 +364,47 @@ Partial Class FrmStaffRegistration
         Me.btnView.Text = "&View"
         Me.btnView.UseVisualStyleBackColor = True
         '
+        'txtIcNo
+        '
+        Me.txtIcNo.Location = New System.Drawing.Point(163, 145)
+        Me.txtIcNo.Mask = "000000-00-0000"
+        Me.txtIcNo.Name = "txtIcNo"
+        Me.txtIcNo.Size = New System.Drawing.Size(284, 27)
+        Me.txtIcNo.TabIndex = 27
+        '
+        'txtContactNo
+        '
+        Me.txtContactNo.Location = New System.Drawing.Point(163, 194)
+        Me.txtContactNo.Mask = "000-00000000"
+        Me.txtContactNo.Name = "txtContactNo"
+        Me.txtContactNo.Size = New System.Drawing.Size(284, 27)
+        Me.txtContactNo.TabIndex = 28
+        '
+        'txtPostcode
+        '
+        Me.txtPostcode.Location = New System.Drawing.Point(677, 321)
+        Me.txtPostcode.Mask = "00000"
+        Me.txtPostcode.Name = "txtPostcode"
+        Me.txtPostcode.Size = New System.Drawing.Size(124, 27)
+        Me.txtPostcode.TabIndex = 30
+        Me.txtPostcode.ValidatingType = GetType(Integer)
+        '
+        'txtEmail
+        '
+        Me.txtEmail.Location = New System.Drawing.Point(163, 238)
+        Me.txtEmail.Name = "txtEmail"
+        Me.txtEmail.Size = New System.Drawing.Size(284, 27)
+        Me.txtEmail.TabIndex = 31
+        '
         'FrmStaffRegistration
         '
-        Me.AutoScaleDimensions = New System.Drawing.SizeF(8.0!, 16.0!)
+        Me.AutoScaleDimensions = New System.Drawing.SizeF(10.0!, 20.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.ClientSize = New System.Drawing.Size(1043, 470)
+        Me.Controls.Add(Me.txtEmail)
+        Me.Controls.Add(Me.txtPostcode)
+        Me.Controls.Add(Me.txtContactNo)
+        Me.Controls.Add(Me.txtIcNo)
         Me.Controls.Add(Me.btnView)
         Me.Controls.Add(Me.btnCancel)
         Me.Controls.Add(Me.btnReset)
@@ -414,13 +414,9 @@ Partial Class FrmStaffRegistration
         Me.Controls.Add(Me.gbPosition)
         Me.Controls.Add(Me.gbGender)
         Me.Controls.Add(Me.lblStatus)
-        Me.Controls.Add(Me.txtPostcode)
         Me.Controls.Add(Me.txtTown)
         Me.Controls.Add(Me.txtState)
         Me.Controls.Add(Me.txtAddress)
-        Me.Controls.Add(Me.txtEmail)
-        Me.Controls.Add(Me.txtContactNo)
-        Me.Controls.Add(Me.txtIcNo)
         Me.Controls.Add(Me.txtName)
         Me.Controls.Add(Me.lblID)
         Me.Controls.Add(Me.Label9)
@@ -456,13 +452,9 @@ Partial Class FrmStaffRegistration
     Friend WithEvents Label9 As Label
     Friend WithEvents lblID As Label
     Friend WithEvents txtName As TextBox
-    Friend WithEvents txtIcNo As TextBox
-    Friend WithEvents txtContactNo As TextBox
-    Friend WithEvents txtEmail As TextBox
     Friend WithEvents txtAddress As TextBox
     Friend WithEvents txtState As TextBox
     Friend WithEvents txtTown As TextBox
-    Friend WithEvents txtPostcode As TextBox
     Friend WithEvents lblStatus As Label
     Friend WithEvents gbGender As GroupBox
     Friend WithEvents rbMale As RadioButton
@@ -476,4 +468,8 @@ Partial Class FrmStaffRegistration
     Friend WithEvents btnReset As Button
     Friend WithEvents btnCancel As Button
     Friend WithEvents btnView As Button
+    Friend WithEvents txtIcNo As MaskedTextBox
+    Friend WithEvents txtContactNo As MaskedTextBox
+    Friend WithEvents txtPostcode As MaskedTextBox
+    Friend WithEvents txtEmail As TextBox
 End Class

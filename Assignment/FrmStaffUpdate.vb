@@ -49,67 +49,66 @@ Public Class FrmStaffUpdate
 
         If count = 1 Then
             MessageBox.Show("ID Not Found", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error)
+            GroupBox1.Visible = False
         End If
     End Sub
 
     Private Sub btnConfirm_Click(sender As Object, e As EventArgs) Handles btnConfirm.Click
-        Dim phoneNumber As New Regex("[0-9]-\d{7}")
-        If phoneNumber.IsMatch(txtContactNo.Text) Then
-            Dim icno As New Regex("\d{6}-\d{2}-\d{4}")
-            If icno.IsMatch(txtIcNo.Text) Then
-                Dim email As New Regex("^([a-zA-Z0-9_\-\.]+)@([a-zA-Z0-9_\-\.]+)\.([a-zA-Z]{2,5})$")
-                If email.IsMatch(txtEmail.Text) Then
-                    Dim postcode As New Regex("\d{5}")
-                    If postcode.IsMatch(txtPostcode.Text) Then
-                        count = 0
-                    Else
-                        MessageBox.Show("Invalid Postcode Format (E.g *****)", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error)
-                    End If
-                Else
-                    MessageBox.Show("Invalid Email Format (E.g sample@gmail.com)", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error)
-                End If
-            Else
-                MessageBox.Show("Invalid IC No Format (E.g : ******-**-****)", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error)
-            End If
+        count = 0
+        count1 = 0
+        Dim email As New Regex("^([a-zA-Z0-9_\-\.]+)@([a-zA-Z0-9_\-\.]+)\.([a-zA-Z]{2,5})$")
+        If email.IsMatch(txtEmail.Text) Then
+            count = 0
         Else
-            MessageBox.Show("Invalid Contact Number Format (E.g : ***-*******)", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error)
+            MessageBox.Show("Invalid Email Format (E.g sample@gmail.com)", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error)
         End If
 
         If count = 0 Then
             Dim updateStf = (From stf In db.Staffs
                              Where stf.Id = txtIDSearch.Text).ToList()(0)
 
-            updateStf.Name = txtName.Text
-            updateStf.IcNo = txtIcNo.Text
-            updateStf.ContactNo = txtContactNo.Text
-            updateStf.Email = txtEmail.Text
-            updateStf.Address = txtAddress.Text
-            updateStf.State = txtState.Text
-            updateStf.Town = txtTown.Text
-            updateStf.Postcode = txtPostcode.Text
-            updateStf.Status = lblAccount.Text
-            If rbMale.Checked Then
-                updateStf.Gender = "Male"
-            ElseIf rbFemale.Checked Then
-                updateStf.Gender = "Female"
+            If txtName.Text = "" Then
+                MessageBox.Show("Cannot be empty", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error)
+                count1 = 1
+            Else
+
+                updateStf.Name = txtName.Text
+                updateStf.IcNo = txtIcNo.Text
+                updateStf.ContactNo = txtContactNo.Text
+                updateStf.Email = txtEmail.Text
+                updateStf.Address = txtAddress.Text
+                updateStf.State = txtState.Text
+                updateStf.Town = txtTown.Text
+                updateStf.Postcode = txtPostcode.Text
+                updateStf.Status = lblAccount.Text
+                If rbMale.Checked Then
+                    updateStf.Gender = "Male"
+                ElseIf rbFemale.Checked Then
+                    updateStf.Gender = "Female"
+                End If
+
+                If rbStaff.Checked Then
+                    updateStf.Position = "Staff"
+                ElseIf rbManager.Checked Then
+                    updateStf.Position = "Manager"
+                End If
+
             End If
 
-            If rbStaff.Checked Then
-                updateStf.Position = "Staff"
-            ElseIf rbManager.Checked Then
-                updateStf.Position = "Manager"
-            End If
+            If count1 = 0 Then
 
-            Try
-                db.SubmitChanges()
-                db.Dispose()
-                MessageBox.Show(txtName.Text & " updated", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information)
-                FrmStaffRegistration.Show()
-                Me.Close()
-            Catch
-                MessageBox.Show("Updated Fail", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error)
-            End Try
+                Try
+                    db.SubmitChanges()
+                    db.Dispose()
+                    MessageBox.Show(txtName.Text & " updated", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information)
+                    FrmStaffRegistration.Show()
+                    Me.Close()
+                Catch
+                    MessageBox.Show("Updated Fail", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error)
+                End Try
+            End If
         End If
+
     End Sub
 
     Private Sub btnCancel_Click(sender As Object, e As EventArgs) Handles btnCancel.Click
