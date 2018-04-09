@@ -230,6 +230,7 @@ Partial Class FrmCustomerUpdate
         'txtAddress
         '
         Me.txtAddress.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.txtAddress.ForeColor = System.Drawing.SystemColors.WindowText
         Me.txtAddress.Location = New System.Drawing.Point(81, 258)
         Me.txtAddress.Multiline = True
         Me.txtAddress.Name = "txtAddress"

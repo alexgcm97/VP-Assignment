@@ -75,8 +75,8 @@ Partial Class FrmLogin
         'btnLogin
         '
         Me.btnLogin.DialogResult = System.Windows.Forms.DialogResult.Cancel
-        Me.btnLogin.Font = New System.Drawing.Font("Gill Sans Ultra Bold Condensed", 10.2!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.btnLogin.ForeColor = System.Drawing.Color.Blue
+        Me.btnLogin.Font = New System.Drawing.Font("Microsoft Sans Serif", 11.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.btnLogin.ForeColor = System.Drawing.Color.Black
         Me.btnLogin.Location = New System.Drawing.Point(116, 103)
         Me.btnLogin.Margin = New System.Windows.Forms.Padding(2)
         Me.btnLogin.Name = "btnLogin"
@@ -88,8 +88,8 @@ Partial Class FrmLogin
         'btnCancel
         '
         Me.btnCancel.DialogResult = System.Windows.Forms.DialogResult.Cancel
-        Me.btnCancel.Font = New System.Drawing.Font("Gill Sans Ultra Bold Condensed", 10.2!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.btnCancel.ForeColor = System.Drawing.Color.Blue
+        Me.btnCancel.Font = New System.Drawing.Font("Microsoft Sans Serif", 11.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.btnCancel.ForeColor = System.Drawing.Color.Black
         Me.btnCancel.Location = New System.Drawing.Point(192, 103)
         Me.btnCancel.Margin = New System.Windows.Forms.Padding(2)
         Me.btnCancel.Name = "btnCancel"

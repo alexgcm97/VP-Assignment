@@ -12,7 +12,7 @@ Public Class FrmMenuItem
     Dim id As String = getMaxID
     Public index As String = ""
 
-    Private Sub FrmMenuItem_Load(sender As Object, e As EventArgs) Handles MyBase.Load
+    Private Sub FrmMenuItem_Activated(sender As Object, e As EventArgs) Handles MyBase.Activated
         'TODO: This line of code loads data into the 'AssignmentDataSet.Menu' table. You can move, or remove it, as needed.
         Me.MenuTableAdapter.Fill(Me.AssignmentDataSet.Menu)
         'TODO: This line of code loads data into the 'AssignmentDataSet.Menu' table. You can move, or remove it, as needed.
@@ -34,7 +34,7 @@ Public Class FrmMenuItem
     End Sub
 
     Private Sub DataGridView1_DoubleClick(sender As Object, e As EventArgs) Handles DataGridView1.DoubleClick
-        index = DataGridView1.CurrentCell.Value()
+        index = DataGridView1.CurrentRow.Cells(0).Value()
         Dim editFrm As New FrmEditMenuItem
         editFrm.ShowDialog()
 
