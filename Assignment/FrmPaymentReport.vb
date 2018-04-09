@@ -63,5 +63,7 @@ Public Class FrmPaymentReport
 
     End Sub
 
-
+    Private Sub FrmPaymentReport_FormClosing(sender As Object, e As FormClosingEventArgs) Handles MyBase.FormClosing
+        FrmMainMenu.Show()
+    End Sub
 End Class

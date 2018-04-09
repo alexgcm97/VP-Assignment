@@ -173,13 +173,13 @@
                 If (txtPay.Text <> "") Then
                     payAmount = Decimal.Parse(txtPay.Text)
                     changeAmount = payAmount - total
-                    lblChange.Text = changeAmount.ToString("RM 0.00")
                     If changeAmount < 0 Then
                         MessageBox.Show("Insufficient payment.", "Payment Error", MessageBoxButtons.OK, MessageBoxIcon.Error)
                         changeAmount = -1
                         lblChange.Text = ""
+                    Else
+                        lblChange.Text = changeAmount.ToString("RM 0.00")
                     End If
-
                 Else
                     MessageBox.Show("Payment amount is empty.", "Payment Error", MessageBoxButtons.OK, MessageBoxIcon.Error)
                     changeAmount = -1
@@ -195,7 +195,6 @@
     End Sub
 
     Private Sub btnRedeem_Click(sender As Object, e As EventArgs) Handles btnRedeem.Click
-        Dim total As Decimal
         Dim grandTotalStr As String = lblGrandTotal.Text
         Dim grandTotal As Decimal = Decimal.Parse(grandTotalStr)
         If rd100.Checked Then

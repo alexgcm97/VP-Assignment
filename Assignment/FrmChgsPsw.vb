@@ -37,7 +37,6 @@ Public Class FrmChgsPsw
 
         Try
             db.SubmitChanges()
-            db.Dispose()
         Catch
             MessageBox.Show("Update Unsucessful", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error)
         End Try
@@ -49,7 +48,6 @@ Public Class FrmChgsPsw
     End Sub
 
     Private Sub FrmChgsPsw_FormClosing(sender As Object, e As FormClosingEventArgs) Handles MyBase.FormClosing
-        db.Dispose()
         FrmMainMenu.Show()
     End Sub
 End Class

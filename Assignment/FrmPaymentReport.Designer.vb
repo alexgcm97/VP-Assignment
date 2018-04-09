@@ -36,10 +36,9 @@ Partial Class FrmPaymentReport
         '
         Me.lblMonthYr.AutoSize = True
         Me.lblMonthYr.Font = New System.Drawing.Font("Microsoft Sans Serif", 11.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.lblMonthYr.Location = New System.Drawing.Point(53, 90)
-        Me.lblMonthYr.Margin = New System.Windows.Forms.Padding(4, 0, 4, 0)
+        Me.lblMonthYr.Location = New System.Drawing.Point(40, 73)
         Me.lblMonthYr.Name = "lblMonthYr"
-        Me.lblMonthYr.Size = New System.Drawing.Size(140, 24)
+        Me.lblMonthYr.Size = New System.Drawing.Size(110, 18)
         Me.lblMonthYr.TabIndex = 0
         Me.lblMonthYr.Text = "Month && Year : "
         '
@@ -49,11 +48,10 @@ Partial Class FrmPaymentReport
         Me.dtReport.CustomFormat = "MMMM yyyy"
         Me.dtReport.Font = New System.Drawing.Font("Microsoft Sans Serif", 11.0!)
         Me.dtReport.Format = System.Windows.Forms.DateTimePickerFormat.Custom
-        Me.dtReport.Location = New System.Drawing.Point(57, 130)
-        Me.dtReport.Margin = New System.Windows.Forms.Padding(4, 4, 4, 4)
+        Me.dtReport.Location = New System.Drawing.Point(43, 106)
         Me.dtReport.Name = "dtReport"
         Me.dtReport.ShowUpDown = True
-        Me.dtReport.Size = New System.Drawing.Size(264, 28)
+        Me.dtReport.Size = New System.Drawing.Size(199, 24)
         Me.dtReport.TabIndex = 3
         Me.dtReport.Value = New Date(2018, 4, 1, 0, 0, 0, 0)
         '
@@ -61,20 +59,18 @@ Partial Class FrmPaymentReport
         '
         Me.Label1.AutoSize = True
         Me.Label1.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, CType((System.Drawing.FontStyle.Bold Or System.Drawing.FontStyle.Underline), System.Drawing.FontStyle), System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label1.Location = New System.Drawing.Point(52, 28)
-        Me.Label1.Margin = New System.Windows.Forms.Padding(4, 0, 4, 0)
+        Me.Label1.Location = New System.Drawing.Point(39, 23)
         Me.Label1.Name = "Label1"
-        Me.Label1.Size = New System.Drawing.Size(218, 25)
+        Me.Label1.Size = New System.Drawing.Size(181, 20)
         Me.Label1.TabIndex = 4
         Me.Label1.Text = "Monthly Sales Report"
         '
         'btnGenerate
         '
         Me.btnGenerate.Font = New System.Drawing.Font("Microsoft Sans Serif", 11.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.btnGenerate.Location = New System.Drawing.Point(57, 212)
-        Me.btnGenerate.Margin = New System.Windows.Forms.Padding(4, 4, 4, 4)
+        Me.btnGenerate.Location = New System.Drawing.Point(43, 172)
         Me.btnGenerate.Name = "btnGenerate"
-        Me.btnGenerate.Size = New System.Drawing.Size(120, 49)
+        Me.btnGenerate.Size = New System.Drawing.Size(90, 40)
         Me.btnGenerate.TabIndex = 5
         Me.btnGenerate.Text = "&Generate"
         Me.btnGenerate.UseVisualStyleBackColor = True
@@ -83,10 +79,9 @@ Partial Class FrmPaymentReport
         '
         Me.btnCancel.DialogResult = System.Windows.Forms.DialogResult.Cancel
         Me.btnCancel.Font = New System.Drawing.Font("Microsoft Sans Serif", 11.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.btnCancel.Location = New System.Drawing.Point(203, 212)
-        Me.btnCancel.Margin = New System.Windows.Forms.Padding(4, 4, 4, 4)
+        Me.btnCancel.Location = New System.Drawing.Point(152, 172)
         Me.btnCancel.Name = "btnCancel"
-        Me.btnCancel.Size = New System.Drawing.Size(120, 49)
+        Me.btnCancel.Size = New System.Drawing.Size(90, 40)
         Me.btnCancel.TabIndex = 6
         Me.btnCancel.Text = "&Cancel"
         Me.btnCancel.UseVisualStyleBackColor = True
@@ -109,16 +104,15 @@ Partial Class FrmPaymentReport
         'FrmPaymentReport
         '
         Me.AcceptButton = Me.btnGenerate
-        Me.AutoScaleDimensions = New System.Drawing.SizeF(8.0!, 16.0!)
+        Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.CancelButton = Me.btnCancel
-        Me.ClientSize = New System.Drawing.Size(379, 321)
+        Me.ClientSize = New System.Drawing.Size(284, 261)
         Me.Controls.Add(Me.btnCancel)
         Me.Controls.Add(Me.btnGenerate)
         Me.Controls.Add(Me.Label1)
         Me.Controls.Add(Me.dtReport)
         Me.Controls.Add(Me.lblMonthYr)
-        Me.Margin = New System.Windows.Forms.Padding(4, 4, 4, 4)
         Me.Name = "FrmPaymentReport"
         Me.Text = "Monthly Sales Report"
         Me.ResumeLayout(False)
