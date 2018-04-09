@@ -112,12 +112,12 @@ Public Class FrmStaffUpdate
     End Sub
 
     Private Sub btnCancel_Click(sender As Object, e As EventArgs) Handles btnCancel.Click
-        FrmStaffRegistration.Show()
+        FrmStaffRegistration.Close()
         Me.Close()
     End Sub
 
     Private Sub btnBack_Click(sender As Object, e As EventArgs) Handles btnBack.Click
-        FrmStaffRegistration.Show()
+        FrmStaffRegistration.Close()
         Me.Close()
     End Sub
 
