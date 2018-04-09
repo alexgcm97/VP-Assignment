@@ -166,6 +166,12 @@
     <Compile Include="FrmPayment.vb">
       <SubType>Form</SubType>
     </Compile>
+    <Compile Include="FrmPaymentReport.Designer.vb">
+      <DependentUpon>FrmPaymentReport.vb</DependentUpon>
+    </Compile>
+    <Compile Include="FrmPaymentReport.vb">
+      <SubType>Form</SubType>
+    </Compile>
     <Compile Include="FrmStaffRegistration.Designer.vb">
       <DependentUpon>FrmStaffRegistration.vb</DependentUpon>
     </Compile>
@@ -236,6 +242,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="FrmPayment.resx">
       <DependentUpon>FrmPayment.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FrmPaymentReport.resx">
+      <DependentUpon>FrmPaymentReport.vb</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="FrmStaffRegistration.resx">
       <DependentUpon>FrmStaffRegistration.vb</DependentUpon>

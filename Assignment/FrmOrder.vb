@@ -2,7 +2,7 @@
     Dim db As New DataClasses1DataContext
     Dim imgList As New ImageList
     Dim dataRow As DataGridViewRow
-    Dim orignalValue As Integer
+    Dim originalValue As Integer
 
     Private Sub FrmOrder_Load(sender As Object, e As EventArgs) Handles MyBase.Load
 
@@ -90,8 +90,8 @@
         If (searchRow(dataRow) >= 0) Then
             Dim index = searchRow(dataRow)
             Dim quantity As Integer = dgvCart.Rows(index).Cells(3).Value + 1
-            If (quantity > 50) Then
-                MessageBox.Show("Maximum quantity per item is 50.", "Quantity Error", MessageBoxButtons.OK, MessageBoxIcon.Error)
+            If (quantity > 99) Then
+                MessageBox.Show("Maximum quantity per item is 99.", "Quantity Error", MessageBoxButtons.OK, MessageBoxIcon.Error)
             Else
                 dgvCart.Rows(index).Cells(3).Value = quantity
             End If
@@ -107,7 +107,7 @@
             For Each cartRow As DataGridViewRow In dgvCart.Rows
                 grandTotal += (cartRow.Cells(2).Value * cartRow.Cells(3).Value)
             Next
-            FrmPayment.lblGrandTotal.Text = grandTotal.ToString("RM 0.00")
+            FrmPayment.lblGrandTotal.Text = grandTotal.ToString
             FrmPayment.ShowDialog()
         Else
             MessageBox.Show("Food Cart is Empty.", "Order Error", MessageBoxButtons.OK, MessageBoxIcon.Error)
@@ -129,15 +129,24 @@
             Dim str As String = dgvCart.Rows(e.RowIndex).Cells(3).Value
             If (IsNumeric(str) = False) Then
                 MessageBox.Show("Please input only digits.", "Quantity Error", MessageBoxButtons.OK, MessageBoxIcon.Error)
-                dgvCart.Rows(e.RowIndex).Cells(3).Value = orignalValue
-            ElseIf (dgvCart.Rows(e.RowIndex).Cells(3).Value > 50) Then
-                MessageBox.Show("Maximum order quantity is 50.", "Quantity Error", MessageBoxButtons.OK, MessageBoxIcon.Error)
-                dgvCart.Rows(e.RowIndex).Cells(3).Value = orignalValue
+                dgvCart.Rows(e.RowIndex).Cells(3).Value = originalValue
+            ElseIf (dgvCart.Rows(e.RowIndex).Cells(3).Value Mod 1 > 0) Then
+                MessageBox.Show("Please input only integer values.", "Quantity Error", MessageBoxButtons.OK, MessageBoxIcon.Error)
+                dgvCart.Rows(e.RowIndex).Cells(3).Value = originalValue
+            ElseIf (dgvCart.Rows(e.RowIndex).Cells(3).Value > 99) Then
+                MessageBox.Show("Maximum order quantity is 99.", "Quantity Error", MessageBoxButtons.OK, MessageBoxIcon.Error)
+                dgvCart.Rows(e.RowIndex).Cells(3).Value = originalValue
             ElseIf (dgvCart.Rows(e.RowIndex).Cells(3).Value <= 0) Then
                 MessageBox.Show("Please input value more than 1.", "Quantity Error", MessageBoxButtons.OK, MessageBoxIcon.Error)
-                dgvCart.Rows(e.RowIndex).Cells(3).Value = orignalValue
+                dgvCart.Rows(e.RowIndex).Cells(3).Value = originalValue
             Else
-                dgvCart.Rows(e.RowIndex).Cells(3).Value = Integer.Parse(dgvCart.Rows(e.RowIndex).Cells(3).Value)
+                Dim tryInt As Integer
+                Dim quantityStr As String = dgvCart.Rows(e.RowIndex).Cells(3).Value
+                If Integer.TryParse(quantityStr, tryInt) Then
+                    dgvCart.Rows(e.RowIndex).Cells(3).Value = Integer.Parse(quantityStr)
+                Else
+                    dgvCart.Rows(e.RowIndex).Cells(3).Value = Double.Parse(quantityStr)
+                End If
             End If
         End If
     End Sub
@@ -151,7 +160,7 @@
     End Sub
 
     Private Sub dgvCart_CellEnter(sender As Object, e As DataGridViewCellEventArgs) Handles dgvCart.CellEnter
-        orignalValue = dgvCart.Rows(e.RowIndex).Cells(3).Value
+        originalValue = dgvCart.Rows(e.RowIndex).Cells(3).Value
     End Sub
 
     Private Sub ClearCartToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles ClearCartToolStripMenuItem.Click, ClearCartToolStripMenuItem1.Click
@@ -199,4 +208,5 @@
     Private Sub FrmOrder_FormClosing(sender As Object, e As FormClosingEventArgs) Handles MyBase.FormClosing
         FrmMainMenu.Show()
     End Sub
+
 End Class

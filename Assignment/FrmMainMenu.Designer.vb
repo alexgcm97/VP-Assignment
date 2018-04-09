@@ -31,30 +31,33 @@ Partial Class FrmMainMenu
         Me.ReportToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.StaffToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.OrderReportToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
+        Me.CustomerReportToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.btnCust = New System.Windows.Forms.Button()
         Me.btnMenu = New System.Windows.Forms.Button()
-        Me.CustomerReportToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
+        Me.PaymentReportToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.MenuStrip1.SuspendLayout()
         Me.SuspendLayout()
         '
         'btnStfMan
         '
-        Me.btnStfMan.Font = New System.Drawing.Font("Gill Sans Ultra Bold", 10.2!, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.btnStfMan.ForeColor = System.Drawing.Color.Blue
-        Me.btnStfMan.Location = New System.Drawing.Point(22, 51)
-        Me.btnStfMan.Margin = New System.Windows.Forms.Padding(2)
+        Me.btnStfMan.Font = New System.Drawing.Font("Microsoft Sans Serif", 10.2!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.btnStfMan.ForeColor = System.Drawing.Color.Black
+        Me.btnStfMan.Location = New System.Drawing.Point(29, 63)
+        Me.btnStfMan.Margin = New System.Windows.Forms.Padding(3, 2, 3, 2)
         Me.btnStfMan.Name = "btnStfMan"
-        Me.btnStfMan.Size = New System.Drawing.Size(152, 60)
+        Me.btnStfMan.Size = New System.Drawing.Size(203, 74)
         Me.btnStfMan.TabIndex = 0
         Me.btnStfMan.Text = "&Staff Mantainance"
         Me.btnStfMan.UseVisualStyleBackColor = True
         '
         'btnOrder
         '
-        Me.btnOrder.Font = New System.Drawing.Font("Gill Sans Ultra Bold", 10.2!, System.Drawing.FontStyle.Italic)
-        Me.btnOrder.Location = New System.Drawing.Point(22, 136)
+        Me.btnOrder.Font = New System.Drawing.Font("Microsoft Sans Serif", 10.2!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.btnOrder.ForeColor = System.Drawing.Color.Black
+        Me.btnOrder.Location = New System.Drawing.Point(29, 167)
+        Me.btnOrder.Margin = New System.Windows.Forms.Padding(4, 4, 4, 4)
         Me.btnOrder.Name = "btnOrder"
-        Me.btnOrder.Size = New System.Drawing.Size(152, 60)
+        Me.btnOrder.Size = New System.Drawing.Size(203, 74)
         Me.btnOrder.TabIndex = 4
         Me.btnOrder.Text = "&Order Module"
         Me.btnOrder.UseVisualStyleBackColor = True
@@ -65,8 +68,8 @@ Partial Class FrmMainMenu
         Me.MenuStrip1.Items.AddRange(New System.Windows.Forms.ToolStripItem() {Me.AccountToolStripMenuItem, Me.ReportToolStripMenuItem})
         Me.MenuStrip1.Location = New System.Drawing.Point(0, 0)
         Me.MenuStrip1.Name = "MenuStrip1"
-        Me.MenuStrip1.Padding = New System.Windows.Forms.Padding(4, 2, 0, 2)
-        Me.MenuStrip1.Size = New System.Drawing.Size(356, 24)
+        Me.MenuStrip1.Padding = New System.Windows.Forms.Padding(5, 2, 0, 2)
+        Me.MenuStrip1.Size = New System.Drawing.Size(475, 28)
         Me.MenuStrip1.TabIndex = 5
         Me.MenuStrip1.Text = "MenuStrip1"
         '
@@ -76,7 +79,7 @@ Partial Class FrmMainMenu
         Me.AccountToolStripMenuItem.Font = New System.Drawing.Font("Microsoft Sans Serif", 7.8!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.AccountToolStripMenuItem.ForeColor = System.Drawing.Color.Black
         Me.AccountToolStripMenuItem.Name = "AccountToolStripMenuItem"
-        Me.AccountToolStripMenuItem.Size = New System.Drawing.Size(59, 20)
+        Me.AccountToolStripMenuItem.Size = New System.Drawing.Size(71, 21)
         Me.AccountToolStripMenuItem.Text = "&Account"
         '
         'ChangePasswordToolStripMenuItem
@@ -84,7 +87,7 @@ Partial Class FrmMainMenu
         Me.ChangePasswordToolStripMenuItem.Font = New System.Drawing.Font("Microsoft Sans Serif", 7.8!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.ChangePasswordToolStripMenuItem.ForeColor = System.Drawing.Color.Black
         Me.ChangePasswordToolStripMenuItem.Name = "ChangePasswordToolStripMenuItem"
-        Me.ChangePasswordToolStripMenuItem.Size = New System.Drawing.Size(160, 22)
+        Me.ChangePasswordToolStripMenuItem.Size = New System.Drawing.Size(196, 26)
         Me.ChangePasswordToolStripMenuItem.Text = "&Change Password"
         '
         'SignOutToolStripMenuItem
@@ -93,16 +96,16 @@ Partial Class FrmMainMenu
         Me.SignOutToolStripMenuItem.ForeColor = System.Drawing.Color.Black
         Me.SignOutToolStripMenuItem.Name = "SignOutToolStripMenuItem"
         Me.SignOutToolStripMenuItem.ShortcutKeys = CType((System.Windows.Forms.Keys.Alt Or System.Windows.Forms.Keys.X), System.Windows.Forms.Keys)
-        Me.SignOutToolStripMenuItem.Size = New System.Drawing.Size(160, 22)
+        Me.SignOutToolStripMenuItem.Size = New System.Drawing.Size(196, 26)
         Me.SignOutToolStripMenuItem.Text = "&Sign Out"
         '
         'ReportToolStripMenuItem
         '
-        Me.ReportToolStripMenuItem.DropDownItems.AddRange(New System.Windows.Forms.ToolStripItem() {Me.StaffToolStripMenuItem, Me.OrderReportToolStripMenuItem, Me.CustomerReportToolStripMenuItem})
+        Me.ReportToolStripMenuItem.DropDownItems.AddRange(New System.Windows.Forms.ToolStripItem() {Me.StaffToolStripMenuItem, Me.OrderReportToolStripMenuItem, Me.CustomerReportToolStripMenuItem, Me.PaymentReportToolStripMenuItem})
         Me.ReportToolStripMenuItem.Font = New System.Drawing.Font("Microsoft Sans Serif", 7.8!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.ReportToolStripMenuItem.ForeColor = System.Drawing.Color.Black
         Me.ReportToolStripMenuItem.Name = "ReportToolStripMenuItem"
-        Me.ReportToolStripMenuItem.Size = New System.Drawing.Size(77, 20)
+        Me.ReportToolStripMenuItem.Size = New System.Drawing.Size(96, 24)
         Me.ReportToolStripMenuItem.Text = "View &Report"
         '
         'StaffToolStripMenuItem
@@ -110,7 +113,7 @@ Partial Class FrmMainMenu
         Me.StaffToolStripMenuItem.ForeColor = System.Drawing.Color.Black
         Me.StaffToolStripMenuItem.Name = "StaffToolStripMenuItem"
         Me.StaffToolStripMenuItem.ShortcutKeys = CType((System.Windows.Forms.Keys.Alt Or System.Windows.Forms.Keys.S), System.Windows.Forms.Keys)
-        Me.StaffToolStripMenuItem.Size = New System.Drawing.Size(168, 22)
+        Me.StaffToolStripMenuItem.Size = New System.Drawing.Size(230, 26)
         Me.StaffToolStripMenuItem.Text = "&Staff Report"
         '
         'OrderReportToolStripMenuItem
@@ -118,43 +121,52 @@ Partial Class FrmMainMenu
         Me.OrderReportToolStripMenuItem.ForeColor = System.Drawing.Color.Black
         Me.OrderReportToolStripMenuItem.Name = "OrderReportToolStripMenuItem"
         Me.OrderReportToolStripMenuItem.ShortcutKeys = CType((System.Windows.Forms.Keys.Alt Or System.Windows.Forms.Keys.R), System.Windows.Forms.Keys)
-        Me.OrderReportToolStripMenuItem.Size = New System.Drawing.Size(168, 22)
+        Me.OrderReportToolStripMenuItem.Size = New System.Drawing.Size(230, 26)
         Me.OrderReportToolStripMenuItem.Text = "O&rder Report"
+        '
+        'CustomerReportToolStripMenuItem
+        '
+        Me.CustomerReportToolStripMenuItem.Name = "CustomerReportToolStripMenuItem"
+        Me.CustomerReportToolStripMenuItem.ShortcutKeys = CType((System.Windows.Forms.Keys.Alt Or System.Windows.Forms.Keys.C), System.Windows.Forms.Keys)
+        Me.CustomerReportToolStripMenuItem.Size = New System.Drawing.Size(230, 26)
+        Me.CustomerReportToolStripMenuItem.Text = "&Customer Report"
         '
         'btnCust
         '
-        Me.btnCust.Font = New System.Drawing.Font("Gill Sans Ultra Bold", 10.2!, System.Drawing.FontStyle.Italic)
-        Me.btnCust.Location = New System.Drawing.Point(191, 51)
-        Me.btnCust.Margin = New System.Windows.Forms.Padding(2)
+        Me.btnCust.Font = New System.Drawing.Font("Microsoft Sans Serif", 10.2!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.btnCust.ForeColor = System.Drawing.Color.Black
+        Me.btnCust.Location = New System.Drawing.Point(255, 63)
+        Me.btnCust.Margin = New System.Windows.Forms.Padding(3, 2, 3, 2)
         Me.btnCust.Name = "btnCust"
-        Me.btnCust.Size = New System.Drawing.Size(152, 60)
+        Me.btnCust.Size = New System.Drawing.Size(203, 74)
         Me.btnCust.TabIndex = 6
         Me.btnCust.Text = "&Customer Mantainance"
         Me.btnCust.UseVisualStyleBackColor = True
         '
         'btnMenu
         '
-        Me.btnMenu.Font = New System.Drawing.Font("Gill Sans Ultra Bold", 10.2!, System.Drawing.FontStyle.Italic)
-        Me.btnMenu.Location = New System.Drawing.Point(191, 136)
-        Me.btnMenu.Margin = New System.Windows.Forms.Padding(2)
+        Me.btnMenu.Font = New System.Drawing.Font("Microsoft Sans Serif", 10.2!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.btnMenu.ForeColor = System.Drawing.Color.Black
+        Me.btnMenu.Location = New System.Drawing.Point(255, 167)
+        Me.btnMenu.Margin = New System.Windows.Forms.Padding(3, 2, 3, 2)
         Me.btnMenu.Name = "btnMenu"
-        Me.btnMenu.Size = New System.Drawing.Size(152, 60)
+        Me.btnMenu.Size = New System.Drawing.Size(203, 74)
         Me.btnMenu.TabIndex = 7
         Me.btnMenu.Text = "&Menu Mantainance"
         Me.btnMenu.UseVisualStyleBackColor = True
         '
-        'CustomerReportToolStripMenuItem
+        'PaymentReportToolStripMenuItem
         '
-        Me.CustomerReportToolStripMenuItem.Name = "CustomerReportToolStripMenuItem"
-        Me.CustomerReportToolStripMenuItem.ShortcutKeys = CType((System.Windows.Forms.Keys.Alt Or System.Windows.Forms.Keys.C), System.Windows.Forms.Keys)
-        Me.CustomerReportToolStripMenuItem.Size = New System.Drawing.Size(185, 22)
-        Me.CustomerReportToolStripMenuItem.Text = "&Customer Report"
+        Me.PaymentReportToolStripMenuItem.Name = "PaymentReportToolStripMenuItem"
+        Me.PaymentReportToolStripMenuItem.ShortcutKeys = CType((System.Windows.Forms.Keys.Alt Or System.Windows.Forms.Keys.P), System.Windows.Forms.Keys)
+        Me.PaymentReportToolStripMenuItem.Size = New System.Drawing.Size(230, 26)
+        Me.PaymentReportToolStripMenuItem.Text = "&Payment Report "
         '
         'FrmMainMenu
         '
-        Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
+        Me.AutoScaleDimensions = New System.Drawing.SizeF(8.0!, 16.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
-        Me.ClientSize = New System.Drawing.Size(356, 219)
+        Me.ClientSize = New System.Drawing.Size(475, 270)
         Me.Controls.Add(Me.btnMenu)
         Me.Controls.Add(Me.btnCust)
         Me.Controls.Add(Me.btnOrder)
@@ -162,7 +174,7 @@ Partial Class FrmMainMenu
         Me.Controls.Add(Me.MenuStrip1)
         Me.ForeColor = System.Drawing.Color.Blue
         Me.MainMenuStrip = Me.MenuStrip1
-        Me.Margin = New System.Windows.Forms.Padding(2)
+        Me.Margin = New System.Windows.Forms.Padding(3, 2, 3, 2)
         Me.Name = "FrmMainMenu"
         Me.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen
         Me.Text = "Main Menu"
@@ -185,4 +197,5 @@ Partial Class FrmMainMenu
     Friend WithEvents StaffToolStripMenuItem As ToolStripMenuItem
     Friend WithEvents OrderReportToolStripMenuItem As ToolStripMenuItem
     Friend WithEvents CustomerReportToolStripMenuItem As ToolStripMenuItem
+    Friend WithEvents PaymentReportToolStripMenuItem As ToolStripMenuItem
 End Class

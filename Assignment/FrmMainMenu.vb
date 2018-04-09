@@ -53,4 +53,9 @@
         FrmCustomerReport.Show()
         Me.Hide()
     End Sub
+
+    Private Sub PaymentReportToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles PaymentReportToolStripMenuItem.Click
+        FrmPaymentReport.Show()
+        Me.Hide()
+    End Sub
 End Class

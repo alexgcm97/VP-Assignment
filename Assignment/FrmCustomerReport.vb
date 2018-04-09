@@ -24,7 +24,6 @@ Public Class FrmCustomerReport
 
         Dim count As Integer = 0
         Dim cstQuery = db.Customers
-        Dim var As String
 
         For Each cst In cstQuery
             Dim joinDate As DateTime = cst.JoinDate

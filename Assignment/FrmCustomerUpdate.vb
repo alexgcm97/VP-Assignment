@@ -73,7 +73,7 @@ Public Class FrmCustomerUpdate
                 db.SubmitChanges()
                 db.Dispose()
                 MessageBox.Show(lblCustomerName.Text & " succesfully update his/her details", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information)
-                FrmStaffRegistration.Show()
+
                 Me.Close()
             Catch
                 MessageBox.Show("Updated Fail! Please Try again.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error)
