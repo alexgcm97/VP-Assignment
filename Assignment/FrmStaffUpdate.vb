@@ -1,4 +1,5 @@
 ﻿Imports System.Data.SqlClient
+Imports System.Text
 Imports System.Text.RegularExpressions
 
 Public Class FrmStaffUpdate
@@ -54,6 +55,65 @@ Public Class FrmStaffUpdate
     End Sub
 
     Private Sub btnConfirm_Click(sender As Object, e As EventArgs) Handles btnConfirm.Click
+        Dim err As New StringBuilder()
+        Dim ctr As Control = Nothing
+
+        Dim name As String = txtName.Text.Trim()
+        Dim icno As String = If(txtIcNo.MaskCompleted, txtIcNo.Text, "")
+        Dim contactnum As String = If(txtContactNo.MaskCompleted, txtContactNo.Text, "")
+        Dim email1 As String = txtEmail.Text.Trim()
+        Dim address As String = txtAddress.Text.Trim()
+        Dim state As String = txtState.Text.Trim()
+        Dim town As String = txtTown.Text.Trim()
+        Dim postcode As String = txtPostcode.Text.Trim()
+
+
+        If name = "" Then
+            err.AppendLine("- Name empty")
+            ctr = If(ctr, txtName)
+        End If
+
+        If icno = "" Then
+            err.AppendLine("- IC No empty")
+            ctr = If(ctr, txtIcNo)
+        End If
+
+        If contactnum = "" Then
+            err.AppendLine("- Contact Number empty")
+            ctr = If(ctr, txtContactNo)
+        End If
+
+        If email1 = "" Then
+            err.AppendLine("- Email empty")
+            ctr = If(ctr, txtEmail)
+        End If
+
+        If address = "" Then
+            err.AppendLine("- Address empty")
+            ctr = If(ctr, txtAddress)
+        End If
+
+        If state = "" Then
+            err.AppendLine("- State empty")
+            ctr = If(ctr, txtState)
+        End If
+
+        If town = "" Then
+            err.AppendLine("- Town empty")
+            ctr = If(ctr, txtTown)
+        End If
+
+        If postcode = "" Then
+            err.AppendLine("- Postcode empty")
+            ctr = If(ctr, txtPostcode)
+        End If
+
+        If err.Length > 0 Then
+            MessageBox.Show(err.ToString(), "Input Error")
+            ctr.Focus()
+            Return
+        End If
+
         count = 0
         count1 = 0
         Dim email As New Regex("^([a-zA-Z0-9_\-\.]+)@([a-zA-Z0-9_\-\.]+)\.([a-zA-Z]{2,5})$")
@@ -67,32 +127,25 @@ Public Class FrmStaffUpdate
             Dim updateStf = (From stf In db.Staffs
                              Where stf.Id = txtIDSearch.Text).ToList()(0)
 
-            If txtName.Text = "" Then
-                MessageBox.Show("Cannot be empty", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error)
-                count1 = 1
-            Else
+            updateStf.Name = txtName.Text
+            updateStf.IcNo = txtIcNo.Text
+            updateStf.ContactNo = txtContactNo.Text
+            updateStf.Email = txtEmail.Text
+            updateStf.Address = txtAddress.Text
+            updateStf.State = txtState.Text
+            updateStf.Town = txtTown.Text
+            updateStf.Postcode = txtPostcode.Text
+            updateStf.Status = lblAccount.Text
+            If rbMale.Checked Then
+                updateStf.Gender = "Male"
+            ElseIf rbFemale.Checked Then
+                updateStf.Gender = "Female"
+            End If
 
-                updateStf.Name = txtName.Text
-                updateStf.IcNo = txtIcNo.Text
-                updateStf.ContactNo = txtContactNo.Text
-                updateStf.Email = txtEmail.Text
-                updateStf.Address = txtAddress.Text
-                updateStf.State = txtState.Text
-                updateStf.Town = txtTown.Text
-                updateStf.Postcode = txtPostcode.Text
-                updateStf.Status = lblAccount.Text
-                If rbMale.Checked Then
-                    updateStf.Gender = "Male"
-                ElseIf rbFemale.Checked Then
-                    updateStf.Gender = "Female"
-                End If
-
-                If rbStaff.Checked Then
-                    updateStf.Position = "Staff"
-                ElseIf rbManager.Checked Then
-                    updateStf.Position = "Manager"
-                End If
-
+            If rbStaff.Checked Then
+                updateStf.Position = "Staff"
+            ElseIf rbManager.Checked Then
+                updateStf.Position = "Manager"
             End If
 
             If count1 = 0 Then
@@ -101,7 +154,7 @@ Public Class FrmStaffUpdate
                     db.SubmitChanges()
                     db.Dispose()
                     MessageBox.Show(txtName.Text & " updated", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information)
-                    FrmStaffRegistration.Show()
+                    FrmStaffRegistration.Close()
                     Me.Close()
                 Catch
                     MessageBox.Show("Updated Fail", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error)

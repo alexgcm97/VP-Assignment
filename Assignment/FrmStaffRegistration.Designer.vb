@@ -382,7 +382,7 @@ Partial Class FrmStaffRegistration
         '
         'txtPostcode
         '
-        Me.txtPostcode.Location = New System.Drawing.Point(677, 321)
+        Me.txtPostcode.Location = New System.Drawing.Point(676, 321)
         Me.txtPostcode.Mask = "00000"
         Me.txtPostcode.Name = "txtPostcode"
         Me.txtPostcode.Size = New System.Drawing.Size(124, 27)

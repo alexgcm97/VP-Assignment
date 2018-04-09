@@ -1,4 +1,5 @@
-﻿Imports System.Text.RegularExpressions
+﻿Imports System.Text
+Imports System.Text.RegularExpressions
 
 Public Class FrmStaffRegistration
     Dim db As New DataClasses1DataContext
@@ -32,9 +33,68 @@ Public Class FrmStaffRegistration
     End Sub
 
     Private Sub btnAdd_Click(sender As Object, e As EventArgs) Handles btnAdd.Click
+        Dim err As New StringBuilder()
+        Dim ctr As Control = Nothing
+
+        Dim name As String = txtName.Text.Trim()
+        Dim icno As String = If(txtIcNo.MaskCompleted, txtIcNo.Text, "")
+        Dim contactnum As String = If(txtContactNo.MaskCompleted, txtContactNo.Text, "")
+        Dim email1 As String = txtEmail.Text.Trim()
+        Dim address As String = txtAddress.Text.Trim()
+        Dim state As String = txtState.Text.Trim()
+        Dim town As String = txtTown.Text.Trim()
+        Dim postcode As String = txtPostcode.Text.Trim()
+
+
+        If name = "" Then
+            err.AppendLine("- Name empty")
+            ctr = If(ctr, txtName)
+        End If
+
+        If icno = "" Then
+            err.AppendLine("- IC No empty")
+            ctr = If(ctr, txtIcNo)
+        End If
+
+        If contactnum = "" Then
+            err.AppendLine("- Contact Number empty")
+            ctr = If(ctr, txtContactNo)
+        End If
+
+        If email1 = "" Then
+            err.AppendLine("- Email empty")
+            ctr = If(ctr, txtEmail)
+        End If
+
+        If address = "" Then
+            err.AppendLine("- Address empty")
+            ctr = If(ctr, txtAddress)
+        End If
+
+        If state = "" Then
+            err.AppendLine("- State empty")
+            ctr = If(ctr, txtState)
+        End If
+
+        If town = "" Then
+            err.AppendLine("- Town empty")
+            ctr = If(ctr, txtTown)
+        End If
+
+        If postcode = "" Then
+            err.AppendLine("- Postcode empty")
+            ctr = If(ctr, txtPostcode)
+        End If
+
+        If err.Length > 0 Then
+            MessageBox.Show(err.ToString(), "Input Error")
+            ctr.Focus()
+            Return
+        End If
+
         Count = 1
         Dim email As New Regex("^([a-zA-Z0-9_\-\.]+)@([a-zA-Z0-9_\-\.]+)\.([a-zA-Z]{2,5})$")
-            If email.IsMatch(txtEmail.Text) Then
+        If email.IsMatch(txtEmail.Text) Then
             Dim stf As New Staff With {
                             .Id = Integer.Parse(lblID.Text),
                             .Password = "Abc123",
@@ -50,19 +110,14 @@ Public Class FrmStaffRegistration
                             .Position = positionText.ToString,
                             .Status = "Active"
                         }
-            If stf.Name = "" Then
-                MessageBox.Show("Cannot be empty", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error)
-                Count = 0
-            Else
-                db.Staffs.InsertOnSubmit(stf)
-            End If
+            db.Staffs.InsertOnSubmit(stf)
 
         Else
-                MessageBox.Show("Invalid Email Format (E.g sample@gmail.com)", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error)
-                Count = 0
-            End If
+            MessageBox.Show("Invalid Email Format (E.g sample@gmail.com)", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error)
+            Count = 0
+        End If
 
-            If Count = 1 Then
+        If Count = 1 Then
             Try
                 db.SubmitChanges()
                 db.Dispose()
