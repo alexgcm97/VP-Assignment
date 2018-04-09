@@ -17,6 +17,7 @@ Public Class FrmOrderReport
     Private Sub printReport_PrintPage(sender As Object, e As Printing.PrintPageEventArgs) Handles printReport.PrintPage
         Dim reportDate As DateTime = dtReport.Value.Date
         Dim grandTotal As Decimal
+        Dim totalQty As Integer
 
         Dim fontHeader As New Font("Calibri", 24, FontStyle.Bold Or FontStyle.Underline)
         Dim fontSubHeader As New Font("Calibri", 12)
@@ -25,7 +26,7 @@ Public Class FrmOrderReport
         Dim detect = (From stf In db.Staffs
                       Where stf.Id = Integer.Parse(FrmLogin.txtUserID.Text)).ToList()(0)
 
-        Dim header As String = "Monthly Sales Order Report"
+        Dim header As String = "Daily Sales Order Report"
         Dim subHeader As String = String.Format(
             "Printed on {0:dd-MMMM-yyyy hh:mm:ss tt}" & vbNewLine &
             "Prepared by {1} ({2}).", DateTime.Now, detect.Name, detect.Id)
@@ -53,6 +54,7 @@ Public Class FrmOrderReport
                 orderDetail.Quantity = odRow.Quantity
                 orderDetail.SubTotal = odRow.SubTotal
                 grandTotal += orderDetail.SubTotal
+                totalQty += odRow.Quantity
 
                 Dim index = searchItem(orderDetail.MenuID, odList)
 
@@ -82,7 +84,8 @@ Public Class FrmOrderReport
         If (cnt > 0) Then
             body.AppendFormat(vbNewLine & vbNewLine & vbNewLine & vbNewLine & vbNewLine)
             body.AppendFormat("-------------------------------------------------------------------------" & vbNewLine)
-            body.AppendFormat("{0, 60}   {1,10}" & vbNewLine, "Grand Total (RM) : ", grandTotal)
+            body.AppendFormat("{0, 60}   {1,10}" & vbNewLine & vbNewLine, "Grand Total (RM) : ", grandTotal)
+            body.AppendFormat("{0, 60}{1,5} unit(s)" & vbNewLine, "Total Order Quantity : ", totalQty)
             body.AppendLine()
             body.AppendFormat("No of Menu Item Records : {0,2} record(s)", cnt)
         Else
