@@ -9,7 +9,7 @@ Public Class FrmOrderReport
 
     Private Sub btnGenerate_Click(sender As Object, e As EventArgs) Handles btnGenerate.Click
         dlgPreviewReport.Document = printReport
-        dlgPreviewReport.Size = New System.Drawing.Size(800, 1000)
+        dlgPreviewReport.Size = New System.Drawing.Size(700, 1000)
         dlgPreviewReport.StartPosition = FormStartPosition.CenterScreen
         dlgPreviewReport.ShowDialog()
     End Sub
@@ -87,10 +87,10 @@ Public Class FrmOrderReport
             Dim grandTotal = total + gst + service
             body.AppendFormat(vbNewLine & vbNewLine & vbNewLine & vbNewLine & vbNewLine)
             body.AppendFormat("-------------------------------------------------------------------------" & vbNewLine)
-            body.AppendFormat("{0, 60}   {1,10}" & vbNewLine, "Total Amount : RM", total.ToString("0.00"))
-            body.AppendFormat("{0, 60}   {1,10}" & vbNewLine, "Total GST (6%) : RM", gst.ToString("0.00"))
-            body.AppendFormat("{0, 60}   {1,10}" & vbNewLine, "Total Service Charge (10%) : RM", service.ToString("0.00"))
-            body.AppendFormat("{0, 60}   {1,10}" & vbNewLine & vbNewLine, "Grand Total : RM", grandTotal.ToString("0.00"))
+            body.AppendFormat("{0, 62} {1,10}" & vbNewLine, "Total Amount : RM", total.ToString("0.00"))
+            body.AppendFormat("{0, 62} {1,10}" & vbNewLine, "Total GST (6%) : RM", gst.ToString("0.00"))
+            body.AppendFormat("{0, 62} {1,10}" & vbNewLine, "Total Service Charge (10%) : RM", service.ToString("0.00"))
+            body.AppendFormat("{0, 62} {1,10}" & vbNewLine & vbNewLine, "Grand Total : RM", grandTotal.ToString("0.00"))
             body.AppendFormat("{0, 60}{1,5} unit(s)" & vbNewLine, "Total Order Quantity : ", totalQty)
             body.AppendLine()
             body.AppendFormat("No of Menu Item Records : {0,2} record(s)", cnt)
