@@ -20,7 +20,7 @@ Public Class FrmCustomerReport
 
         Dim body As New StringBuilder()
         body.AppendLine("No   Customer ID          Customer Name             Join Date")
-        body.AppendLine("---  ----------       ----------------------    -----------------")
+        body.AppendLine("---    ----------       ----------------------    -----------------")
 
         Dim count As Integer = 0
         Dim cstQuery = db.Customers

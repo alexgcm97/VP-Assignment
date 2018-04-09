@@ -135,6 +135,12 @@
     <Compile Include="FrmDeativateStf.vb">
       <SubType>Form</SubType>
     </Compile>
+    <Compile Include="FrmEditMenuItem.Designer.vb">
+      <DependentUpon>FrmEditMenuItem.vb</DependentUpon>
+    </Compile>
+    <Compile Include="FrmEditMenuItem.vb">
+      <SubType>Form</SubType>
+    </Compile>
     <Compile Include="FrmLogin.Designer.vb">
       <DependentUpon>FrmLogin.vb</DependentUpon>
     </Compile>
@@ -145,6 +151,18 @@
       <DependentUpon>FrmMainMenu.vb</DependentUpon>
     </Compile>
     <Compile Include="FrmMainMenu.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FrmMenuDetailReport.Designer.vb">
+      <DependentUpon>FrmMenuDetailReport.vb</DependentUpon>
+    </Compile>
+    <Compile Include="FrmMenuDetailReport.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FrmMenuItem.Designer.vb">
+      <DependentUpon>FrmMenuItem.vb</DependentUpon>
+    </Compile>
+    <Compile Include="FrmMenuItem.vb">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="FrmOrder.vb">
@@ -228,11 +246,20 @@
     <EmbeddedResource Include="FrmDeativateStf.resx">
       <DependentUpon>FrmDeativateStf.vb</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="FrmEditMenuItem.resx">
+      <DependentUpon>FrmEditMenuItem.vb</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="FrmLogin.resx">
       <DependentUpon>FrmLogin.vb</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="FrmMainMenu.resx">
       <DependentUpon>FrmMainMenu.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FrmMenuDetailReport.resx">
+      <DependentUpon>FrmMenuDetailReport.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FrmMenuItem.resx">
+      <DependentUpon>FrmMenuItem.vb</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="FrmOrder.resx">
       <DependentUpon>FrmOrder.vb</DependentUpon>
@@ -293,7 +320,9 @@
       <CustomToolNamespace>My</CustomToolNamespace>
       <LastGenOutput>Settings.Designer.vb</LastGenOutput>
     </None>
-    <None Include="App.config" />
+    <None Include="App.config">
+      <SubType>Designer</SubType>
+    </None>
   </ItemGroup>
   <ItemGroup />
   <ItemGroup>
@@ -321,6 +350,7 @@
     <Content Include="Images\menu\9015.jpg" />
     <Content Include="Images\menu\9016.jpg" />
     <Content Include="Images\orderReport.jpg" />
+    <None Include="Resources\Menu Report Logo.jpg" />
     <None Include="Resources\Staff.png" />
     <None Include="Images\menu\9001.jpg" />
   </ItemGroup>

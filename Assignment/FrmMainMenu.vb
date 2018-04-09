@@ -58,4 +58,14 @@
         FrmPaymentReport.Show()
         Me.Hide()
     End Sub
+
+    Private Sub btnMenu_Click(sender As Object, e As EventArgs) Handles btnMenu.Click
+        FrmMenuItem.Show()
+        Me.Hide()
+    End Sub
+
+    Private Sub MenuDetailReportToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles MenuDetailReportToolStripMenuItem.Click
+        FrmMenuDetailReport.Show()
+        Me.Hide()
+    End Sub
 End Class

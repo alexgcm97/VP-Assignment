@@ -3,6 +3,7 @@
 Public Class FrmCustomerUpdate
     Dim db As New DataClasses1DataContext
     Dim count As Integer = 1
+    Dim getID As Integer
 
     Private Sub FrmSearchID_Load(sender As Object, e As EventArgs) Handles MyBase.Load
         updateCustomer.Visible = False
@@ -88,5 +89,11 @@ Public Class FrmCustomerUpdate
 
     Private Sub FrmCustomerUpdate_FormClosing(sender As Object, e As FormClosingEventArgs) Handles MyBase.FormClosing
         FrmCustomerRegistration.Show()
+    End Sub
+
+    Private Sub DataGridView1_DoubleClick(sender As Object, e As EventArgs) Handles DataGridView1.DoubleClick
+        getID = DataGridView1.CurrentRow.Cells(0).Value()
+        txtSearch.Text = getID
+        btnSearch_Click(Nothing, Nothing)
     End Sub
 End Class

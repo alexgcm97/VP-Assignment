@@ -62,7 +62,7 @@ Partial Class FrmDeativateStf
         '
         'btnSearch
         '
-        Me.btnSearch.ForeColor = System.Drawing.Color.Blue
+        Me.btnSearch.ForeColor = System.Drawing.Color.Black
         Me.btnSearch.Location = New System.Drawing.Point(227, 13)
         Me.btnSearch.Margin = New System.Windows.Forms.Padding(2)
         Me.btnSearch.Name = "btnSearch"
@@ -219,8 +219,8 @@ Partial Class FrmDeativateStf
         'btnCancel
         '
         Me.btnCancel.DialogResult = System.Windows.Forms.DialogResult.Cancel
-        Me.btnCancel.Font = New System.Drawing.Font("Microsoft Sans Serif", 10.2!, CType((System.Drawing.FontStyle.Bold Or System.Drawing.FontStyle.Italic), System.Drawing.FontStyle), System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.btnCancel.ForeColor = System.Drawing.Color.Blue
+        Me.btnCancel.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.btnCancel.ForeColor = System.Drawing.Color.Black
         Me.btnCancel.Location = New System.Drawing.Point(469, 240)
         Me.btnCancel.Margin = New System.Windows.Forms.Padding(2)
         Me.btnCancel.Name = "btnCancel"
@@ -231,8 +231,8 @@ Partial Class FrmDeativateStf
         '
         'btnConfirm
         '
-        Me.btnConfirm.Font = New System.Drawing.Font("Microsoft Sans Serif", 10.2!, CType((System.Drawing.FontStyle.Bold Or System.Drawing.FontStyle.Italic), System.Drawing.FontStyle), System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.btnConfirm.ForeColor = System.Drawing.Color.Blue
+        Me.btnConfirm.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.btnConfirm.ForeColor = System.Drawing.Color.Black
         Me.btnConfirm.Location = New System.Drawing.Point(384, 240)
         Me.btnConfirm.Margin = New System.Windows.Forms.Padding(2)
         Me.btnConfirm.Name = "btnConfirm"
@@ -407,7 +407,7 @@ Partial Class FrmDeativateStf
         '
         'btnBack
         '
-        Me.btnBack.ForeColor = System.Drawing.Color.Blue
+        Me.btnBack.ForeColor = System.Drawing.Color.Black
         Me.btnBack.Location = New System.Drawing.Point(227, 40)
         Me.btnBack.Margin = New System.Windows.Forms.Padding(2)
         Me.btnBack.Name = "btnBack"
@@ -429,6 +429,7 @@ Partial Class FrmDeativateStf
         Me.Controls.Add(Me.btnSearch)
         Me.Controls.Add(Me.txtIDSearch)
         Me.Controls.Add(Me.Label1)
+        Me.ForeColor = System.Drawing.Color.Black
         Me.Margin = New System.Windows.Forms.Padding(2)
         Me.Name = "FrmDeativateStf"
         Me.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen

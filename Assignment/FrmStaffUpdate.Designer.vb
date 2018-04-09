@@ -103,7 +103,7 @@ Partial Class FrmStaffUpdate
         '
         'btnSearch
         '
-        Me.btnSearch.ForeColor = System.Drawing.Color.Blue
+        Me.btnSearch.ForeColor = System.Drawing.Color.Black
         Me.btnSearch.Location = New System.Drawing.Point(238, 21)
         Me.btnSearch.Margin = New System.Windows.Forms.Padding(2)
         Me.btnSearch.Name = "btnSearch"
@@ -158,8 +158,8 @@ Partial Class FrmStaffUpdate
         'btnCancel
         '
         Me.btnCancel.DialogResult = System.Windows.Forms.DialogResult.Cancel
-        Me.btnCancel.Font = New System.Drawing.Font("Microsoft Sans Serif", 10.2!, CType((System.Drawing.FontStyle.Bold Or System.Drawing.FontStyle.Italic), System.Drawing.FontStyle), System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.btnCancel.ForeColor = System.Drawing.Color.Blue
+        Me.btnCancel.Font = New System.Drawing.Font("Microsoft Sans Serif", 11.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.btnCancel.ForeColor = System.Drawing.Color.Black
         Me.btnCancel.Location = New System.Drawing.Point(466, 231)
         Me.btnCancel.Margin = New System.Windows.Forms.Padding(2)
         Me.btnCancel.Name = "btnCancel"
@@ -170,12 +170,12 @@ Partial Class FrmStaffUpdate
         '
         'btnConfirm
         '
-        Me.btnConfirm.Font = New System.Drawing.Font("Microsoft Sans Serif", 10.2!, CType((System.Drawing.FontStyle.Bold Or System.Drawing.FontStyle.Italic), System.Drawing.FontStyle), System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.btnConfirm.ForeColor = System.Drawing.Color.Blue
-        Me.btnConfirm.Location = New System.Drawing.Point(382, 231)
+        Me.btnConfirm.Font = New System.Drawing.Font("Microsoft Sans Serif", 11.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.btnConfirm.ForeColor = System.Drawing.Color.Black
+        Me.btnConfirm.Location = New System.Drawing.Point(371, 231)
         Me.btnConfirm.Margin = New System.Windows.Forms.Padding(2)
         Me.btnConfirm.Name = "btnConfirm"
-        Me.btnConfirm.Size = New System.Drawing.Size(80, 29)
+        Me.btnConfirm.Size = New System.Drawing.Size(91, 29)
         Me.btnConfirm.TabIndex = 19
         Me.btnConfirm.Text = "&Comfirm"
         Me.btnConfirm.UseVisualStyleBackColor = True
@@ -513,7 +513,7 @@ Partial Class FrmStaffUpdate
         '
         'btnBack
         '
-        Me.btnBack.ForeColor = System.Drawing.Color.Blue
+        Me.btnBack.ForeColor = System.Drawing.Color.Black
         Me.btnBack.Location = New System.Drawing.Point(238, 56)
         Me.btnBack.Margin = New System.Windows.Forms.Padding(2)
         Me.btnBack.Name = "btnBack"

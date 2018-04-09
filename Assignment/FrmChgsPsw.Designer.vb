@@ -69,7 +69,7 @@ Partial Class FrmChgsPsw
         '
         Me.txtOldPsw.Font = New System.Drawing.Font("Microsoft Sans Serif", 10.2!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.txtOldPsw.Location = New System.Drawing.Point(208, 28)
-        Me.txtOldPsw.Margin = New System.Windows.Forms.Padding(2, 2, 2, 2)
+        Me.txtOldPsw.Margin = New System.Windows.Forms.Padding(2)
         Me.txtOldPsw.Name = "txtOldPsw"
         Me.txtOldPsw.Size = New System.Drawing.Size(144, 23)
         Me.txtOldPsw.TabIndex = 3
@@ -79,7 +79,7 @@ Partial Class FrmChgsPsw
         '
         Me.TxtNewPsw.Font = New System.Drawing.Font("Microsoft Sans Serif", 10.2!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.TxtNewPsw.Location = New System.Drawing.Point(208, 57)
-        Me.TxtNewPsw.Margin = New System.Windows.Forms.Padding(2, 2, 2, 2)
+        Me.TxtNewPsw.Margin = New System.Windows.Forms.Padding(2)
         Me.TxtNewPsw.Name = "TxtNewPsw"
         Me.TxtNewPsw.Size = New System.Drawing.Size(144, 23)
         Me.TxtNewPsw.TabIndex = 4
@@ -89,7 +89,7 @@ Partial Class FrmChgsPsw
         '
         Me.txtRePsw.Font = New System.Drawing.Font("Microsoft Sans Serif", 10.2!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.txtRePsw.Location = New System.Drawing.Point(208, 85)
-        Me.txtRePsw.Margin = New System.Windows.Forms.Padding(2, 2, 2, 2)
+        Me.txtRePsw.Margin = New System.Windows.Forms.Padding(2)
         Me.txtRePsw.Name = "txtRePsw"
         Me.txtRePsw.Size = New System.Drawing.Size(145, 23)
         Me.txtRePsw.TabIndex = 5
@@ -98,10 +98,10 @@ Partial Class FrmChgsPsw
         'btnConfirm
         '
         Me.btnConfirm.DialogResult = System.Windows.Forms.DialogResult.Cancel
-        Me.btnConfirm.Font = New System.Drawing.Font("Gill Sans Ultra Bold Condensed", 10.2!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.btnConfirm.ForeColor = System.Drawing.Color.Blue
+        Me.btnConfirm.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.btnConfirm.ForeColor = System.Drawing.Color.Black
         Me.btnConfirm.Location = New System.Drawing.Point(208, 126)
-        Me.btnConfirm.Margin = New System.Windows.Forms.Padding(2, 2, 2, 2)
+        Me.btnConfirm.Margin = New System.Windows.Forms.Padding(2)
         Me.btnConfirm.Name = "btnConfirm"
         Me.btnConfirm.Size = New System.Drawing.Size(69, 35)
         Me.btnConfirm.TabIndex = 6
@@ -111,10 +111,10 @@ Partial Class FrmChgsPsw
         'btnCancel
         '
         Me.btnCancel.DialogResult = System.Windows.Forms.DialogResult.Cancel
-        Me.btnCancel.Font = New System.Drawing.Font("Gill Sans Ultra Bold Condensed", 10.2!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.btnCancel.ForeColor = System.Drawing.Color.Blue
+        Me.btnCancel.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.btnCancel.ForeColor = System.Drawing.Color.Black
         Me.btnCancel.Location = New System.Drawing.Point(287, 126)
-        Me.btnCancel.Margin = New System.Windows.Forms.Padding(2, 2, 2, 2)
+        Me.btnCancel.Margin = New System.Windows.Forms.Padding(2)
         Me.btnCancel.Name = "btnCancel"
         Me.btnCancel.Size = New System.Drawing.Size(64, 35)
         Me.btnCancel.TabIndex = 7
@@ -136,7 +136,7 @@ Partial Class FrmChgsPsw
         Me.Controls.Add(Me.Label3)
         Me.Controls.Add(Me.Label2)
         Me.Controls.Add(Me.Label1)
-        Me.Margin = New System.Windows.Forms.Padding(2, 2, 2, 2)
+        Me.Margin = New System.Windows.Forms.Padding(2)
         Me.Name = "FrmChgsPsw"
         Me.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen
         Me.Text = "Change Password"

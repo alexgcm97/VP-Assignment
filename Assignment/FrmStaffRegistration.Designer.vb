@@ -331,8 +331,8 @@ Partial Class FrmStaffRegistration
         '
         'btnAdd
         '
-        Me.btnAdd.Font = New System.Drawing.Font("Gill Sans Ultra Bold Condensed", 10.8!, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.btnAdd.ForeColor = System.Drawing.Color.Blue
+        Me.btnAdd.Font = New System.Drawing.Font("Gill Sans Ultra Bold Condensed", 11.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.btnAdd.ForeColor = System.Drawing.Color.Black
         Me.btnAdd.Location = New System.Drawing.Point(858, 45)
         Me.btnAdd.Margin = New System.Windows.Forms.Padding(4)
         Me.btnAdd.Name = "btnAdd"
@@ -343,8 +343,8 @@ Partial Class FrmStaffRegistration
         '
         'btnUpdate
         '
-        Me.btnUpdate.Font = New System.Drawing.Font("Gill Sans Ultra Bold Condensed", 10.8!, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.btnUpdate.ForeColor = System.Drawing.Color.Blue
+        Me.btnUpdate.Font = New System.Drawing.Font("Gill Sans Ultra Bold Condensed", 11.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.btnUpdate.ForeColor = System.Drawing.Color.Black
         Me.btnUpdate.Location = New System.Drawing.Point(858, 128)
         Me.btnUpdate.Margin = New System.Windows.Forms.Padding(4)
         Me.btnUpdate.Name = "btnUpdate"
@@ -355,8 +355,8 @@ Partial Class FrmStaffRegistration
         '
         'btnDelete
         '
-        Me.btnDelete.Font = New System.Drawing.Font("Gill Sans Ultra Bold Condensed", 10.8!, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.btnDelete.ForeColor = System.Drawing.Color.Blue
+        Me.btnDelete.Font = New System.Drawing.Font("Gill Sans Ultra Bold Condensed", 11.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.btnDelete.ForeColor = System.Drawing.Color.Black
         Me.btnDelete.Location = New System.Drawing.Point(858, 209)
         Me.btnDelete.Margin = New System.Windows.Forms.Padding(4)
         Me.btnDelete.Name = "btnDelete"
@@ -367,8 +367,8 @@ Partial Class FrmStaffRegistration
         '
         'btnReset
         '
-        Me.btnReset.Font = New System.Drawing.Font("Gill Sans Ultra Bold Condensed", 10.8!, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.btnReset.ForeColor = System.Drawing.Color.Blue
+        Me.btnReset.Font = New System.Drawing.Font("Gill Sans Ultra Bold Condensed", 11.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.btnReset.ForeColor = System.Drawing.Color.Black
         Me.btnReset.Location = New System.Drawing.Point(167, 398)
         Me.btnReset.Margin = New System.Windows.Forms.Padding(4)
         Me.btnReset.Name = "btnReset"
@@ -379,8 +379,8 @@ Partial Class FrmStaffRegistration
         '
         'btnCancel
         '
-        Me.btnCancel.Font = New System.Drawing.Font("Gill Sans Ultra Bold Condensed", 10.8!, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.btnCancel.ForeColor = System.Drawing.Color.Blue
+        Me.btnCancel.Font = New System.Drawing.Font("Gill Sans Ultra Bold Condensed", 11.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.btnCancel.ForeColor = System.Drawing.Color.Black
         Me.btnCancel.Location = New System.Drawing.Point(307, 398)
         Me.btnCancel.Margin = New System.Windows.Forms.Padding(4)
         Me.btnCancel.Name = "btnCancel"
@@ -391,8 +391,8 @@ Partial Class FrmStaffRegistration
         '
         'btnView
         '
-        Me.btnView.Font = New System.Drawing.Font("Gill Sans Ultra Bold Condensed", 10.8!, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.btnView.ForeColor = System.Drawing.Color.Blue
+        Me.btnView.Font = New System.Drawing.Font("Gill Sans Ultra Bold Condensed", 11.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.btnView.ForeColor = System.Drawing.Color.Black
         Me.btnView.Location = New System.Drawing.Point(858, 293)
         Me.btnView.Name = "btnView"
         Me.btnView.Size = New System.Drawing.Size(120, 55)
