@@ -45,6 +45,8 @@ Partial Class FrmCustomerRegistration
         Me.MenuStrip1 = New System.Windows.Forms.MenuStrip()
         Me.ProfileToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.UpdateProfileToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
+        Me.Label7 = New System.Windows.Forms.Label()
+        Me.Label8 = New System.Windows.Forms.Label()
         Me.GroupBox1.SuspendLayout()
         Me.GroupBox2.SuspendLayout()
         Me.GroupBox3.SuspendLayout()
@@ -63,6 +65,8 @@ Partial Class FrmCustomerRegistration
         '
         'GroupBox1
         '
+        Me.GroupBox1.Controls.Add(Me.Label8)
+        Me.GroupBox1.Controls.Add(Me.Label7)
         Me.GroupBox1.Controls.Add(Me.txtEmail)
         Me.GroupBox1.Controls.Add(Me.txtContactNo)
         Me.GroupBox1.Controls.Add(Me.txtIcNo)
@@ -73,13 +77,13 @@ Partial Class FrmCustomerRegistration
         Me.GroupBox1.Controls.Add(Me.Label2)
         Me.GroupBox1.Location = New System.Drawing.Point(14, 73)
         Me.GroupBox1.Name = "GroupBox1"
-        Me.GroupBox1.Size = New System.Drawing.Size(246, 161)
+        Me.GroupBox1.Size = New System.Drawing.Size(252, 179)
         Me.GroupBox1.TabIndex = 1
         Me.GroupBox1.TabStop = False
         '
         'txtEmail
         '
-        Me.txtEmail.Location = New System.Drawing.Point(97, 109)
+        Me.txtEmail.Location = New System.Drawing.Point(101, 142)
         Me.txtEmail.Multiline = True
         Me.txtEmail.Name = "txtEmail"
         Me.txtEmail.Size = New System.Drawing.Size(131, 20)
@@ -87,7 +91,7 @@ Partial Class FrmCustomerRegistration
         '
         'txtContactNo
         '
-        Me.txtContactNo.Location = New System.Drawing.Point(97, 79)
+        Me.txtContactNo.Location = New System.Drawing.Point(101, 94)
         Me.txtContactNo.Multiline = True
         Me.txtContactNo.Name = "txtContactNo"
         Me.txtContactNo.Size = New System.Drawing.Size(131, 20)
@@ -95,7 +99,7 @@ Partial Class FrmCustomerRegistration
         '
         'txtIcNo
         '
-        Me.txtIcNo.Location = New System.Drawing.Point(98, 47)
+        Me.txtIcNo.Location = New System.Drawing.Point(101, 47)
         Me.txtIcNo.Multiline = True
         Me.txtIcNo.Name = "txtIcNo"
         Me.txtIcNo.Size = New System.Drawing.Size(131, 20)
@@ -103,7 +107,7 @@ Partial Class FrmCustomerRegistration
         '
         'txtName
         '
-        Me.txtName.Location = New System.Drawing.Point(98, 15)
+        Me.txtName.Location = New System.Drawing.Point(101, 15)
         Me.txtName.Multiline = True
         Me.txtName.Name = "txtName"
         Me.txtName.Size = New System.Drawing.Size(131, 20)
@@ -123,7 +127,7 @@ Partial Class FrmCustomerRegistration
         '
         Me.Label4.AutoSize = True
         Me.Label4.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label4.Location = New System.Drawing.Point(6, 80)
+        Me.Label4.Location = New System.Drawing.Point(6, 94)
         Me.Label4.Name = "Label4"
         Me.Label4.Size = New System.Drawing.Size(85, 15)
         Me.Label4.TabIndex = 2
@@ -133,7 +137,7 @@ Partial Class FrmCustomerRegistration
         '
         Me.Label3.AutoSize = True
         Me.Label3.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label3.Location = New System.Drawing.Point(9, 110)
+        Me.Label3.Location = New System.Drawing.Point(9, 143)
         Me.Label3.Name = "Label3"
         Me.Label3.Size = New System.Drawing.Size(52, 15)
         Me.Label3.TabIndex = 1
@@ -189,7 +193,7 @@ Partial Class FrmCustomerRegistration
         Me.GroupBox3.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.GroupBox3.Location = New System.Drawing.Point(266, 155)
         Me.GroupBox3.Name = "GroupBox3"
-        Me.GroupBox3.Size = New System.Drawing.Size(172, 79)
+        Me.GroupBox3.Size = New System.Drawing.Size(172, 97)
         Me.GroupBox3.TabIndex = 3
         Me.GroupBox3.TabStop = False
         Me.GroupBox3.Text = "Address"
@@ -199,14 +203,14 @@ Partial Class FrmCustomerRegistration
         Me.txtAddress.Location = New System.Drawing.Point(6, 20)
         Me.txtAddress.Multiline = True
         Me.txtAddress.Name = "txtAddress"
-        Me.txtAddress.Size = New System.Drawing.Size(160, 53)
+        Me.txtAddress.Size = New System.Drawing.Size(160, 71)
         Me.txtAddress.TabIndex = 8
         '
         'btnSubmit
         '
         Me.btnSubmit.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.btnSubmit.ForeColor = System.Drawing.Color.DarkGreen
-        Me.btnSubmit.Location = New System.Drawing.Point(111, 240)
+        Me.btnSubmit.Location = New System.Drawing.Point(112, 258)
         Me.btnSubmit.Name = "btnSubmit"
         Me.btnSubmit.Size = New System.Drawing.Size(75, 34)
         Me.btnSubmit.TabIndex = 4
@@ -217,7 +221,7 @@ Partial Class FrmCustomerRegistration
         '
         Me.btnExit.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.btnExit.ForeColor = System.Drawing.Color.Red
-        Me.btnExit.Location = New System.Drawing.Point(273, 240)
+        Me.btnExit.Location = New System.Drawing.Point(268, 258)
         Me.btnExit.Name = "btnExit"
         Me.btnExit.Size = New System.Drawing.Size(75, 34)
         Me.btnExit.TabIndex = 5
@@ -228,7 +232,7 @@ Partial Class FrmCustomerRegistration
         '
         Me.btnReset.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.btnReset.ForeColor = System.Drawing.Color.Navy
-        Me.btnReset.Location = New System.Drawing.Point(192, 240)
+        Me.btnReset.Location = New System.Drawing.Point(191, 258)
         Me.btnReset.Name = "btnReset"
         Me.btnReset.Size = New System.Drawing.Size(75, 34)
         Me.btnReset.TabIndex = 6
@@ -274,11 +278,29 @@ Partial Class FrmCustomerRegistration
         Me.UpdateProfileToolStripMenuItem.Size = New System.Drawing.Size(187, 22)
         Me.UpdateProfileToolStripMenuItem.Text = "Up&date Profile"
         '
+        'Label7
+        '
+        Me.Label7.ForeColor = System.Drawing.Color.Red
+        Me.Label7.Location = New System.Drawing.Point(98, 74)
+        Me.Label7.Name = "Label7"
+        Me.Label7.Size = New System.Drawing.Size(131, 16)
+        Me.Label7.TabIndex = 8
+        Me.Label7.Text = "Ex: 970613-10-****"
+        '
+        'Label8
+        '
+        Me.Label8.ForeColor = System.Drawing.Color.Red
+        Me.Label8.Location = New System.Drawing.Point(98, 116)
+        Me.Label8.Name = "Label8"
+        Me.Label8.Size = New System.Drawing.Size(131, 16)
+        Me.Label8.TabIndex = 9
+        Me.Label8.Text = "Ex :012-3594455"
+        '
         'FrmCustomerRegistration
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
-        Me.ClientSize = New System.Drawing.Size(456, 290)
+        Me.ClientSize = New System.Drawing.Size(456, 307)
         Me.Controls.Add(Me.Label6)
         Me.Controls.Add(Me.lblCustID)
         Me.Controls.Add(Me.btnReset)
@@ -328,4 +350,6 @@ Partial Class FrmCustomerRegistration
     Friend WithEvents MenuStrip1 As MenuStrip
     Friend WithEvents ProfileToolStripMenuItem As ToolStripMenuItem
     Friend WithEvents UpdateProfileToolStripMenuItem As ToolStripMenuItem
+    Friend WithEvents Label8 As Label
+    Friend WithEvents Label7 As Label
 End Class
