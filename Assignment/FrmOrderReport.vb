@@ -16,7 +16,7 @@ Public Class FrmOrderReport
 
     Private Sub printReport_PrintPage(sender As Object, e As Printing.PrintPageEventArgs) Handles printReport.PrintPage
         Dim reportDate As DateTime = dtReport.Value.Date
-        Dim grandTotal As Decimal
+        Dim total As Decimal
         Dim totalQty As Integer
 
         Dim fontHeader As New Font("Calibri", 24, FontStyle.Bold Or FontStyle.Underline)
@@ -53,7 +53,7 @@ Public Class FrmOrderReport
                 orderDetail.MenuID = odRow.MenuID
                 orderDetail.Quantity = odRow.Quantity
                 orderDetail.SubTotal = odRow.SubTotal
-                grandTotal += orderDetail.SubTotal
+                total += orderDetail.SubTotal
                 totalQty += odRow.Quantity
 
                 Dim index = searchItem(orderDetail.MenuID, odList)
@@ -82,9 +82,15 @@ Public Class FrmOrderReport
         End If
 
         If (cnt > 0) Then
+            Dim gst As Decimal = total * 0.06
+            Dim service As Decimal = total * 0.1
+            Dim grandTotal = total + gst + service
             body.AppendFormat(vbNewLine & vbNewLine & vbNewLine & vbNewLine & vbNewLine)
             body.AppendFormat("-------------------------------------------------------------------------" & vbNewLine)
-            body.AppendFormat("{0, 60}   {1,10}" & vbNewLine & vbNewLine, "Grand Total (RM) : ", grandTotal)
+            body.AppendFormat("{0, 60}   {1,10}" & vbNewLine, "Total Amount : RM", total.ToString("0.00"))
+            body.AppendFormat("{0, 60}   {1,10}" & vbNewLine, "Total GST (6%) : RM", gst.ToString("0.00"))
+            body.AppendFormat("{0, 60}   {1,10}" & vbNewLine, "Total Service Charge (10%) : RM", service.ToString("0.00"))
+            body.AppendFormat("{0, 60}   {1,10}" & vbNewLine & vbNewLine, "Grand Total : RM", grandTotal.ToString("0.00"))
             body.AppendFormat("{0, 60}{1,5} unit(s)" & vbNewLine, "Total Order Quantity : ", totalQty)
             body.AppendLine()
             body.AppendFormat("No of Menu Item Records : {0,2} record(s)", cnt)
