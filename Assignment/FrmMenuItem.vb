@@ -26,6 +26,9 @@ Public Class FrmMenuItem
         OpenFileDialog1.ShowDialog()
         picPreview.ImageLocation = OpenFileDialog1.FileName
         picSource = OpenFileDialog1.FileName
+        If picSource = "OpenFileDialog1" Then
+            picSource = ""
+        End If
     End Sub
 
     Private Sub CopyFile()
@@ -66,6 +69,7 @@ Public Class FrmMenuItem
 
         If rbFood.Checked = False And rbBeverage.Checked = False Then
             err.AppendLine("- Select Food Category")
+            ctr = If(ctr, grpCategory)
         ElseIf rbFood.Checked = True Then
             category = 1
         ElseIf rbBeverage.Checked = True Then
@@ -74,6 +78,7 @@ Public Class FrmMenuItem
 
         If picSource = "" Then
             err.AppendLine("- Please upload a picture")
+            ctr = If(ctr, picPreview)
         Else
             CopyFile()
         End If
@@ -102,6 +107,12 @@ Public Class FrmMenuItem
             Try
                 db.SubmitChanges()
                 MessageBox.Show("Successully Inserted")
+                txtName.Text = ""
+                txtPrice.Text = ""
+                rbBeverage.Checked = False
+                rbFood.Checked = False
+                picPreview.ImageLocation = ""
+                picSource = ""
                 Dim reload As New FrmMenuItem
                 reload.Show()
                 Me.Hide()
@@ -143,7 +154,6 @@ Public Class FrmMenuItem
 
         Try
             db.SubmitChanges()
-            db.Dispose()
             MessageBox.Show("Successully Delete Menu ID :" & index, "Delete", MessageBoxButtons.OK, MessageBoxIcon.Information)
             Dim reload As New FrmMenuItem
             reload.Show()

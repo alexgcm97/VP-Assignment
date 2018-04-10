@@ -8,6 +8,7 @@ Public Class FrmEditMenuItem
     Dim menuName As String
     Dim category As Integer
     Dim imagePath As String
+    Dim picOriginal As String
 
 
     Private Sub FrmEditMenuItem_Load(sender As Object, e As EventArgs) Handles MyBase.Load
@@ -60,16 +61,21 @@ Public Class FrmEditMenuItem
             category = 1
         ElseIf cboCategory.SelectedIndex = 1 Then
             category = 2
+        Else
+            err.AppendLine("- Invalid Category selection. Please re-choose")
+            ctr = If(ctr, cboCategory)
         End If
 
 
 
         If err.Length > 0 Then
             MessageBox.Show(err.ToString(), "Input Error")
-            ctr.Focus()
+            If ctr IsNot Nothing Then
+                ctr.Focus()
+            End If
             Return False
-        Else
-            If String.Compare(imagePath, picSource) > 0 Or String.Compare(imagePath, picSource) < 0 Then
+            Else
+                If String.Compare(imagePath, picSource) > 0 Or String.Compare(imagePath, picSource) < 0 Then
                 File.Copy(picSource, "../../Images/menu/" & lblMenuID.Text & ".jpg", True)
             End If
             Return True
@@ -84,12 +90,17 @@ Public Class FrmEditMenuItem
         imagePath = imagePath & "\Images\menu\" & FrmMenuItem.index & ".jpg"
         picPreview.ImageLocation = imagePath
         picSource = imagePath
+        picOriginal = picSource
     End Sub
 
     Private Sub btnUpload_Click(sender As Object, e As EventArgs) Handles btnUpload.Click
         OpenFileDialog1.ShowDialog()
         picPreview.ImageLocation = OpenFileDialog1.FileName
         picSource = OpenFileDialog1.FileName
+        If picSource = "OpenFileDialog1" Then
+            picSource = picOriginal
+            picPreview.ImageLocation = picOriginal
+        End If
     End Sub
 
     Private Sub btnUpdate_Click(sender As Object, e As EventArgs) Handles btnUpdate.Click

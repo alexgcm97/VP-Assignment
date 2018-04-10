@@ -29,10 +29,10 @@ Partial Class FrmMainMenu
         Me.ChangePasswordToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.SignOutToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.ReportToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
+        Me.MenuDetailReportToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.StaffToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.OrderReportToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.CustomerReportToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
-        Me.MenuDetailReportToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.PaymentReportToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.btnCust = New System.Windows.Forms.Button()
         Me.btnMenu = New System.Windows.Forms.Button()
@@ -48,7 +48,7 @@ Partial Class FrmMainMenu
         Me.btnStfMan.Name = "btnStfMan"
         Me.btnStfMan.Size = New System.Drawing.Size(152, 60)
         Me.btnStfMan.TabIndex = 0
-        Me.btnStfMan.Text = "&Staff Mantainance"
+        Me.btnStfMan.Text = "&Staff Maintenance"
         Me.btnStfMan.UseVisualStyleBackColor = True
         '
         'btnOrder
@@ -108,6 +108,13 @@ Partial Class FrmMainMenu
         Me.ReportToolStripMenuItem.Size = New System.Drawing.Size(77, 20)
         Me.ReportToolStripMenuItem.Text = "View &Report"
         '
+        'MenuDetailReportToolStripMenuItem
+        '
+        Me.MenuDetailReportToolStripMenuItem.Name = "MenuDetailReportToolStripMenuItem"
+        Me.MenuDetailReportToolStripMenuItem.ShortcutKeys = CType((System.Windows.Forms.Keys.Alt Or System.Windows.Forms.Keys.M), System.Windows.Forms.Keys)
+        Me.MenuDetailReportToolStripMenuItem.Size = New System.Drawing.Size(200, 22)
+        Me.MenuDetailReportToolStripMenuItem.Text = "Menu Detail Report"
+        '
         'StaffToolStripMenuItem
         '
         Me.StaffToolStripMenuItem.ForeColor = System.Drawing.Color.Black
@@ -131,13 +138,6 @@ Partial Class FrmMainMenu
         Me.CustomerReportToolStripMenuItem.Size = New System.Drawing.Size(200, 22)
         Me.CustomerReportToolStripMenuItem.Text = "&Customer Report"
         '
-        'MenuDetailReportToolStripMenuItem
-        '
-        Me.MenuDetailReportToolStripMenuItem.Name = "MenuDetailReportToolStripMenuItem"
-        Me.MenuDetailReportToolStripMenuItem.ShortcutKeys = CType((System.Windows.Forms.Keys.Alt Or System.Windows.Forms.Keys.M), System.Windows.Forms.Keys)
-        Me.MenuDetailReportToolStripMenuItem.Size = New System.Drawing.Size(200, 22)
-        Me.MenuDetailReportToolStripMenuItem.Text = "Menu Detail Report"
-        '
         'PaymentReportToolStripMenuItem
         '
         Me.PaymentReportToolStripMenuItem.Name = "PaymentReportToolStripMenuItem"
@@ -150,11 +150,11 @@ Partial Class FrmMainMenu
         Me.btnCust.Font = New System.Drawing.Font("Microsoft Sans Serif", 10.2!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.btnCust.ForeColor = System.Drawing.Color.Black
         Me.btnCust.Location = New System.Drawing.Point(191, 51)
-        Me.btnCust.Margin = New System.Windows.Forms.Padding(2, 2, 2, 2)
+        Me.btnCust.Margin = New System.Windows.Forms.Padding(2)
         Me.btnCust.Name = "btnCust"
         Me.btnCust.Size = New System.Drawing.Size(152, 60)
         Me.btnCust.TabIndex = 6
-        Me.btnCust.Text = "&Customer Mantainance"
+        Me.btnCust.Text = "&Customer Maintenance"
         Me.btnCust.UseVisualStyleBackColor = True
         '
         'btnMenu
@@ -162,11 +162,11 @@ Partial Class FrmMainMenu
         Me.btnMenu.Font = New System.Drawing.Font("Microsoft Sans Serif", 10.2!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.btnMenu.ForeColor = System.Drawing.Color.Black
         Me.btnMenu.Location = New System.Drawing.Point(191, 136)
-        Me.btnMenu.Margin = New System.Windows.Forms.Padding(2, 2, 2, 2)
+        Me.btnMenu.Margin = New System.Windows.Forms.Padding(2)
         Me.btnMenu.Name = "btnMenu"
         Me.btnMenu.Size = New System.Drawing.Size(152, 60)
         Me.btnMenu.TabIndex = 7
-        Me.btnMenu.Text = "&Menu Mantainance"
+        Me.btnMenu.Text = "&Menu Maintenance"
         Me.btnMenu.UseVisualStyleBackColor = True
         '
         'FrmMainMenu
@@ -181,7 +181,7 @@ Partial Class FrmMainMenu
         Me.Controls.Add(Me.MenuStrip1)
         Me.ForeColor = System.Drawing.Color.Blue
         Me.MainMenuStrip = Me.MenuStrip1
-        Me.Margin = New System.Windows.Forms.Padding(2, 2, 2, 2)
+        Me.Margin = New System.Windows.Forms.Padding(2)
         Me.Name = "FrmMainMenu"
         Me.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen
         Me.Text = "Main Menu"
