@@ -45,4 +45,9 @@
         FrmOrderReport.Show()
         Me.Hide()
     End Sub
+
+    Private Sub btnCust_Click(sender As Object, e As EventArgs) Handles btnCust.Click
+        FrmCustomerRegistration.Show()
+        Me.Hide()
+    End Sub
 End Class

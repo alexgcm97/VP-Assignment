@@ -9,14 +9,14 @@ Public Class FrmStaffUpdate
 
     Private Sub FrmSearchID_Load(sender As Object, e As EventArgs) Handles MyBase.Load
         GroupBox1.Visible = False
-
-        Dim View = From stf In db.Staffs
-                   Select stf.Id, stf.Name, stf.IcNo
+        Dim View = From stff In db.Staffs
+                   Select stff.Id, stff.Name, stff.IcNo
         DataGridView1.DataSource = View
 
     End Sub
 
     Private Sub btnSearch_Click(sender As Object, e As EventArgs) Handles btnSearch.Click
+        count = 1
         GroupBox1.Visible = True
         Dim retrieve = From stf In db.Staffs
                        Where stf.Id = txtIDSearch.Text

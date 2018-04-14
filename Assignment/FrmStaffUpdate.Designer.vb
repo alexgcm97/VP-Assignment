@@ -26,9 +26,6 @@ Partial Class FrmStaffUpdate
         Me.Label1 = New System.Windows.Forms.Label()
         Me.txtIDSearch = New System.Windows.Forms.TextBox()
         Me.btnSearch = New System.Windows.Forms.Button()
-        Me.AssignmentDataSet = New Assignment.AssignmentDataSet()
-        Me.StaffBindingSource = New System.Windows.Forms.BindingSource(Me.components)
-        Me.StaffTableAdapter = New Assignment.AssignmentDataSetTableAdapters.StaffTableAdapter()
         Me.GroupBox1 = New System.Windows.Forms.GroupBox()
         Me.Label10 = New System.Windows.Forms.Label()
         Me.btnCancel = New System.Windows.Forms.Button()
@@ -57,20 +54,38 @@ Partial Class FrmStaffUpdate
         Me.Label3 = New System.Windows.Forms.Label()
         Me.Label2 = New System.Windows.Forms.Label()
         Me.DataGridView1 = New System.Windows.Forms.DataGridView()
+        Me.IdDataGridViewTextBoxColumn = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.PasswordDataGridViewTextBoxColumn = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.NameDataGridViewTextBoxColumn = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.IcNoDataGridViewTextBoxColumn = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.GenderDataGridViewTextBoxColumn = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.ContactNoDataGridViewTextBoxColumn = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.EmailDataGridViewTextBoxColumn = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.AddressDataGridViewTextBoxColumn = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.StateDataGridViewTextBoxColumn = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.TownDataGridViewTextBoxColumn = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.PostcodeDataGridViewTextBoxColumn = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.PositionDataGridViewTextBoxColumn = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.StatusDataGridViewTextBoxColumn = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.StaffBindingSource = New System.Windows.Forms.BindingSource(Me.components)
+        Me.AssignmentDataSet = New Assignment.AssignmentDataSet()
         Me.btnBack = New System.Windows.Forms.Button()
-        CType(Me.AssignmentDataSet, System.ComponentModel.ISupportInitialize).BeginInit()
-        CType(Me.StaffBindingSource, System.ComponentModel.ISupportInitialize).BeginInit()
+        Me.StaffTableAdapter = New Assignment.AssignmentDataSetTableAdapters.StaffTableAdapter()
+        Me.AssignmentDataSet1 = New Assignment.AssignmentDataSet()
         Me.GroupBox1.SuspendLayout()
         Me.GroupBox2.SuspendLayout()
         Me.gbGender.SuspendLayout()
         CType(Me.DataGridView1, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.StaffBindingSource, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.AssignmentDataSet, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.AssignmentDataSet1, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.SuspendLayout()
         '
         'Label1
         '
         Me.Label1.AutoSize = True
         Me.Label1.Font = New System.Drawing.Font("Microsoft Sans Serif", 10.2!, CType((System.Drawing.FontStyle.Bold Or System.Drawing.FontStyle.Italic), System.Drawing.FontStyle), System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label1.Location = New System.Drawing.Point(9, 25)
+        Me.Label1.Location = New System.Drawing.Point(9, 23)
         Me.Label1.Margin = New System.Windows.Forms.Padding(2, 0, 2, 0)
         Me.Label1.Name = "Label1"
         Me.Label1.Size = New System.Drawing.Size(94, 17)
@@ -80,7 +95,7 @@ Partial Class FrmStaffUpdate
         'txtIDSearch
         '
         Me.txtIDSearch.Font = New System.Drawing.Font("Microsoft Sans Serif", 10.2!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.txtIDSearch.Location = New System.Drawing.Point(107, 23)
+        Me.txtIDSearch.Location = New System.Drawing.Point(107, 21)
         Me.txtIDSearch.Margin = New System.Windows.Forms.Padding(2)
         Me.txtIDSearch.Name = "txtIDSearch"
         Me.txtIDSearch.Size = New System.Drawing.Size(127, 23)
@@ -89,27 +104,13 @@ Partial Class FrmStaffUpdate
         'btnSearch
         '
         Me.btnSearch.ForeColor = System.Drawing.Color.Blue
-        Me.btnSearch.Location = New System.Drawing.Point(238, 23)
+        Me.btnSearch.Location = New System.Drawing.Point(238, 21)
         Me.btnSearch.Margin = New System.Windows.Forms.Padding(2)
         Me.btnSearch.Name = "btnSearch"
         Me.btnSearch.Size = New System.Drawing.Size(64, 22)
         Me.btnSearch.TabIndex = 3
         Me.btnSearch.Text = "&Search"
         Me.btnSearch.UseVisualStyleBackColor = True
-        '
-        'AssignmentDataSet
-        '
-        Me.AssignmentDataSet.DataSetName = "AssignmentDataSet"
-        Me.AssignmentDataSet.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema
-        '
-        'StaffBindingSource
-        '
-        Me.StaffBindingSource.DataMember = "Staff"
-        Me.StaffBindingSource.DataSource = Me.AssignmentDataSet
-        '
-        'StaffTableAdapter
-        '
-        Me.StaffTableAdapter.ClearBeforeFill = True
         '
         'GroupBox1
         '
@@ -136,7 +137,7 @@ Partial Class FrmStaffUpdate
         Me.GroupBox1.Controls.Add(Me.Label3)
         Me.GroupBox1.Controls.Add(Me.Label2)
         Me.GroupBox1.Font = New System.Drawing.Font("Microsoft Sans Serif", 10.2!, CType((System.Drawing.FontStyle.Bold Or System.Drawing.FontStyle.Italic), System.Drawing.FontStyle), System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.GroupBox1.Location = New System.Drawing.Point(48, 161)
+        Me.GroupBox1.Location = New System.Drawing.Point(48, 159)
         Me.GroupBox1.Margin = New System.Windows.Forms.Padding(2)
         Me.GroupBox1.Name = "GroupBox1"
         Me.GroupBox1.Padding = New System.Windows.Forms.Padding(2)
@@ -411,24 +412,124 @@ Partial Class FrmStaffUpdate
         '
         Me.DataGridView1.AllowUserToAddRows = False
         Me.DataGridView1.AllowUserToDeleteRows = False
+        Me.DataGridView1.AutoGenerateColumns = False
         Me.DataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
-        Me.DataGridView1.Location = New System.Drawing.Point(319, 25)
+        Me.DataGridView1.Columns.AddRange(New System.Windows.Forms.DataGridViewColumn() {Me.IdDataGridViewTextBoxColumn, Me.PasswordDataGridViewTextBoxColumn, Me.NameDataGridViewTextBoxColumn, Me.IcNoDataGridViewTextBoxColumn, Me.GenderDataGridViewTextBoxColumn, Me.ContactNoDataGridViewTextBoxColumn, Me.EmailDataGridViewTextBoxColumn, Me.AddressDataGridViewTextBoxColumn, Me.StateDataGridViewTextBoxColumn, Me.TownDataGridViewTextBoxColumn, Me.PostcodeDataGridViewTextBoxColumn, Me.PositionDataGridViewTextBoxColumn, Me.StatusDataGridViewTextBoxColumn})
+        Me.DataGridView1.DataSource = Me.StaffBindingSource
+        Me.DataGridView1.Location = New System.Drawing.Point(319, 23)
         Me.DataGridView1.Margin = New System.Windows.Forms.Padding(2)
         Me.DataGridView1.Name = "DataGridView1"
         Me.DataGridView1.RowTemplate.Height = 24
         Me.DataGridView1.Size = New System.Drawing.Size(344, 106)
         Me.DataGridView1.TabIndex = 5
         '
+        'IdDataGridViewTextBoxColumn
+        '
+        Me.IdDataGridViewTextBoxColumn.DataPropertyName = "Id"
+        Me.IdDataGridViewTextBoxColumn.HeaderText = "Id"
+        Me.IdDataGridViewTextBoxColumn.Name = "IdDataGridViewTextBoxColumn"
+        '
+        'PasswordDataGridViewTextBoxColumn
+        '
+        Me.PasswordDataGridViewTextBoxColumn.DataPropertyName = "Password"
+        Me.PasswordDataGridViewTextBoxColumn.HeaderText = "Password"
+        Me.PasswordDataGridViewTextBoxColumn.Name = "PasswordDataGridViewTextBoxColumn"
+        '
+        'NameDataGridViewTextBoxColumn
+        '
+        Me.NameDataGridViewTextBoxColumn.DataPropertyName = "Name"
+        Me.NameDataGridViewTextBoxColumn.HeaderText = "Name"
+        Me.NameDataGridViewTextBoxColumn.Name = "NameDataGridViewTextBoxColumn"
+        '
+        'IcNoDataGridViewTextBoxColumn
+        '
+        Me.IcNoDataGridViewTextBoxColumn.DataPropertyName = "IcNo"
+        Me.IcNoDataGridViewTextBoxColumn.HeaderText = "IcNo"
+        Me.IcNoDataGridViewTextBoxColumn.Name = "IcNoDataGridViewTextBoxColumn"
+        '
+        'GenderDataGridViewTextBoxColumn
+        '
+        Me.GenderDataGridViewTextBoxColumn.DataPropertyName = "Gender"
+        Me.GenderDataGridViewTextBoxColumn.HeaderText = "Gender"
+        Me.GenderDataGridViewTextBoxColumn.Name = "GenderDataGridViewTextBoxColumn"
+        '
+        'ContactNoDataGridViewTextBoxColumn
+        '
+        Me.ContactNoDataGridViewTextBoxColumn.DataPropertyName = "ContactNo"
+        Me.ContactNoDataGridViewTextBoxColumn.HeaderText = "ContactNo"
+        Me.ContactNoDataGridViewTextBoxColumn.Name = "ContactNoDataGridViewTextBoxColumn"
+        '
+        'EmailDataGridViewTextBoxColumn
+        '
+        Me.EmailDataGridViewTextBoxColumn.DataPropertyName = "Email"
+        Me.EmailDataGridViewTextBoxColumn.HeaderText = "Email"
+        Me.EmailDataGridViewTextBoxColumn.Name = "EmailDataGridViewTextBoxColumn"
+        '
+        'AddressDataGridViewTextBoxColumn
+        '
+        Me.AddressDataGridViewTextBoxColumn.DataPropertyName = "Address"
+        Me.AddressDataGridViewTextBoxColumn.HeaderText = "Address"
+        Me.AddressDataGridViewTextBoxColumn.Name = "AddressDataGridViewTextBoxColumn"
+        '
+        'StateDataGridViewTextBoxColumn
+        '
+        Me.StateDataGridViewTextBoxColumn.DataPropertyName = "State"
+        Me.StateDataGridViewTextBoxColumn.HeaderText = "State"
+        Me.StateDataGridViewTextBoxColumn.Name = "StateDataGridViewTextBoxColumn"
+        '
+        'TownDataGridViewTextBoxColumn
+        '
+        Me.TownDataGridViewTextBoxColumn.DataPropertyName = "Town"
+        Me.TownDataGridViewTextBoxColumn.HeaderText = "Town"
+        Me.TownDataGridViewTextBoxColumn.Name = "TownDataGridViewTextBoxColumn"
+        '
+        'PostcodeDataGridViewTextBoxColumn
+        '
+        Me.PostcodeDataGridViewTextBoxColumn.DataPropertyName = "Postcode"
+        Me.PostcodeDataGridViewTextBoxColumn.HeaderText = "Postcode"
+        Me.PostcodeDataGridViewTextBoxColumn.Name = "PostcodeDataGridViewTextBoxColumn"
+        '
+        'PositionDataGridViewTextBoxColumn
+        '
+        Me.PositionDataGridViewTextBoxColumn.DataPropertyName = "Position"
+        Me.PositionDataGridViewTextBoxColumn.HeaderText = "Position"
+        Me.PositionDataGridViewTextBoxColumn.Name = "PositionDataGridViewTextBoxColumn"
+        '
+        'StatusDataGridViewTextBoxColumn
+        '
+        Me.StatusDataGridViewTextBoxColumn.DataPropertyName = "Status"
+        Me.StatusDataGridViewTextBoxColumn.HeaderText = "Status"
+        Me.StatusDataGridViewTextBoxColumn.Name = "StatusDataGridViewTextBoxColumn"
+        '
+        'StaffBindingSource
+        '
+        Me.StaffBindingSource.DataMember = "Staff"
+        Me.StaffBindingSource.DataSource = Me.AssignmentDataSet
+        '
+        'AssignmentDataSet
+        '
+        Me.AssignmentDataSet.DataSetName = "AssignmentDataSet"
+        Me.AssignmentDataSet.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema
+        '
         'btnBack
         '
         Me.btnBack.ForeColor = System.Drawing.Color.Blue
-        Me.btnBack.Location = New System.Drawing.Point(238, 58)
+        Me.btnBack.Location = New System.Drawing.Point(238, 56)
         Me.btnBack.Margin = New System.Windows.Forms.Padding(2)
         Me.btnBack.Name = "btnBack"
         Me.btnBack.Size = New System.Drawing.Size(64, 22)
         Me.btnBack.TabIndex = 6
         Me.btnBack.Text = "&Back"
         Me.btnBack.UseVisualStyleBackColor = True
+        '
+        'StaffTableAdapter
+        '
+        Me.StaffTableAdapter.ClearBeforeFill = True
+        '
+        'AssignmentDataSet1
+        '
+        Me.AssignmentDataSet1.DataSetName = "AssignmentDataSet"
+        Me.AssignmentDataSet1.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema
         '
         'FrmStaffUpdate
         '
@@ -446,8 +547,6 @@ Partial Class FrmStaffUpdate
         Me.Margin = New System.Windows.Forms.Padding(2)
         Me.Name = "FrmStaffUpdate"
         Me.Text = "Update Staff Record"
-        CType(Me.AssignmentDataSet, System.ComponentModel.ISupportInitialize).EndInit()
-        CType(Me.StaffBindingSource, System.ComponentModel.ISupportInitialize).EndInit()
         Me.GroupBox1.ResumeLayout(False)
         Me.GroupBox1.PerformLayout()
         Me.GroupBox2.ResumeLayout(False)
@@ -455,6 +554,9 @@ Partial Class FrmStaffUpdate
         Me.gbGender.ResumeLayout(False)
         Me.gbGender.PerformLayout()
         CType(Me.DataGridView1, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.StaffBindingSource, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.AssignmentDataSet, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.AssignmentDataSet1, System.ComponentModel.ISupportInitialize).EndInit()
         Me.ResumeLayout(False)
         Me.PerformLayout()
 
@@ -495,4 +597,18 @@ Partial Class FrmStaffUpdate
     Friend WithEvents Label10 As Label
     Friend WithEvents lblAccount As Label
     Friend WithEvents btnBack As Button
+    Friend WithEvents IdDataGridViewTextBoxColumn As DataGridViewTextBoxColumn
+    Friend WithEvents PasswordDataGridViewTextBoxColumn As DataGridViewTextBoxColumn
+    Friend WithEvents NameDataGridViewTextBoxColumn As DataGridViewTextBoxColumn
+    Friend WithEvents IcNoDataGridViewTextBoxColumn As DataGridViewTextBoxColumn
+    Friend WithEvents GenderDataGridViewTextBoxColumn As DataGridViewTextBoxColumn
+    Friend WithEvents ContactNoDataGridViewTextBoxColumn As DataGridViewTextBoxColumn
+    Friend WithEvents EmailDataGridViewTextBoxColumn As DataGridViewTextBoxColumn
+    Friend WithEvents AddressDataGridViewTextBoxColumn As DataGridViewTextBoxColumn
+    Friend WithEvents StateDataGridViewTextBoxColumn As DataGridViewTextBoxColumn
+    Friend WithEvents TownDataGridViewTextBoxColumn As DataGridViewTextBoxColumn
+    Friend WithEvents PostcodeDataGridViewTextBoxColumn As DataGridViewTextBoxColumn
+    Friend WithEvents PositionDataGridViewTextBoxColumn As DataGridViewTextBoxColumn
+    Friend WithEvents StatusDataGridViewTextBoxColumn As DataGridViewTextBoxColumn
+    Friend WithEvents AssignmentDataSet1 As AssignmentDataSet
 End Class

@@ -66,4 +66,5 @@ Public Class FrmOrderReport
         End With
 
     End Sub
+
 End Class

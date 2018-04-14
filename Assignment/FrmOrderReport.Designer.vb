@@ -53,7 +53,7 @@ Partial Class FrmOrderReport
         Me.dtReport.ShowUpDown = True
         Me.dtReport.Size = New System.Drawing.Size(199, 24)
         Me.dtReport.TabIndex = 3
-        Me.dtReport.Value = New Date(2018, 3, 1, 0, 0, 0, 0)
+        Me.dtReport.Value = New Date(2018, 4, 1, 0, 0, 0, 0)
         '
         'Label1
         '
