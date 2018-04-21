@@ -37,7 +37,7 @@ Public Class FrmMenuItem
     End Sub
 
     Private Sub DataGridView1_DoubleClick(sender As Object, e As EventArgs) Handles DataGridView1.DoubleClick
-        index = DataGridView1.CurrentRow.Cells(0).Value()
+        index = DataGridView1.CurrentRow.Cells(0).Value
         Dim editFrm As New FrmEditMenuItem
         editFrm.ShowDialog()
 
@@ -113,9 +113,6 @@ Public Class FrmMenuItem
                 rbFood.Checked = False
                 picPreview.ImageLocation = ""
                 picSource = ""
-                Dim reload As New FrmMenuItem
-                reload.Show()
-                Me.Hide()
             Catch
                 MessageBox.Show("Insert Failed", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error)
             End Try
@@ -124,6 +121,7 @@ Public Class FrmMenuItem
 
 
     Private Sub btnEdit_Click(sender As Object, e As EventArgs) Handles btnEdit.Click
+        DataGridView1.ClearSelection()
         index = DataGridView1.CurrentCell.Value()
         Dim editFrm As New FrmEditMenuItem
         editFrm.ShowDialog()
@@ -145,7 +143,7 @@ Public Class FrmMenuItem
     End Sub
 
     Private Sub btnRemove_Click(sender As Object, e As EventArgs) Handles btnRemove.Click
-        index = DataGridView1.CurrentCell.Value()
+        index = DataGridView1.CurrentRow.Cells(0).Value
 
         Dim deleteMenu = (From menus In db.Menus
                           Where menus.MenuID = index).ToList()(0)
@@ -155,9 +153,6 @@ Public Class FrmMenuItem
         Try
             db.SubmitChanges()
             MessageBox.Show("Successully Delete Menu ID :" & index, "Delete", MessageBoxButtons.OK, MessageBoxIcon.Information)
-            Dim reload As New FrmMenuItem
-            reload.Show()
-            Me.Hide()
         Catch
             MessageBox.Show("Updated Fail", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error)
         End Try

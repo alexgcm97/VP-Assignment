@@ -14,6 +14,7 @@ Public Class FrmEditMenuItem
     Private Sub FrmEditMenuItem_Load(sender As Object, e As EventArgs) Handles MyBase.Load
         cboCategory.Items.Add("Food")
         cboCategory.Items.Add("Beverage")
+        MessageBox.Show(FrmMenuItem.index)
         Dim retrieve = From menus In db.Menus
                        Where menus.MenuID = FrmMenuItem.index
 
